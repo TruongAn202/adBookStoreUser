@@ -1,4 +1,4 @@
--	Các chức năng đã thực hiện: https://nguyenvantruongan.000webhostapp.com/
+-	Các chức năng đã thực hiện:
 -	Ứng dụng các thư viện, kỹ thuật, framework, ngôn ngữ như HTML/CSS, JavaScript, Jquery, JSON, Bootstrap 
 -	Tương thích với các thiết bị di động
 -	Hiệu ứng giữ màu khi chọn và đổi màu trong lúc rê chuột vào liên kết
@@ -7,7 +7,7 @@
 -	Hiệu ứng thay đổi con trỏ chuột khi rê chuột vào liên kết
 -	Tăng khung hình và hiện nút thêm vào giỏ khi trỏ chuột
 -	Thanh cuộn chuột riêng của website
--	Hiệu ứng phóng to ảnh khóa học khi được click vào ảnh ở trang chi tiết khóa học
+-	Hiệu ứng phóng to ảnh khóa học khi được click vào ảnh ở trang chi tiết sản phẩm
 -	Hover vào đổi màu làm nổi bật các nút trên website
 -	Hiệu ứng banner khuyến mãi tự chạy
 -	Nút back to top khi click vào nhảy về đầu trang
