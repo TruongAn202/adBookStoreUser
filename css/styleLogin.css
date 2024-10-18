@@ -1,0 +1,75 @@
+
+
+
+#background-login{
+    background-color:#f9f9f9; /* Đặt màu nền là màu đen */
+    width: auto;
+    min-height: 350px ; 
+    margin: 0px 91px;
+    padding: 0px;
+}
+#sevices-login{
+    text-align: justify;
+}
+#sevices-login{
+    margin: 29px;
+    padding: 10px;
+}
+
+#sevices-login div {
+    max-width: 850px; /* Giới hạn chiều rộng tối đa của nội dung */
+    margin: 0 auto; /* Căn giữa nội dung theo chiều ngang */
+}
+
+
+#login-form {
+   
+    margin: 50px auto;
+    text-align: center;
+}
+#login-form input {
+    width: 92%;
+    padding: 10px;
+    margin-bottom: 4px;
+}
+#quen-mk{
+    margin: 0px;
+    color: #007bff; /* Màu xanh dương */
+    text-decoration: none; /* Loại bỏ gạch chân */
+}
+#login-form button {
+    /* width: 100%;  */
+    width: 36%;
+    height: 30px;
+    font-size: 16px;
+    background-color: #fccf00;
+    color: black;
+    border: none;
+    display: block;
+    border-radius: 10px;
+    /* margin-top: 6px; */
+    /* position: relative; */
+    /* left: 157px; */
+    margin: 10px auto
+    
+}
+#login-form button:hover{
+    background-color: black; /* Màu nền khi hover */
+    color: #fccf00; /* Màu chữ khi hover */
+}
+/*thieu thong tin dang nhap*/
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
+
+#login-btn{
+    cursor: pointer;
+}
+@media only screen and (max-width: 465px) {
+    /* Thêm các điều chỉnh cho menu tại đây nếu cần */
+    #background-login{
+        margin: 0px;
+    }
+    
+}

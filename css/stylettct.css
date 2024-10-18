@@ -1,0 +1,226 @@
+/* CSS Reset */
+
+
+/* Layout */
+#background {
+   
+}
+
+#top-tt{
+    display: flex;
+    margin-top: 46px;
+    align-self: flex-start;
+}
+.image-container{
+    /* width: 400px; */
+    margin-left: 17px;
+}
+.image-container img {
+    max-width: 225px;
+    max-height:214px;
+    object-fit: cover;
+}
+
+.info-container {
+    width: 100%;
+    padding: 0px 20px 20px 20px;
+    background-color: #f0f0f0;
+    margin-left: 18px;
+}
+
+
+/* Thêm margin giữa các thành phần */
+.info-container > * {
+    margin-bottom: 10px;
+}
+
+/* Tùy chỉnh kiểu dáng cho các thành phần trong info-container */
+.title h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.seller-info p {
+    font-size: 16px;
+    color: #666;
+}
+
+.product-details p {
+    font-size: 18px;
+    color: #444;
+}
+
+.tangiam {
+    display: flex;
+    align-items: center;
+}
+
+.tangiam button {
+    width: 40px;
+    height: 43px;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+    background-color: white;
+}
+
+.tangiam input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    
+}
+
+.hanhdong button {
+    padding: 10px 20px;
+    margin-right: 8px;
+    background-color: #fccf00;
+    color: #212121;
+    border: none;
+    cursor: pointer;
+}
+
+.hanhdong button:hover {
+    background-color: #212121;
+    color: #fccf00;
+}
+
+/*lo trinh*/
+h2{
+    color: #082346;
+}
+#lo-trinh{
+    margin-top: 50px;
+}
+#lo-trinh ul li{
+   padding-bottom: 19px;
+}
+.course-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 32px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    color: #fccf00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.step-info {
+    /* Thêm CSS cho thông tin của bước */
+    color: #d1ad0f;
+    font-weight: bold;
+}
+.hanhdong{
+    margin-top: 13px;
+    margin-right: 5px;
+}
+.step {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step-time {
+    margin-left: auto;
+}
+
+/*danh gia*/
+#danh-gia {
+    margin-top: 50px;
+}
+
+.review {
+    display: flex;
+    justify-content: center;
+}
+
+.comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comment img {
+    margin: 0 10px; /* Khoảng cách giữa các ảnh */
+    width: 88%; /* hoặc bất kỳ giá trị phần trăm nào bạn muốn */
+    max-width:400px; /* hoặc bất kỳ giá trị cố định nào bạn muốn */
+}
+/*cau hoi*/
+.cauhoi-thuonggap{
+    margin-top: 50px;
+}
+.list-cauhoi{
+    margin: 20px;
+}
+.list-cauhoi p {
+    border: 1px solid black; /* Tô màu đen cho viền dưới */
+    border-radius: 15px;
+    height: 46px;
+    padding: 15px;
+
+}
+/*to anh*/
+.overlay-to-anh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Màu nền tối */
+    z-index: 999; /* Đảm bảo hiển thị trên top của các phần tử khác */
+    display: none; /* Ẩn mặc định */
+}
+
+.enlarge-image {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border: 3px solid white; /* Đường viền trắng */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Đổ bóng */
+    z-index: 1000;
+}
+#product-image:hover {
+    cursor: pointer;
+}
+
+#footer-ct {
+    background-color: rgb(33, 33, 33);
+    color:white;
+    padding-top: 10px;
+}
+@media only screen and (max-width: 745px) {
+    /* Thêm các điều chỉnh cho menu tại đây nếu cần */
+    .step-time {
+        display: none;
+    }
+    .step-number{
+        display: none;
+    }
+}
+@media only screen and (max-width: 465px) {
+    /* Thêm các điều chỉnh cho menu tại đây nếu cần */
+    #background {
+        margin:0px; 
+    }
+}
+

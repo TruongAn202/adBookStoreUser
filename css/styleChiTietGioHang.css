@@ -1,0 +1,169 @@
+#background-ctgh {
+    background-color: #f9f9f9;
+    max-width: 1324.4px;
+    min-height: auto;
+    margin: 46px auto;
+    padding: 0px;
+}
+
+
+/* bootstrap */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .card {
+    flex: 1 1 100%; /* Card chiếm 100% width trên màn hình nhỏ */
+  }
+  
+  .right {
+    flex: 1 1 100%; /* Right panel chiếm 100% width trên màn hình nhỏ */
+    margin-top: 20px; /* Khoảng cách giữa card và right panel khi xếp chồng */
+  }
+  
+  @media (min-width: 992px) {
+    .card {
+      flex: 1 0 60%; /* Card chiếm 60% của container trên màn hình lớn */
+    }
+  
+    .right {
+      flex: 1 0 35%; /* Right panel chiếm 35% của container trên màn hình lớn */
+      margin-left: 20px; /* Khoảng cách giữa card và right panel trên màn hình lớn */
+      margin-top: 0; /* Bỏ khoảng cách khi xếp chồng trên màn hình nhỏ */
+    }
+  }
+  h4{ /*chữ hóa đơn*/
+    text-align: center;
+  }
+/*end bootstrap*/
+/*hoa don*/
+.right {
+    width: 324px; 
+    background-color: #fccf0033; 
+    min-height: 288px;
+    padding-left: 10px;
+    border-radius: 16px;
+    padding-top: 18px;
+}
+.right hr {
+    border: none;
+    border-top: 1px solid #DDCba1; /* Đường gạch ngang màu đen */
+    margin-right: 8px;
+}
+.right ul {
+    list-style-type: none; /* Loại bỏ dấu chấm đầu dòng */
+    padding: 0;
+}
+
+.right ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 5px 0; /* Điều chỉnh khoảng cách giữa các hàng */
+    margin-bottom: 14px;
+}
+
+.right ul li div {
+    display: flex;
+    align-items: center;
+}
+
+.right ul li div div {
+     /* Đẩy các giá trị tiền về bên phải */
+}
+#tien-hd{
+   margin-right: 10px;
+   
+}
+#tien-hd1{
+    margin-right: 10px;
+}
+.right button {
+    color: #212121;
+    width: 97%;
+    height: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    background-color: #FCCF00;
+    border: none;
+
+}
+.right button:hover{
+    cursor: pointer;
+    background-color: #212121;
+    color: #FCCF00;
+}
+/*san pham*/
+
+.sub-right {
+    width: 394px; 
+    background-color: #d3d3d3; 
+    padding-left: 10px;
+    height: 164px;
+    margin: 10px 0px;
+    
+}
+.ql-tanggiam-price{
+    display: flex;
+    flex-wrap: wrap
+}
+/*tang giam button*/
+.tangiam {
+    display: flex;
+    align-items: center;
+    float: right;
+    padding-right: 10px;
+}
+
+.tangiam button {
+    width: 40px;
+    height: 43px;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+    background-color: white;
+}
+
+.tangiam input {
+    width: 40px;
+    height: 43px;
+    text-align: center;
+    border: 1px solid #ccc;
+    
+}
+/*xuong hang */
+
+
+
+@media screen and (max-width: 768px) {
+    .sub-left, .sub-right {
+        width: 100%; 
+    }
+}
+@media screen and (max-width: 610px) {
+    .sub-right {
+       height: 224px; 
+    }
+}
+@media screen and (max-width: 610px) {
+    .right button{
+        height: 36px;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    /* Thêm các điều chỉnh cho menu tại đây nếu cần */
+    #background-ctgh{
+        margin: 0px;
+    }
+    
+}
+/*hoa don*/
+
+

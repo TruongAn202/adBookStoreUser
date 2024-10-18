@@ -1,0 +1,40 @@
+#background-KH{
+    background-color: #f9f9f9;
+    max-width: 1324.4px;
+    min-height: auto;
+    margin: 46px auto;
+    padding: 0px;
+}
+
+/*canh trai*/
+
+                    
+                
+/*chon trang*/
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.button-container button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+.button-container button.selected {
+    background-color: black;
+    color: #fccf00;
+}
+
+@media only screen and (max-width: 465px) {
+    /* Thêm các điều chỉnh cho menu tại đây nếu cần */
+    #background-KH{
+        margin: 0px;
+    }
+    
+}

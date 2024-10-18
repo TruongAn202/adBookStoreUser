@@ -1,0 +1,59 @@
+#header{
+    background-color: #212121 !important;
+}
+.navbar-nav .nav-link { /*chữ thẻ a*/
+    color: white !important;
+}
+.navbar-brand { /*logo*/
+    display: block;
+    width: 100px; 
+    height: 40px; 
+    background-size: contain !important; /*ảnh co giãn phù hợp kích thước thẻ a*/
+    background: url('/tichhop/image/logo.png') no-repeat center center; /*canh giữa theo chiều ngang và dọc*/ 
+    margin-left: 30px;
+}
+.le-phai{
+    margin-right: 30px;
+}
+#nut-menu-nho{
+    border: none !important;
+}
+#icon-nho{
+    color: white !important;
+}
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
+.btn-dark{
+    background-color: #212121 !important;
+}
+/*button search*/
+#search button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 50px;
+    height: 47px;
+    transition: .9s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    right: 38px;
+}
+#search button[type="submit"]:hover { 
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    background-color: #fccf00;
+  }
+#search button img {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+}
+input{
+    border-radius: 20px;
+    height: 47px;
+}
+/*end button search*/
