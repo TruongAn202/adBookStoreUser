@@ -106,11 +106,11 @@
                 <div id="place">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-                      <li class="breadcrumb-item active">Khóa học</li>
+                      <li class="breadcrumb-item active">Mua sách</li>
                       
                   </ol>
                       <div class="breadcrumb-container">
-                        <h4 id="tieude-khoahoc">Danh mục các khóa học</h4>
+                        <h4 id="tieude-khoahoc">Danh mục các thể loại sách</h4>
                         <hr class="border border-warning border-3 opacity-75">
                       <br>
                       </div>
@@ -118,147 +118,183 @@
                 
                 <div id="danh-muc">
                     <ul class="horizontal-list">
-                        <li><button type="button">TẤT CẢ</button></li>
-                        <li><button type="button">LẬP TRÌNH - CNTT</button></li>
-                        <li><button type="button">PHÁT TRIỂN BẢN THÂN</button></li>
-                        <li><button type="button">THIẾT KẾ</button></li>
-                        <li><button type="button">NGOẠI NGỮ</button></li>
-                        <li><button type="button">TIN HỌC VĂN PHÒNG</button></li>
+                        <li><button type="button">VĂN HỌC</button></li>
+                        <li><button type="button">LỊCH SỬ</button></li>
+                        <li><button type="button">LÃNG MẠN</button></li>
+                        <li><button type="button">BÍ ẨN</button></li>
+                        <li><button type="button">KHOA HỌC VIỄN TƯỞNG</button></li>
+                        <li><button type="button">KỲ ẢO</button></li>
                     </ul>
                 </div>
                 <div id="product-1">
-                    <div class="product"> 
-                            <div class="product-image">
-                                <img src="./image/ai.jpeg" alt="">
-                                <button id="addToCartButton1" class="product-button">THÊM VÀO GIỎ</button>
-                            </div>
-                            <div class="product-info">
-                                <!-- Thông tin và giá -->
-                                <p><a href="/information/thongtin.html" onclick="selectCourse(courseData)">Khóa học trí tuệ nhân tạo (AI) cho mọi người</a></p>
-                                <div class="mo-ta"> Trí tuệ nhân tạo hay trí thông minh nhân tạo (Artificial Intelligence - AI) là một ngành thuộc lĩnh vực khoa học máy tính. Đây là... </div>
-                                <div class="tac-gia"> Nguyễn Văn Trường An</div>
-                                <div class="ql-price">
-                                    <div class="price">399.000đ</div>
-                                    <div class="old-price">1.000.000đ</div>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="product">
+                    <div class="product " > 
                         <div class="product-image">
-                            <img src="./image/excel.jpg" alt="">
-                            <button class="product-button">THÊM VÀO GIỎ</button>
+                            <img src="./image/The_Boyfriend.jpg" alt="">
+                            <button id="addToCartButton" class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
                             <!-- Thông tin và giá -->
-                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData1)">Khóa học excel cho người đi làm</a></p>
-                            <div class="mo-ta"> Excel là một công cụ hữu hiệu trong công việc mà bất cứ ai muốn tăng hiệu suất đều phải nắm rõ. Với các bài giảng... </div>
-                            <div class="tac-gia"> Nguyễn Văn Trường An</div>
+                             <!-- thay đổi courseData để gọi từng thông tin khác nhau = JSon -->
+                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData)">The Boyfriend</a></a>
+                            </p>
+                            <div class="mo-ta"> A&D Exclusive Edition </div>
+                            <div class="tac-gia"> Freida McFadden</div>
                             <div class="ql-price">
-                                <div class="price">299.000đ</div>
-                                <div class="old-price">700.000đ</div>
+                                <div class="price">399.000đ</div>
+                                <div class="old-price">1.000.000đ</div>
+                                <br>
                             </div>
                         </div>
+                </div>
+                <div class="product ">
+                    <div class="product-image">
+                        <img src="./image/GreatBig.jpg" alt="">
+                        <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/teamwork.png" alt="">
-                            <button class="product-button">THÊM VÀO GIỎ</button>
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData2)">4 Bước cốt lõi xây dựng team marketing từ zero...</a></p>
-                            <div class="mo-ta"> Việc quản lý nhân viên hiệu quả là yêu cầu cơ bản của một doanh nghiệp nếu muốn đi lên một cách nhanh chóng. Lý thuyết...</div>
-                            <div class="tac-gia"> Nguyễn Văn Trường An</div>
-                            <div class="ql-price">
-                                <div class="price">499.000đ</div>
-                                <div class="old-price">1.100.000đ</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/thuyettrinh.png" alt="">
-                            <button class="product-button">THÊM VÀO GIỎ</button>
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData3)">Thuyết trình chuyên nghiệp & ấn tượng</a></p>
-                            <div class="mo-ta"> Là khoá học được thiết kế dựa trên tiến trình thực tế từ lúc bạn nhận được yêu cầu thuyết trình cho đến khi hoàn thành bài...</div>
-                            <div class="tac-gia"> Nguyễn Văn Trường An</div>
-                            <div class="ql-price">
-                                <div class="price">99.000đ</div>
-                                <div class="old-price">199.000đ</div>
-                            </div>
+                    <div class="product-info">
+                        <!-- Thông tin và giá -->
+                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData1)">Great Big Beautiful Life</a></p>
+                        <div class="mo-ta">Signed A&D Exclusive Edition</div>
+                        <div class="tac-gia">Emily Henry</div>
+                        <div class="ql-price">
+                            <div class="price">299.000đ</div>
+                            <div class="old-price">700.000đ</div>
                         </div>
                     </div>
+                </div>
+                <div class="product ">
+                    <div class="product-image">
+                        <img src="./image/OnyxStorm.jpg" alt="">
+                        <button class="product-button">THÊM VÀO GIỎ</button>
+                    </div>
+                    <div class="product-info">
+                        <!-- Thông tin và giá -->
+                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData2)">Onyx Storm</a></p>
+                        <div class="mo-ta">Deluxe Limited Edition</div>
+                        <div class="tac-gia">Rebecca Yarros</div>
+                        <div class="ql-price">
+                            <div class="price">499.000đ</div>
+                            <div class="old-price">1.100.000đ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product ">
+                    <div class="product-image">
+                        <img src="./image/TheKnightandtheMoth.jpg" alt="">
+                        <button class="product-button">THÊM VÀO GIỎ</button>
+                    </div>
+                    <div class="product-info">
+                        <!-- Thông tin và giá -->
+                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData3)">The Knight and the Moth</a></p>
+                        <div class="mo-ta"> A&D Exclusive Edition</div>
+                        <div class="tac-gia">Rachel Gillig</div>
+                        <div class="ql-price">
+                            <div class="price">99.000đ</div>
+                            <div class="old-price">199.000đ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product ">
+                    <div class="product-image">
+                        <img src="./image/SunriseontheReaping.jpg" alt="">
+                        <button class="product-button">THÊM VÀO GIỎ</button>
+                    </div>
+                    <div class="product-info">
+                        <!-- Thông tin và giá -->
+                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData3)">Sunrise on the Reaping</a></p>
+                        <div class="mo-ta"> A Hunger Games Novel</div>
+                        <div class="tac-gia">Suzanne Collins</div>
+                        <div class="ql-price">
+                            <div class="price">99.000đ</div>
+                            <div class="old-price">199.000đ</div>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 
                 
                 <div id="product-1">
                     <div class="product"> 
-                            <div class="product-image">
-                                <img src="./image/cShap.jpg" alt="">
-                                <button class="product-button">THÊM VÀO GIỎ</button>
-                            </div>
-                            <div class="product-info">
-                                <!-- Thông tin và giá -->
-                                <p><a href="/information/thongtin.html" onclick="selectCourse(courseData4)">Lập trình C# trong 5 tuần - Nâng cao</a></p>
-                                <div class="mo-ta"> Các kiến thức nâng cao về ngôn ngữ lập trình C#. Có được kiến thức toàn diện về ngôn ngữ lập trình C#... </div>
-                                <div class="tac-gia"> Nguyễn Văn Trường An</div>
-                                <div class="ql-price">
-                                    <div class="price">500.000đ</div>
-                                    <div class="old-price">1.500.000đ</div>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="product">
                         <div class="product-image">
-                            <img src="./image/SEO.png" alt="">
+                            <img src="./image/OneDarkWindow.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
                             <!-- Thông tin và giá -->
-                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData5)">SEO chuyên nghiệp từ cơ bản đến nâng cao</a></p>
-                            <div class="mo-ta"> SEO đóng vai trò hết sức quan trọng đối với tất cả doanh nghiệp, cá nhân,hộ kinh doanh để phát triển...</div>
-                            <div class="tac-gia"> Nguyễn Văn Trường An</div>
+                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData4)">One Dark Window</a></p>
+                            <div class="mo-ta">A&D Exclusive Edition </div>
+                            <div class="tac-gia">Rachel Gillig</div>
                             <div class="ql-price">
                                 <div class="price">500.000đ</div>
                                 <div class="old-price">1.500.000đ</div>
                             </div>
                         </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="./image/TheMightyRed.jpg" alt="">
+                        <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/taichinh.jpg" alt="">
-                            <button class="product-button">THÊM VÀO GIỎ</button>
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData6)">Chiến lược tài chính</a></p>
-                            <div class="mo-ta">Chiến lược tài chính và những điều cần biết để có thể hoạch định kế hoạch kinh doanh của các doanh nghiệp...</div>
-                            <div class="tac-gia"> Nguyễn Văn Trường An</div>
-                            <div class="ql-price">
-                                <div class="price">500.000đ</div>
-                                <div class="old-price">1.500.000đ</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/photoshop.png" alt="">
-                            <button class="product-button">THÊM VÀO GIỎ</button>
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData7)">Học Photoshop trọn bộ trong 7 ngày</a></p>
-                            <div class="mo-ta">Học thiết kế đồ họa chuyên nghiệp với Photoshop.</div>
-                            <div class="tac-gia"> Nguyễn Văn Trường An</div>
-                            <div class="ql-price">
-                                <div class="price">500.000đ</div>
-                                <div class="old-price">1.500.000đ</div>
-                            </div>
+                    <div class="product-info">
+                        <!-- Thông tin và giá -->
+                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData5)">The Mighty Red</a></p>
+                        <div class="mo-ta"> A&D Book Club Edition</div>
+                        <div class="tac-gia"> Louise Erdrich</div>
+                        <div class="ql-price">
+                            <div class="price">500.000đ</div>
+                            <div class="old-price">1.500.000đ</div>
+                            
                         </div>
                     </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="./image/Intermezzo.jpg" alt="">
+                        <button class="product-button">THÊM VÀO GIỎ</button>
+                    </div>
+                    <div class="product-info">
+                        <!-- Thông tin và giá -->
+                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData6)">Intermezzo</a></p>
+                        <div class="mo-ta"> A&D Book Club Edition</div>
+                        <div class="tac-gia">Sally Rooney</div>
+                        <div class="ql-price">
+                            <div class="price">500.000đ</div>
+                            <div class="old-price">1.500.000đ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="./image/TheStriker.jpg" alt="">
+                        <button class="product-button">THÊM VÀO GIỎ</button>
+                    </div>
+                    <div class="product-info">
+                        <!-- Thông tin và giá -->
+                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData7)">The Striker</a></p>
+                        <div class="mo-ta">A&D Book Club Edition</div>
+                        <div class="tac-gia">Ana Huang</div>
+                        <div class="ql-price">
+                            <div class="price">500.000đ</div>
+                            <div class="old-price">1.500.000đ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="./image/TwoTwistedCrowns.jpg" alt="">
+                        <button class="product-button">THÊM VÀO GIỎ</button>
+                    </div>
+                    <div class="product-info">
+                        <!-- Thông tin và giá -->
+                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData7)">Two Twisted Crowns</a></p>
+                        <div class="mo-ta">A&D Book Club Edition</div>
+                        <div class="tac-gia">Rachel Gillig</div>
+                        <div class="ql-price">
+                            <div class="price">500.000đ</div>
+                            <div class="old-price">1.500.000đ</div>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 
                 <div id="product-1">

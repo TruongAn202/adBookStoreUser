@@ -619,6 +619,16 @@ span {
 }
 /*responsive*/
 
+/*benner tĩnh*/
+.banner-tinh {
+    max-width: 1244.4px;
+    margin: 32px 0px;
+    
+}
+.banner-tinh img{
+    width: 100%;
+    height: auto;
+}
 /* chuyen slide*/
 .carousel-container {
     position: relative;
