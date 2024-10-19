@@ -299,6 +299,7 @@ body::-webkit-scrollbar-thumb { /*định dạng tay cầm thanh cuộn*/
     margin: 68px 0px 14px 14px;
     align-self: flex-start; /* Đẩy h3 sát lề trái */
 }
+
 span {
     align-self: flex-start;
     margin-left: 16px;

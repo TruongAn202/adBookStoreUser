@@ -9,15 +9,15 @@
 #top-tt{
     display: flex;
     margin-top: 46px;
-    align-self: flex-start;
+    /* align-self: flex-start; */ /*ôm sát nội dung*/
 }
 .image-container{
     /* width: 400px; */
     margin-left: 17px;
 }
 .image-container img {
-    max-width: 225px;
-    max-height:214px;
+    max-width: 216px;
+    max-height: 363px;
     object-fit: cover;
 }
 
@@ -27,7 +27,13 @@
     background-color: #f0f0f0;
     margin-left: 18px;
 }
-
+/*moto chitiet cua sp trong trang chi tiet san pham*/
+.thongtinchitiet{
+    font-size: 28px;
+    font-weight: bold;
+    margin: 12px 0px 14px 0px;
+    align-self: flex-start; /* Đẩy h3 sát lề trái */
+}
 
 /* Thêm margin giữa các thành phần */
 .info-container > * {
@@ -49,7 +55,9 @@
     font-size: 18px;
     color: #444;
 }
-
+#description{
+    min-height: 135px;
+}
 .tangiam {
     display: flex;
     align-items: center;
@@ -158,8 +166,8 @@ h2{
 }
 .comment img {
     margin: 0 10px; /* Khoảng cách giữa các ảnh */
-    width: 88%; /* hoặc bất kỳ giá trị phần trăm nào bạn muốn */
-    max-width:400px; /* hoặc bất kỳ giá trị cố định nào bạn muốn */
+    width: 100%; /* hoặc bất kỳ giá trị phần trăm nào bạn muốn */
+    max-width:1000px; /* hoặc bất kỳ giá trị cố định nào bạn muốn */
 }
 /*cau hoi*/
 .cauhoi-thuonggap{

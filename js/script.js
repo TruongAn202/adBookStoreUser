@@ -279,23 +279,24 @@ document.addEventListener("DOMContentLoaded", function() {
 /*JSon thong tin */
 // Đối tượng courseData
 var courseData = {
-    "tieudeKhoahoc" : "Khóa học trí tuệ nhân tạo (AI) cho mọi người",
-    "placeCcon" : "Khóa học trí tuệ nhân tạo (AI) cho mọi người",
-    "tieudeBanner": "Khóa học trí tuệ nhân tạo (AI) cho mọi người",
-    "image": "../image/ai.jpeg",
-    "courseName": "Khóa học trí tuệ nhân tạo (AI) cho mọi người",
+    "tieudeKhoahoc" : "The Boyfriend",
+    "placeCcon" : "The Boyfriend",
+    "tieudeBanner": "The Boyfriend",
+    "image": "../image/The_Boyfriend.jpg",
+    "courseName": "The Boyfriend",
     "newPrice": "399.000đ",
     "oldPrice": "1.000.000đ",
     "description": [
-        "Trí tuệ nhân tạo hay trí thông minh nhân tạo (Artificial Intelligence - AI) là một ngành thuộc lĩnh vực khoa học máy tính. Đây là trí tuệ do con người lập trình tạo nên với mục tiêu giúp máy tính có thể tự động hóa các hành vi thông minh như con người.",
-        "Sau khi tham gia khoá học, những người muốn tìm hiểu công nghệ mới đang hot này sẽ có cái nhìn về những thứ diễn ra trong công nghệ AI, biết được các bước xây dựng một mô hình trí thông minh nhân tạo, cách vận hành. Những kiến thức học được có thể là nền tảng để tiếp tục học thêm để trở thành kỹ sư AI sau này."
+        "Mua sắm theo Hướng dẫn Quà tặng Ngày lễ",
+        "Mua Một Tặng Một Giảm Giá 50% Sách Dành Cho Mọi Lứa Tuổi",
+        "Độc quyền của Barnes & Noble"
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "Freida McFadden",
     "benefits": [
-        "Sau khoá học này học viên có được cái nhìn sâu hơn về những công nghệ đang làm thay đổi cuộc sống như học máy, trí tuệ nhân tạo, dữ liệu lớn.",
-        "Biết cách xây dựng một mô hình AI có ứng dụng trong thực tế.",
-        "Những kiến thức này sẽ giúp các bạn có đam mê theo đuổi ngành, bước đệm để nghiên cứu học tập tiếp trong lĩnh vực, những bạn là quản lý có thể đưa ra quyết định phù hợp cho team, cho công ty, những người làm chính xác có thể hiểu sâu hơn cách AI vận hành và ứng dụng tiềm năng cuả nó.",
-        "Về lâu dài, học viên sẽ nâng cao các kỹ năng làm việc và học tập trong môi trường công nghệ đang thay đổi từng ngày, những thứ gì đang diễn ra các bạn có thể giải thích, thích nghi và làm chủ."
+        "Một tác phẩm kinh dị mới đầy hấp dẫn của tác giả bán chạy nhất của tờ New York Times là The Coworker and The Housemaid !",
+        "Cô ấy đang tìm kiếm người đàn ông hoàn hảo. Anh ấy đang tìm kiếm nạn nhân hoàn hảo.",
+        "Sydney Shaw, giống như mọi phụ nữ độc thân ở New York, đều gặp xui xẻo trong chuyện hẹn hò. Cô đã chứng kiến ​​tất cả: những người đàn ông nói dối trong hồ sơ hẹn hò, những người đàn ông trả tiền bữa tối cho cô, và tệ nhất là những người đàn ông không thể ngừng nói về mẹ của họ. Cho đến khi cô gặp Tom. "
+        
     ]
 };
 
@@ -646,7 +647,7 @@ function displayCourseInfo(courseData) {
     document.getElementById('course-name').textContent = courseData.courseName;
     document.getElementById('new-price').textContent = courseData.newPrice;
     document.getElementById('old-price').textContent = courseData.oldPrice;
-    document.getElementById('instructor').textContent = "Người dạy: " + courseData.instructor;
+    document.getElementById('instructor').textContent = "Tác giả: " + courseData.instructor;
 
     var descriptionContainer = document.getElementById('description');
     descriptionContainer.innerHTML = ''; // Clear previous content
@@ -659,7 +660,7 @@ function displayCourseInfo(courseData) {
     var benefitsContainer = document.getElementById('lo-trinh');
     benefitsContainer.innerHTML = ''; // Clear previous content
     var benefitsTitle = document.createElement('h3');
-    benefitsTitle.textContent = 'Lợi ích từ khóa học';
+    benefitsTitle.textContent = 'Tổng quan';
     benefitsContainer.appendChild(benefitsTitle);
     var ul = document.createElement('ul');
     courseData.benefits.forEach(function(benefit) {
