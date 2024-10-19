@@ -455,184 +455,232 @@ var courseData7 = {
 };
 
 var courseData8 = {
-    "tieudeKhoahoc" : "Cách dạy con ưu việt của người Do Thái",
-    "placeCcon" : "Cách dạy con ưu việt của người Do Thái",
-    "tieudeBanner": "Cách dạy con ưu việt của người Do Thái",
-    "image": "../image/daycon.jpg",
-    "courseName": "Cách dạy con ưu việt của người Do Thái",
-    "newPrice": "49.000đ",
-    "oldPrice": "199.000đ",
+    "tieudeKhoahoc" : "The Fury of the Gods",
+    "placeCcon" : "The Fury of the Gods",
+    "tieudeBanner": "The Fury of the Gods",
+    "image": "../image/9780316539951_p0_v4_s600x595.jpg",
+    "courseName": "The Fury of the Gods",
+    "newPrice": "1.500.000đ",
+    "oldPrice": "2.500.000đ",
     "description": [
-        "Vẫn để hiện nay của các ông bố bà mẹ trẻ là nuôi dạy con theo kiểu: (1) kinh nghiệm bản thân, (2) ảnh hưởng từ những thế hệ trước (ông bà nội ngoại), ",
-        "- Nội dung chính: Cách Dạy Con Ưu Việt của Người Do Thái.",
-        "- Lộ Trình: đi từ câu hỏi WHY (Tại Sao) đến PHƯƠNG PHÁP (HOW) NHƯ THẾ NÀO.",
-        " - Lợi ích: Học được cách thức dạy con Thông Minh Vượt Trội của Người Do Thái."
+        "The Fury of the Gods là cuốn sách cuối cùng gây chấn động trong loạt truyện giả tưởng sử thi lấy cảm hứng từ Bắc Âu của John Gwynne, chứa đầy những huyền thoại, ma thuật và sự báo thù đẫm máu. Trận chiến cuối cùng vì số phận của Vigrid đang đến gần, nơi các nhân vật chính phải đối mặt với những thử thách và hiểm nguy chưa từng thấy để bảo vệ thế giới khỏi sự diệt vong. Cuốn sách hứa hẹn sẽ mang đến một cuộc hành trình gay cấn và hồi hộp, dẫn dắt người đọc đến những kết thúc đầy bất ngờ và cảm xúc."
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "John Gwynne",
     "benefits": [
-        "Nếu không đầu tư vào việc học cách nuôi dạy trẻ thì với cuộc sống hiện đại bận rộn hiện nay, những đứa trẻ của chúng ta lớn lên và phát triển theo kiểu tự nhiên '5 ăn, 5 thua'. Kết quả là: một số sẽ sống vị kỷ, ỷ lại, sống ích kỷ chỉ biết đến bản thân mà không quan tâm người khác, đổ lỗi và oánh trách bố mẹ... 1 số khác nghiêm trọng hơn thì nghiện games, cờ bạc, đàn đúm bạn bè, đua đòi ...Nói chung là không có mục đích sống đúng đắn và lành mạnh.",
-        "Nếu kiên trì và tạo thành nếp sống hay thói quen có thể thay đổi cuộc đời và tương lai của con. Xa hơn nữa là thay đổi cả một thế hệ."
+        "Trận chiến cuối cùng vì số phận của Vigrid: Đang đến gần và là trung tâm của câu chuyện, xoay quanh cuộc đụng độ cuối cùng giữa các nhân vật chính.",
+        "Varg: Anh đã trở thành thành viên của Bloodsworn và giờ phải đối mặt với nhiệm vụ tiêu diệt một con rồng cùng đồng đội.",
+        "Elvar: Cô đấu tranh để củng cố quyền lực ở Snakavik và phải chuẩn bị cho cuộc xung đột sắp tới, đối đầu với sự hung dữ của thần sói.",
+        "Biórr và Guðvarr: Biórr dẫn đầu nhóm chiến binh tiến về phía bắc, còn Guðvarr có tham vọng riêng, muốn giành được sự ưu ái của Lik-Rifa.",
+        "Snakavik: Là nơi tất cả các con đường đều dẫn đến, vạch ra ranh giới cho trận chiến cuối cùng—một cuộc đụng độ sẽ làm rung chuyển thế giới và chứng kiến cơn thịnh nộ của các vị thần."
     ]
 };
 
 var courseData9 = {
-    "tieudeKhoahoc" : "Quản Trị và Bán Hàng Đột Phá",
-    "placeCcon" : "Quản Trị và Bán Hàng Đột Phá",
-    "tieudeBanner": "Quản Trị và Bán Hàng Đột Phá",
-    "image": "../image/qtbanhang.jpg",
-    "courseName": "Quản Trị và Bán Hàng Đột Phá",
-    "newPrice": "199.000đ",
-    "oldPrice": "900.000đ",
+    "tieudeKhoahoc" : "Patriot: A Memoir",
+    "placeCcon" : "Patriot: A Memoir",
+    "tieudeBanner": "Patriot: A Memoir",
+    "image": "../image/9780593320969_p0_v2_s600x595.jpg",
+    "courseName": "Patriot: A Memoir",
+    "newPrice": "500.000đ",
+    "oldPrice": "1.500.000đ",
     "description": [
-        "Ngày nay khách hàng rất thông minh, nếu bạn không trở thành người bán hàng xuất sắc bạn sẽ không bán được hàng. Bạn sẽ không biết đâu là điểm tử huyệt của khách hàng. Khách hàng quyết định rất nhanh là có mua sản phẩm của bạn hay không. Do đó bạn phải nằm được yếu tố cảm xúc then chốt. và khóa học này còn chia sẻ với bạn: Khi nào tiếp cần, khi nào giải trình, khi nào đồng điệu, khi nào chốt sale, chăm sóc và giải trình làm sao. Bạn khó khăn trong việc giải quyết vấn đề của khách hàng. Làm thế nào để bạn chốt được những đơn hàng khủng và khách hàng lại happy Làm thế nào để xây dựng hệ thống nhân lực, hệ thống phân phối mạnh mẽ Làm thế nào để vượt qua những kháng cự bên trong bạn và hành động với năng lượng đỉnh cao Làm thế nào để tư duy của bạn vượt thoat từ trong tâm thức của ban."
+        "Phiên bản đặc biệt giới hạn của Barnes & Noble cho cuốn Skandar and the Skeleton Curse, phần thứ tư trong loạt truyện giả tưởng kỳ diệu dành cho độ tuổi trung học của A.F. Steadman, đi kèm với bìa được đóng dấu nhũ độc quyền, lớp nhũ holographic đặc biệt, trang cuối màu xanh và nội dung bổ sung. Cuộc phiêu lưu tiếp tục với phần thứ tư đầy hồi hộp trong series Skandar, được viết bởi tác giả bán chạy hàng đầu New York Times và quốc tế A.F. Steadman! Cuốn sách hứa hẹn mang đến những bất ngờ và kịch tính mới, đưa độc giả vào những cuộc hành trình kỳ thú cùng những nhân vật yêu thích"
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "Alexei Navalny",
     "benefits": [
-        "Cách tạo ra nhiều giá trị cho xã hội mà không tốn nhiều sức.",
-        "Biết cách tạo ra nhiều tiền trong tâm thức.",
-        "Vượt qua được nỗi sợ trong bán hàng.",
-        "Biết được quy trình bán hàng đột phá.",
-        "Biết cách xây dựng đội ngũ gắn kết.",
-        "Biết trở thành nhà lãnh đạo với những phẩm chất xuất sắc.",
-        "Biết các quy trình tiếp thị quan trọng trong Marketing MIC.",
-        "Biết cách xây dựng hệ thống bán hàng B2B và B2C."
-    ]
+    "Khám phá cuộc đời đầy cảm hứng của Alexei Navalny, một nhà lãnh đạo đối lập kiên cường và dũng cảm.",
+    "Nhận thức sâu sắc về sự hi sinh và cam kết của Navalny trong cuộc chiến chống lại chế độ độc tài.",
+    "Đọc những chi tiết chưa từng được tiết lộ về các nỗ lực của ông trong việc đấu tranh cho tự do cá nhân và quyền con người.",
+    "Thấu hiểu những thách thức mà một nhà hoạt động chính trị phải đối mặt, bao gồm những nỗ lực ám sát và áp lực từ chính quyền.",
+    "Cảm nhận tầm quan trọng của các nguyên tắc tự do cá nhân và trách nhiệm của mỗi người trong việc bảo vệ những giá trị này.",
+    "Khơi dậy lòng can đảm và động lực để đứng lên vì những gì là đúng, nhờ vào câu chuyện mạnh mẽ và chân thực của Navalny."
+]
 };
 
 var courseData10 = {
-    "tieudeKhoahoc" : "Phân tích biểu đồ chứng khoán chuyên nghiệp",
-    "placeCcon" : "Phân tích biểu đồ chứng khoán chuyên nghiệp",
-    "tieudeBanner": "Phân tích biểu đồ chứng khoán chuyên nghiệp",
-    "image": "../image/chungkhoan.jpg",
-    "courseName": "Phân tích biểu đồ chứng khoán chuyên nghiệp",
-    "newPrice": "699.000đ",
-    "oldPrice": "1.100.000đ",
+    "tieudeKhoahoc" : "Skandar and the Skeleton Curse",
+    "placeCcon" : "Skandar and the Skeleton Curse",
+    "tieudeBanner": "Skandar and the Skeleton Curse",
+    "image": "../image/9781665971720_p0_v2_s600x595.jpg",
+    "courseName": "Skandar and the Skeleton Curse",
+    "newPrice": "1.300.000đ",
+    "oldPrice": "2.500.000đ",
     "description": [
-        "Kiến thức trong khóa đào tạo tập trung vào những và kỹ năng mà học viên sẽ cần sử dụng thường xuyên trong suốt quá trình đầu tư. - Nội dung video dễ hiểu, mọi lời nói của tác giả đều có dẫn chứng và được lấy ví dụ cụ thể trên biểu đồ chứng khoán Việt Nam. - Hướng dẫn phân tích biểu đồ trên phần mềm phân tích kỹ thuật Amibroker và biểu đồ trực tuyến."
+        "Ngày nay khách hàng rất thông minh, nếu bạn không trở thành người bán hàng xuất sắc bạn sẽ không bán được hàng. Bạn sẽ không biết đâu là điểm tử huyệt của khách hàng. Khách hàng quyết định rất nhanh là có mua sản phẩm của bạn hay không. Do đó bạn phải nằm được yếu tố cảm xúc then chốt. và khóa học này còn chia sẻ với bạn: Khi nào tiếp cần, khi nào giải trình, khi nào đồng điệu, khi nào chốt sale, chăm sóc và giải trình làm sao. Bạn khó khăn trong việc giải quyết vấn đề của khách hàng. Làm thế nào để bạn chốt được những đơn hàng khủng và khách hàng lại happy Làm thế nào để xây dựng hệ thống nhân lực, hệ thống phân phối mạnh mẽ Làm thế nào để vượt qua những kháng cự bên trong bạn và hành động với năng lượng đỉnh cao Làm thế nào để tư duy của bạn vượt thoat từ trong tâm thức của ban."
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "A.F. Steadman",
     "benefits": [
-        "Khóa học sẽ giúp bạn hoàn thiện kỹ năng phân tích biểu đồ bắt buộc phải có của một nhà đầu tư chứng khoán.",
-        "Bạn sẽ hiểu được quy luật cung cầu và quy luật tăng giá của cổ phiếu.",
-        "Không phụ thuộc vào chuyên gia tư vấn, chủ động phân tích và nắm bắt cơ hội bằng chính khả năng của mình."
-    ]
+    "Khám phá một cuộc phiêu lưu kỳ thú trong phần thứ tư của series Skandar, mang đến những bất ngờ và sự hồi hộp không ngừng.",
+    "Theo dõi hành trình của Skandar và bạn bè khi họ đối mặt với lời nguyền đáng sợ đe dọa đến toàn bộ hòn đảo và những chú kỳ lân.",
+    "Tìm hiểu về các nhân vật đa dạng và phát triển của họ khi họ chiến đấu chống lại một thế lực ác độc.",
+    "Tham gia vào một câu chuyện hấp dẫn đầy tình bạn, lòng dũng cảm và quyết tâm trong cuộc chiến giành lấy tương lai của hòn đảo.",
+    "Thưởng thức phiên bản đặc biệt của cuốn sách với thiết kế bìa độc quyền và nội dung bổ sung, làm tăng giá trị cho bộ sưu tập của bạn.",
+    "Trải nghiệm một tác phẩm văn học được viết bởi tác giả bán chạy hàng đầu, mang đến sự hứng thú cho độc giả ở mọi lứa tuổi."
+]
+
 };
 
 var courseData11 = {
-    "tieudeKhoahoc" : "Python Basics - Python Cơ Bản",
-    "placeCcon" : "Python Basics - Python Cơ Bản",
-    "tieudeBanner": "Python Basics - Python Cơ Bản",
-    "image": "../image/python.jpg",
-    "courseName": "Python Basics - Python Cơ Bản",
-    "newPrice": "999.000đ",
-    "oldPrice": "1.999.000đ",
+    "tieudeKhoahoc" : "The Night We Lost Him: A Novel",
+    "placeCcon" : "The Night We Lost Him: A Novel",
+    "tieudeBanner": "The Night We Lost Him: A Novel",
+    "image": "../image/9781668002957_p0_v3_s600x595.jpg",
+    "courseName": "The Night We Lost Him: A Novel",
+    "newPrice": "499.000đ",
+    "oldPrice": "800.000đ",
     "description": [
-        "Python là một ngôn ngữ lập trình bậc cao cho các mục đích lập trình đa năng. Python được thiết kế với ưu điểm mạnh là dễ đọc, dễ học và dễ nhớ. Python là ngôn ngữ có hình thức rất sáng sủa, cấu trúc rõ ràng, thuận tiện cho người mới học lập trình và là ngôn ngữ lập trình dễ học.",
-        "Cấu trúc của Python còn cho phép người sử dụng viết mã lệnh với số lần gõ phím tối thiểu. Python vì vậy được dùng rộng rãi trong cộng đồng khoa học dữ liệu và đặc biệt là trong học máy và phát triển trí tuệ nhân tạo.",
-        "Đến với khóa học này, các bạn sẽ được trang bị những kiến thức, kỹ năng và phương pháp lập trình sử dụng các tính năng cốt lõi của Python như cú pháp câu lệnh, biến và các kiểu dữ liệu cơ bản, vòng lặp, hàm dựng sẵn và nhiều tính năng khác.",
-        "Đồng thời, các bạn sẽ tự tay viết và chạy chương trình của chính mình bằng những công cụ lập trình Python chuyên nghiệp như PyCharm và Google Colab."
+        "The Night We Lost Him là cuốn tiểu thuyết đầy hấp dẫn từ tác giả bán chạy số 1 New York Times, Laura Dave. Trong phiên bản đặc biệt của Barnes & Noble, cuốn sách được ký bởi tác giả, đi kèm bìa và trang cuối độc đáo, cùng với nội dung bổ sung chỉ có cho khách hàng của Barnes & Noble. Được vinh danh là một trong những cuốn sách được mong đợi nhất mùa thu bởi Time, Goodreads và Brit + Co, cũng như là một trong những tiểu thuyết mới nhất được Oprah Daily ca ngợi. Cuốn sách kể về hai anh chị em xa cách khi phát hiện ra rằng cha họ đã giữ một bí mật suốt hơn năm mươi năm, một bí mật có thể đã dẫn đến cái chết của ông. Hành trình giải mã cái chết đầy bí ẩn này đưa họ vào một cuộc tìm kiếm không chỉ để làm sáng tỏ quá khứ mà còn để hàn gắn những vết thương trong mối quan hệ gia đình."
     ],
-    "instructor": "Nguyễn Văn Trường An",
-    "benefits": [
-        "Cung cấp kiến thức, kỹ năng và phương pháp lập trình.",
-        "Thực hành sử dụng các tính năng cốt lõi của Python: cú pháp câu lệnh, vòng lặp, hàm dựng sẵn...",
-        "Lập trình và chạy chương trình bằng các công cụ lập trình chuyên nghiệp: PyCharm và Google Colab.",
-        "Lập trình trực tiếp trên platform.",
-        "Học tập chủ động, học tập tương tác."
-    ]
+    "instructor": "Laura Dave",
+   "benefits": [
+    "Khám phá một câu chuyện ly kỳ về gia đình và bí mật được giữ kín suốt hơn năm mươi năm.",
+    "Theo dõi hành trình của hai anh chị em xa cách khi họ hợp tác để giải mã cái chết đầy bí ẩn của cha mình.",
+    "Trải nghiệm sự kết hợp hoàn hảo giữa yếu tố hồi hộp và kịch tính gia đình, khiến người đọc luôn bị cuốn hút.",
+    "Nhận diện những chi tiết sâu sắc và tinh tế trong việc xây dựng nhân vật, từ người cha huyền bí đến những mối quan hệ phức tạp giữa các thành viên trong gia đình.",
+    "Thưởng thức phiên bản đặc biệt với chữ ký của tác giả và các nội dung độc quyền, mang đến giá trị đặc biệt cho độc giả.",
+    "Cảm nhận một cú sốc tâm lý mạnh mẽ với đoạn kết không thể đoán trước, để lại ấn tượng sâu sắc trong lòng người đọc."
+]
+
 };
 
 var courseData12 = {
-    "tieudeKhoahoc" : "Học diễn họa kiến trúc dùng 3Ds Max",
-    "placeCcon" : "Học diễn họa kiến trúc dùng 3Ds Max",
-    "tieudeBanner": "Học diễn họa kiến trúc dùng 3Ds Max",
-    "image": "../image/dienhoa3.png",
-    "courseName": "Học diễn họa kiến trúc dùng 3Ds Max",
-    "newPrice": "599.000đ",
-    "oldPrice": "2.800.000đ",
+    "tieudeKhoahoc" : "War",
+    "placeCcon" : "War",
+    "tieudeBanner": "War",
+    "image": "../image/9781668052273_p0_v2_s600x595.jpg",
+    "courseName": "War",
+    "newPrice": "800.000đ",
+    "oldPrice": "1.500.000đ",
     "description": [
-        "Học design, học cấp tốc diễn hoạ 3D kiến trúc nội thất sử dụng 3Ds Max."
-        
+        "Cuốn sách của Bob Woodward, một nhà báo hai lần đoạt giải Pulitzer, mang đến cái nhìn sâu sắc về ba cuộc chiến quan trọng: Ukraine, Trung Đông và cuộc đấu tranh chính trị cho chức vụ Tổng thống Mỹ. Thông qua các câu chuyện và thông tin chưa từng được công bố, Woodward hé lộ những cuộc đối thoại căng thẳng giữa các nhà lãnh đạo hàng đầu, khám phá những quyết định chính trị có tầm ảnh hưởng lớn và những thách thức mà họ phải đối mặt trong bối cảnh chiến tranh. Với phong cách báo chí điều tra sắc sảo, tác phẩm này không chỉ cung cấp thông tin mà còn khơi dậy những suy ngẫm sâu sắc về quyền lực, trách nhiệm và sự phức tạp của chính trị toàn cầu."
     ],
-    "instructor": "Nguyễn Văn Trường An",
-    "benefits": [
-        "Được làm quen với cả 3 phần mềm 3Ds Max, Vray và Photoshop.",
-        "Tự mình dựng nên được những đồ vật 3D theo ý muốn.",
-        "Hiểu sâu sắc hơn về vật liệu, ánh sáng trong tự nhiên, cũng như trong môi trường 3D.",
-        "Nắm được quy trình làm việc chuyên nghiệp của họa viên kiến trúc nội thất.",
-        "Nắm được những thủ thuật để khiến bức ảnh của bạn thêm sống động và sáng tạo.",
-        "Biết cách sử dụng và quản lý nguồn thư viện 3D đa dạng miễn phí, chất lượng cao để sử dụng trong các dự án.",
-        "Sử dụng miễn phí bộ thư viện đồ họa 3D nội ngoại thất đã được các hãng nổi tiếng thế giới sản xuất nhằm hỗ trợ thiết kế tiết kiệm thời gian (hơn 11GB tài liệu)."
-    ]
+    "instructor": "Bob Woodward",
+   "benefits": [
+    "Khám phá một giai đoạn đầy biến động trong chính trị tổng thống và lịch sử Mỹ, từ góc độ của những nhà lãnh đạo quan trọng.",
+    "Nhận cái nhìn sâu sắc về các cuộc đối thoại căng thẳng giữa Tổng thống Joe Biden và các nhà lãnh đạo quốc tế như Vladimir Putin, Benjamin Netanyahu và Volodymyr Zelensky.",
+    "Tìm hiểu về cách Biden quản lý cuộc chiến Ukraine, được coi là cuộc chiến đất lớn nhất ở châu Âu kể từ Thế chiến II.",
+    "Được tiếp cận với những báo cáo độc quyền về chiến lược và quyết định trong bối cảnh ngoại giao thời chiến, bao gồm cả nỗ lực ngăn chặn vũ khí hạt nhân.",
+    "Thấy rõ cuộc chiến chính trị giữa Biden và Trump khi người dân Mỹ chuẩn bị bỏ phiếu vào năm 2024, cùng với sự nổi bật bất ngờ của Kamala Harris.",
+    "Được xem xét cận cảnh về vai trò của Phó Tổng thống Kamala Harris trong việc tiếp nối di sản của Biden và phát triển con đường riêng của mình như một ứng viên tổng thống.",
+    "Tham khảo phong cách báo chí uy tín và chi tiết của Bob Woodward, người thiết lập tiêu chuẩn cao cho báo chí điều tra."
+]
+
 };
 
 var courseData13 = {
-    "tieudeKhoahoc" : "Làm chủ cảm xúc - Thúc đẩy thành công",
-    "placeCcon" : "Làm chủ cảm xúc - Thúc đẩy thành công",
-    "tieudeBanner": "Làm chủ cảm xúc - Thúc đẩy thành công",
-    "image": "../image/lamchucamxuc.jpg",
-    "courseName": "Làm chủ cảm xúc - Thúc đẩy thành công",
-    "newPrice": "299.000đ",
-    "oldPrice": "700.000đ",
+    "tieudeKhoahoc" : "The Hotel Balzaar",
+    "placeCcon" : "The Hotel Balzaar",
+    "tieudeBanner": "The Hotel Balzaar",
+    "image": "../image/9781536223316_p0_v1_s600x595.jpg",
+    "courseName": "The Hotel Balzaar",
+    "newPrice": "500.000đ",
+    "oldPrice": "1.500.000đ",
     "description": [
-        "Làm chủ cảm xúc giúp bạn thành công trong giao tiếp."
+        "Một cuốn sách ngay lập tức trở thành bestseller của New York Times! Trong phần tiếp theo đầy trí tuệ và kỳ diệu của The Puppets of Spelhorst, Kate DiCamillo đưa người đọc trở lại vùng đất Norendy, nơi những câu chuyện hòa quyện vào nhau—và mỗi khoảnh khắc đều là một câu chuyện đang hình thành. Khám phá một thế giới phong phú và hấp dẫn, nơi mà trí tưởng tượng không có giới hạn, và những cuộc phiêu lưu thú vị chờ đón ở mỗi ngã rẽ. Cuốn sách hứa hẹn mang đến một trải nghiệm kỳ diệu cho cả trẻ em và người lớn, với thông điệp sâu sắc về sức mạnh của câu chuyện và sự kết nối"
     ],
-    "instructor": "Nguyễn Văn Trường An",
-    "benefits": [
-        "Quản trị được cảm xúc của bản thân.",
-        "Phát triển các kĩ năng làm chủ cảm xúc."
-        
-    ]
+    "instructor": "Kate DiCamillo, Júlia Sardà ",
+   "benefits": [
+    "Khám phá cuộc sống đầy màu sắc tại Hotel Balzaar thông qua góc nhìn của Marta, một cô bé với trí tưởng tượng phong phú.",
+    "Theo dõi hành trình tìm kiếm cha của Marta, một cựu quân nhân mất tích, qua những câu chuyện kỳ diệu mà một vị countess bí ẩn mang đến.",
+    "Thưởng thức những câu chuyện đa dạng và hấp dẫn, mỗi câu chuyện được kể theo thứ tự hợp lý, tạo nên một trải nghiệm đọc liền mạch và cuốn hút.",
+    "Được chiêm ngưỡng những hình ảnh minh họa tinh tế của Júlia Sardà, làm phong phú thêm nội dung của từng câu chuyện.",
+    "Trải nghiệm những chủ đề sâu sắc về nỗi khao khát, lòng tin và sự kết nối giữa các nhân vật, mang lại cảm xúc chân thực cho người đọc.",
+    "Thúc đẩy trí tưởng tượng của trẻ em và người lớn, khuyến khích họ khám phá những khía cạnh mới mẻ trong cuộc sống qua lăng kính của nghệ thuật và văn chương."
+]
+
 };
 
 var courseData14 = {
-    "tieudeKhoahoc" : "Kỹ năng tuyển dụng nhân viên",
-    "placeCcon" : "Kỹ năng tuyển dụng nhân viên",
-    "tieudeBanner": "Khóa học excel cho người đi làm",
-    "image": "../image/tuyendung.jpeg",
-    "courseName": "Kỹ năng tuyển dụng nhân viên",
-    "newPrice": "399.000đ",
-    "oldPrice": "600.000đ",
+   "tieudeKhoahoc" : "How My Neighbor Stole Christmas",
+    "placeCcon" : "How My Neighbor Stole Christmas",
+    "tieudeBanner": "How My Neighbor Stole Christmas",
+    "image": "../image/9781464240942_p0_v2_s600x595.jpg",
+    "courseName": "How My Neighbor Stole Christmas",
+    "newPrice": "500.000đ",
+    "oldPrice": "1.500.000đ",
     "description": [
-        "Những vấn đề trong tuyển dụng ứng viên và các bước triển khai kế hoạch nhân sự."
+        "Phiên bản độc quyền của Barnes & Noble mang đến bìa đặc biệt với lớp foil lấp lánh. Đây là một câu chuyện lãng mạn mùa lễ hội đầy thú vị về tình yêu từ sự thù ghét chuyển thành tình bạn, được viết bởi tác giả Meghan Quinn, một trong những cái tên bán chạy của USA Today. Trong cuốn sách này, những mâu thuẫn và những cuộc chiến tranh giành tình cảm giữa hai nhân vật chính tạo nên một hành trình cảm xúc phong phú, khi họ dần nhận ra rằng tình yêu có thể nảy nở từ những hiểu lầm và xung đột. Khám phá những khoảnh khắc hài hước và lãng mạn trong bối cảnh mùa lễ hội, nơi mà mọi thứ đều có thể xảy ra và tình yêu có thể tìm thấy bạn ở những nơi bất ngờ nhất."
     ],
-    "instructor": "Nguyễn Văn Trường An",
-    "benefits": [
-        "Khóa học hướng dẫn cách thiết lập các chiến lược nhân sự dựa vào nhu cầu và quy mô của công ty, từ đó có những bước triển khai kế hoạch một cách hợp lý nhất."
-    ]
+    "instructor": "Meghan Quinn",
+   "benefits": [
+    "Khám phá tâm lý phức tạp của một nhân vật chính bị tổn thương, giúp người đọc hiểu thêm về nỗi đau và sự cô đơn trong cuộc sống.",
+    "Học về giá trị của tình yêu và sự kết nối trong gia đình, đặc biệt là trong mùa lễ hội, thông qua hành trình của Cole và mối quan hệ với những người xung quanh.",
+    "Nhận thức được ảnh hưởng của nỗi mất mát và sự cô đơn đến tâm trạng của một người, đồng thời khuyến khích sự đồng cảm từ phía người đọc.",
+    "Trải nghiệm những chủ đề về sự chấp nhận và sự chữa lành, khi Cole dần mở lòng với những người khác và bắt đầu khám phá ý nghĩa thực sự của Giáng sinh.",
+    "Thúc đẩy ý thức cộng đồng và tầm quan trọng của việc chăm sóc lẫn nhau, đặc biệt là trong những thời điểm khó khăn và đầy thử thách.",
+    "Tận hưởng một câu chuyện lãng mạn ấm áp, mang lại hy vọng và ánh sáng ngay cả trong những khoảnh khắc tăm tối nhất."
+]
+
 };
 
 var courseData15 = {
-    "tieudeKhoahoc" : "Ý thức tư duy trước và liên tưởng",
-    "placeCcon" : "Ý thức tư duy trước và liên tưởng",
-    "tieudeBanner": "Ý thức tư duy trước và liên tưởng",
-    "image": "../image/tuduy.jpg",
-    "courseName": "Ý thức tư duy trước và liên tưởng",
-    "newPrice": "299.000đ",
-    "oldPrice": "700.000đ",
+    "tieudeKhoahoc" : "Your Pasta Sucks: A (Cookbook)",
+    "placeCcon" : "Your Pasta Sucks: A (Cookbook)",
+    "tieudeBanner": "Your Pasta Sucks: A (Cookbook)",
+    "image": "../image/9781797237138_p0_v1_s600x595.jpg",
+    "courseName": "Your Pasta Sucks: A (Cookbook)",
+    "newPrice": "500.000đ",
+    "oldPrice": "1.500.000đ",
     "description": [
-        "Các khóa học là chuỗi ôn tập các các phương pháp khơi dậy và rèn luyện ý thức tư duy của mỗi con người theo các bước sau:",
-        "1. Được hướng dẫn các ngày trong tuần trừ chủ nhật, các bài học mới sẽ được đăng tải mỗi ngày. Vui lòng truy cập vào trang web và tham gia các lớp học.",
-        "2. Một bài học kéo dài từ 5-10 phút. Để bài học đạt hiệu quả hãy chọn thời gian học thích hợp để có thể chuyên tâm học như một thói quen"
+        "Cuốn sách này không chỉ đơn thuần là một cuốn sách nấu ăn; nó là một hành trình hài hước và thú vị qua thế giới ẩm thực của Matteo Lane! Với tựa đề ‘Your Pasta Sucks, But It Doesn't Have To,’ tác giả nổi tiếng này sẽ hướng dẫn bạn cách chế biến 30 công thức mì ống ngon miệng, cùng với những câu chuyện hài hước không thể nhịn cười. Matteo không chỉ mang đến cho bạn những bí quyết nấu ăn đầy sáng tạo mà còn chia sẻ những kỷ niệm, những khoảnh khắc trong cuộc sống của mình, làm cho mỗi trang sách trở nên sống động và thú vị. Dù bạn là một đầu bếp chuyên nghiệp hay chỉ đơn giản là một người yêu thích ẩm thực, cuốn sách này sẽ biến bữa ăn của bạn trở nên đáng nhớ hơn bao giờ hết!"
     ],
-    "instructor": "Nguyễn Văn Trường An",
-    "benefits": [
-    "Học hỏi nhanh.",
-    "Không lặp lại thất bại tương tự.",
-    "Cảm nhận vấn đề, sự cố trước khi chúng xảy ra.",
-    "Không gặp rắc rối khi giao tiếp.",
-    "Có thể tóm gọn nội dung câu chuyện của người nói.",
-    "Khả năng ghi nhớ cao.",
-    "Có thể sắp sếp vấn đề.",
-    "Nghe 1 nhưng có thể phỏng đoán đến 10.",
-    "Đối phương chưa nói gì thì bản thân mình cũng hiểu được họ.",
-    "Có thể trình bày dễ hiểu cho đối phương.",
-    "Có thể hiểu những câu chuyện phức tạp.",
-    "Có thể tư duy một cách Logic.",
-    "Tốc độ nhanh."
-    ]
-};
+    "instructor": " Matteo Lane",
+   "benefits": [
+    "Khám phá cách làm pasta từ những công thức dễ hiểu và thực tế, giúp người đọc tự tin hơn trong bếp.",
+    "Học hỏi từ những kinh nghiệm và mẹo vặt của Matteo, từ cách làm pasta tại nhà đến những bí quyết không bao giờ thất bại.",
+    "Thưởng thức một cách tiếp cận hài hước và gần gũi với ẩm thực Ý, giúp người đọc không chỉ nấu ăn mà còn cảm nhận được văn hóa và lối sống của Italia.",
+    "Tận hưởng sự kết hợp hoàn hảo giữa nấu ăn và giải trí, mang lại cảm giác như đang trò chuyện và nấu nướng cùng một người bạn thân thiết.",
+    "Mở rộng hiểu biết về ẩm thực Ý thông qua những câu chuyện thú vị và góc nhìn độc đáo của Matteo, từ các món ăn nổi tiếng đến cách thưởng thức cafe ở Rome.",
+    "Đem lại niềm vui và sự phấn khích khi nấu ăn, khuyến khích người đọc chấp nhận sự hỗn loạn trong quá trình sáng tạo món ăn, và tạo ra những bữa ăn đáng nhớ cho bạn bè và gia đình."
+]
 
+};
+var courseData18 = {
+    "tieudeKhoahoc" : "Hope: The Autobiography",
+    "placeCcon" : "Hope: The Autobiography",
+    "tieudeBanner": "Hope: The Autobiography",
+    "image": "../image/9780593978771_p0_v3_s600x595.jpg",
+    "courseName": "Hope: The Autobiography",
+    "newPrice": "500.000đ",
+    "oldPrice": "1.500.000đ",
+    "description": [
+        "“‘Hy vọng’ không chỉ là một cuốn tự truyện mà là một hành trình cảm động qua cuộc đời và những suy nghĩ của Giáo hoàng Francis. Với mong muốn chia sẻ câu chuyện của mình trong bối cảnh khẩn thiết của thời đại, Ngài đã viết cuốn sách này với sự chân thành và trí tuệ sâu sắc. Từ những ngày đầu của cuộc đời mình ở Argentina cho đến những thách thức trong vai trò giáo hoàng, cuốn sách đưa ra cái nhìn sâu sắc về các vấn đề nóng bỏng như chiến tranh, hòa bình, và vai trò của phụ nữ trong xã hội hiện đại. Qua những kỷ niệm và suy tư của mình, Giáo hoàng Francis không chỉ truyền tải thông điệp về niềm hy vọng mà còn khuyến khích mọi người cùng tham gia vào cuộc đối thoại về những vấn đề quan trọng hiện nay. ‘Hy vọng’ là một di sản tinh thần đáng giá cho các thế hệ tương lai, mời gọi độc giả cùng suy ngẫm và hành động vì một thế giới tốt đẹp hơn.”"
+        
+    ],
+    "instructor": "Pope Francis, Carlo Musso , Richard Dixon",
+    "benefits": [
+    "Khám phá câu chuyện cuộc đời của Giáo hoàng Francis từ những năm tháng đầu đời cho đến những thách thức trong vai trò lãnh đạo tôn giáo, giúp người đọc hiểu rõ hơn về con người và niềm tin của Ngài.",
+    "Tiếp cận những suy tư sâu sắc về các vấn đề hiện tại như chiến tranh, môi trường, và quyền phụ nữ, mang lại góc nhìn toàn diện về các thách thức mà xã hội đang phải đối mặt.",
+    "Hưởng thụ những câu chuyện và kỷ niệm chân thực, thể hiện tính cách gần gũi và hài hước của Giáo hoàng, khiến người đọc cảm thấy như đang trò chuyện với một người bạn thân.",
+    "Khám phá những bức ảnh độc đáo và chưa từng được công bố trước đây, làm phong phú thêm trải nghiệm đọc sách và tạo ra kết nối sâu sắc với cuộc sống của Giáo hoàng.",
+    "Nhận được những thông điệp mạnh mẽ về hy vọng và lòng can đảm, khuyến khích người đọc hành động vì những giá trị tốt đẹp trong cuộc sống hàng ngày.",
+    "Tạo ra một di sản đầy cảm hứng cho các thế hệ tương lai, nhấn mạnh tầm quan trọng của sự thấu hiểu và đoàn kết trong một thế giới đang thay đổi nhanh chóng."
+]
+
+
+};
+var courseData17 = {
+    "tieudeKhoahoc" : "Cher: The Memoir, Part One",
+    "placeCcon" : "Cher: The Memoir, Part One",
+    "tieudeBanner": "Cher: The Memoir, Part One",
+    "image": "../image/9780062863102_p0_v3_s600x595.jpg",
+    "courseName": "Cher: The Memoir, Part One",
+    "newPrice": "499.000đ",
+    "oldPrice": "800.000đ",
+    "description": [
+        "Cher: The Memoir là một cuộc hành trình khám phá cuộc đời phi thường của một trong những biểu tượng lớn nhất của âm nhạc và văn hóa. Từ những năm tháng đầu đời đầy thử thách cho đến khi trở thành một ngôi sao toàn cầu, Cher dẫn dắt độc giả qua những câu chuyện chân thực và xúc động về sự nghiệp, tình yêu và gia đình. Với phong cách kể chuyện độc đáo và sự chân thành đặc trưng, Cher không chỉ chia sẻ những khoảnh khắc đáng nhớ trong cuộc sống của mình mà còn mở lòng về những khó khăn, thành công và những bài học quý giá mà cô đã học được. Đây là một tác phẩm không thể bỏ qua cho bất kỳ ai yêu thích âm nhạc và muốn hiểu rõ hơn về người phụ nữ đứng sau những bản hit vĩ đại."
+    ],
+    "instructor": "Cher",
+    "benefits": [
+    "Khám phá cuộc đời đầy cảm hứng của Cher từ những năm tháng đầu đời cho đến khi trở thành biểu tượng âm nhạc, giúp người đọc hiểu rõ hơn về hành trình vượt khó của một người phụ nữ mạnh mẽ.",
+    "Tiếp cận những câu chuyện chân thực về sự nghiệp của Cher, từ những thăng trầm trong âm nhạc đến những thành công lịch sử, nhấn mạnh sự kiên trì và đam mê trong công việc.",
+    "Nhận được cái nhìn sâu sắc về mối quan hệ phức tạp với Sonny Bono, một phần quan trọng trong cuộc đời Cher, và cách mà nó đã hình thành nên con người và nghệ thuật của cô.",
+    "Hưởng thụ sự hài hước và chân thành trong cách viết của Cher, khiến độc giả cảm thấy gần gũi và dễ dàng đồng cảm với những trải nghiệm cá nhân của cô.",
+    "Khám phá những khía cạnh chưa từng được kể về cuộc sống riêng tư của Cher, từ vai trò của một người mẹ cho đến những khó khăn và niềm vui trong gia đình.",
+    "Đem lại nguồn cảm hứng mạnh mẽ cho độc giả, khuyến khích họ theo đuổi ước mơ của mình bất chấp mọi thử thách, giống như Cher đã làm trong suốt sự nghiệp của mình."
+]
+
+};
 // Hàm lưu thông tin khóa học vào localStorage
 function selectCourse(data) {
     localStorage.setItem('selectedCourse', JSON.stringify(data));

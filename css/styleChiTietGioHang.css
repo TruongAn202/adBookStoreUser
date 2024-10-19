@@ -94,6 +94,7 @@
     border: none;
 
 }
+
 .right button:hover{
     cursor: pointer;
     background-color: #212121;
@@ -109,9 +110,12 @@
     margin: 10px 0px;
     
 }
-.ql-tanggiam-price{
+.ql-tanggiam-price {
+    position: absolute;
+   
+    width: 100%;
     display: flex;
-    flex-wrap: wrap
+    justify-content: left; /* Để tangiam và price nằm 2 bên */
 }
 /*tang giam button*/
 .tangiam {
@@ -119,6 +123,7 @@
     align-items: center;
     float: right;
     padding-right: 10px;
+   
 }
 
 .tangiam button {
@@ -128,6 +133,7 @@
     color: #333;
     cursor: pointer;
     background-color: white;
+    
 }
 
 .tangiam input {
