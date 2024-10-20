@@ -1,0 +1,50 @@
+.sidebar {
+    border-right: 1px solid #ddd;
+  }
+  .category-list {
+    padding-left: 0;
+  }
+  .category-list li {
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .category-list li a {
+    text-decoration: none;
+    color: #000;
+  }
+  .category-list li a:hover {
+    text-decoration: underline;
+  }
+  .featured-tag {
+    background-color: orange;
+    color: white;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin-left: -1px;
+  }
+  .news-image img {
+    width: 100%;
+    height: auto;
+  }
+  .search-bar {
+    border-radius: 5px;
+    border: 1px solid #28a745;
+  }
+  #tintuc-h5{
+    margin-bottom: -55px;
+    margin-left: 16px;
+  }
+  .news-item{
+    margin-left: 16px;
+  }
+  .mota-p{
+    margin-top: 8px;
+  }
+  .mota-full{
+
+  }
+  .soluongbaiviet{
+    margin-top: 3px;
+  }
