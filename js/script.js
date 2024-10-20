@@ -460,12 +460,11 @@ var courseData8 = {
     ],
     "instructor": "John Gwynne",
     "benefits": [
-        "Trận chiến cuối cùng vì số phận của Vigrid: Đang đến gần và là trung tâm của câu chuyện, xoay quanh cuộc đụng độ cuối cùng giữa các nhân vật chính.",
-        "Varg: Anh đã trở thành thành viên của Bloodsworn và giờ phải đối mặt với nhiệm vụ tiêu diệt một con rồng cùng đồng đội.",
-        "Elvar: Cô đấu tranh để củng cố quyền lực ở Snakavik và phải chuẩn bị cho cuộc xung đột sắp tới, đối đầu với sự hung dữ của thần sói.",
-        "Biórr và Guðvarr: Biórr dẫn đầu nhóm chiến binh tiến về phía bắc, còn Guðvarr có tham vọng riêng, muốn giành được sự ưu ái của Lik-Rifa.",
-        "Snakavik: Là nơi tất cả các con đường đều dẫn đến, vạch ra ranh giới cho trận chiến cuối cùng—một cuộc đụng độ sẽ làm rung chuyển thế giới và chứng kiến cơn thịnh nộ của các vị thần."
-    ]
+    "Khám phá câu chuyện kịch tính, nơi những nhân vật mạnh mẽ đối mặt với các thử thách khắc nghiệt và những mối đe dọa không thể đoán trước, mang lại những giờ phút đọc cuốn hút.",
+    "Trải nghiệm những trận chiến sử thi và những cuộc xung đột vĩ đại giữa các vị thần, loài người và sinh vật huyền thoại, tạo nên một câu chuyện sử thi đầy hành động và cảm xúc.",
+    "Khám phá những yếu tố thần thoại Bắc Âu qua góc nhìn mới mẻ, đưa bạn vào thế giới của rồng, thần sói và cuộc chiến đầy cam go để giành quyền kiểm soát vận mệnh.",
+    "Đi theo hành trình phát triển của các nhân vật như Arg, Elvar và Biórr khi họ đối diện với những lựa chọn khó khăn và những trận chiến nội tâm phức tạp, mang đến chiều sâu tâm lý đáng suy ngẫm.",
+    "Chứng kiến cuộc đối đầu cuối cùng trong trận đại chiến tại Snakavik, nơi mà số phận của tất cả các nhân vật chính sẽ được định đoạt trong một cuộc chiến có thể thay đổi cả thế giới." ]
 };
 
 var courseData9 = {
@@ -499,7 +498,9 @@ var courseData10 = {
     "newPrice": "1.300.000đ",
     "oldPrice": "2.500.000đ",
     "description": [
-        "Ngày nay khách hàng rất thông minh, nếu bạn không trở thành người bán hàng xuất sắc bạn sẽ không bán được hàng. Bạn sẽ không biết đâu là điểm tử huyệt của khách hàng. Khách hàng quyết định rất nhanh là có mua sản phẩm của bạn hay không. Do đó bạn phải nằm được yếu tố cảm xúc then chốt. và khóa học này còn chia sẻ với bạn: Khi nào tiếp cần, khi nào giải trình, khi nào đồng điệu, khi nào chốt sale, chăm sóc và giải trình làm sao. Bạn khó khăn trong việc giải quyết vấn đề của khách hàng. Làm thế nào để bạn chốt được những đơn hàng khủng và khách hàng lại happy Làm thế nào để xây dựng hệ thống nhân lực, hệ thống phân phối mạnh mẽ Làm thế nào để vượt qua những kháng cự bên trong bạn và hành động với năng lượng đỉnh cao Làm thế nào để tư duy của bạn vượt thoat từ trong tâm thức của ban."
+        "Skandar and the Skeleton Curse là cuốn thứ tư đầy kịch tính trong loạt truyện phiêu lưu giả tưởng nổi tiếng dành cho lứa tuổi trung học của tác giả A.F. Steadman. Trong ấn bản đặc biệt giới hạn của Barnes & Noble, cuốn sách này sở hữu một bìa dập nổi độc quyền, giấy in lá holographic lung linh, trang lót màu xanh lá và nội dung bổ sung đặc biệt chỉ dành riêng cho phiên bản này.Trong phần tiếp theo đầy hấp dẫn này, Skandar và những người bạn bước vào năm thứ tư tại Eyrie, đối mặt với một lời nguyền khủng khiếp đe dọa làm thay đổi mọi thứ. Với những kỳ lân của hòn đảo bị ảnh hưởng nghiêm trọng, Skandar và nhóm bạn của mình phải chạy đua với thời gian để ngăn chặn thảm họa trước khi quá muộn. Cuộc phiêu lưu mới này không chỉ thách thức lòng can đảm mà còn đẩy Skandar đến những lựa chọn quyết định cho tương lai của hòn đảo."
+
+
     ],
     "instructor": "A.F. Steadman",
     "benefits": [
