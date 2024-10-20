@@ -284,7 +284,7 @@ var courseData = {
     "tieudeBanner": "The Boyfriend",
     "image": "../image/The_Boyfriend.jpg",
     "courseName": "The Boyfriend",
-    "newPrice": "399.000đ",
+    "newPrice": "500.000đ",
     "oldPrice": "1.000.000đ",
     "description": [
         "Mua sắm theo Hướng dẫn Quà tặng Ngày lễ",
