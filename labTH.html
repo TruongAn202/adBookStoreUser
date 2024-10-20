@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/styleKH.css">
     <link rel="stylesheet" href="./css/styleAbout.css">
+    <link rel="stylesheet" href="./css/styleBanTin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -37,7 +38,7 @@
               <a class="nav-link" href="/lienhe.html" tabindex="-1" aria-disabled="true">Liên hệ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/labTH.html" tabindex="-1" aria-disabled="true">Blog</a>
+              <a class="nav-link active" href="/labTH.html" tabindex="-1" aria-disabled="true">Bản tin</a>
             </li>
           </ul>
           <form id="search" class="d-flex">
@@ -97,105 +98,117 @@
             <div class="overlay"></div>
             <div id="gr-td-dk">
                 <h1 id="duongke">|</h1>
-                <h1 id="tieude-banner">LAB THỰC HÀNH</h1>
+                <h1 id="tieude-banner">BẢN TIN</h1>
             </div>
         </div>
         <div id="background-KH">
             <div id="sevices">
                 <div id="product-1">
-                    <div class="product"> 
-                            <div class="product-image">
-                                <img src="./image/lab01.png" alt="">
+                  <div class="container mt-5">
+                    <div class="row">
+                      <!-- Sidebar -->
+                      <div class="col-md-3 sidebar">
+                        <div class="mb-3">
+                          <input type="text" class="form-control search-bar" placeholder="Tìm kiếm">
+                        </div>
+                        <h5>Danh mục</h5>
+                        <ul class="category-list">
+                          <li><a href="#">Sách Thiếu nhi <span class="float-end soluongbaiviet">86</span></a></li>
+                          <li><a href="#">Giật gân <span class="float-end soluongbaiviet">80</span></a></li>
+                          <li><a href="#">Kinh dị <span class="float-end soluongbaiviet">873</span></a></li>
+                          <li><a href="#">Tiểu thuyết <span class="float-end soluongbaiviet">18</span></a></li>
+                          <li><a href="#">Truyện tranh <span class="float-end soluongbaiviet">71</span></a></li>
+                          <li><a href="#">Khoa học <span class="float-end soluongbaiviet">927</span></a></li>
+                          <li><a href="#">Xem tất cả</a></li>
+                        </ul>
+                      </div>
+                
+                      <!-- Main Content -->
+                      <div class="col-md-9">
+                        <h5 id="tintuc-h5">Tin tức mới nhất</h5>
+                        <div class="breadcrumb-container">
+                          <h3>Có gì mới hôm nay?</h3>
+                          <hr id="the-hr-home" class="border border-warning border-3 opacity-75">
+                      </div>
+                        <!-- News Item -->
+                        <div class="news-item mb-4">
+                          <div class="row">
+                            <div class="col-md-4 news-image">
+                              <img src="./image/BestBook_2024_Headers_PictureBooks.jpg" alt="News Image">
                             </div>
-                            <div class="product-info">
-                                <!-- Thông tin và giá -->
-                                <p><a href="/labTH/Vi_du/index.html">Hãy bấm vào đây để xem chi tiết bài thực hành</a></p>
-                                <div class="mo-ta"> Các bài tập về HTML</div>
+                            <div  class="col-md-8 mota-full">
+                              <!-- <div class="mb-2">
+                                <p>để ghi thể loại: hài,giật gân</p>
+                              </div> -->
+                              <h4>Sách tranh hay nhất 2024</h4>
+                              <span class="featured-tag">MỚI</span>
+                              <p class="mota-p">Từ những câu chuyện trước khi đi ngủ đến việc đọc sách vào ngày mưa và những cuốn sách yêu thích mà trẻ mang theo mọi lúc mọi nơi, sách tranh…</p>
+                              <p>By: Admin</p>
+                              <!-- <p><span>21,415 Comments</span> / <span>24,565 Views</span></p> -->
                             </div>
+                          </div>
+                        </div>
+
+                        <div class="news-item mb-4">
+                          <div class="row">
+                            <div class="col-md-4 news-image">
+                              <img src="./image/YoungReaders.jpg" alt="News Image">
+                            </div>
+                            <div class="col-md-8">
+                              <!-- <div class="mb-2">
+                                
+                              </div> -->
+                              <h4>Sách dành cho độc giả trẻ hay nhất 2024</h4>
+                              <span class="featured-tag">MỚI</span>
+                              <p class="mota-p">Điều gì làm nên một cuốn sách tuyệt vời cho độc giả trẻ? Hành động, hài hước và tình cảm, trước hết, và dòng sách này có tất cả.…</p>
+                              <p>By: Admin</p>
+                              <!-- <p><span>21,415 Comments</span> / <span>24,565 Views</span></p> -->
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="news-item mb-4">
+                          <div class="row">
+                            <div class="col-md-4 news-image">
+                              <img src="./image/Curious.jpg" alt="News Image">
+                            </div>
+                            <div class="col-md-8">
+                              <!-- <div class="mb-2">
+                               
+                              </div> -->
+                              <h4>Thế giới kỳ diệu</h4>
+                              <span class="featured-tag">MỚI</span>
+                              <p class="mota-p">Nếu bạn từng bị thu hút bởi những điều kỳ diệu của mặt trăng, cuốn sách này dành cho bạn. Một học viện u ám đầy không khí…</p>
+                              <p>By: Admin</p>
+                              <!-- <p><span>21,415 Comments</span> / <span>24,565 Views</span></p> -->
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="news-item mb-4">
+                          <div class="row">
+                            <div class="col-md-4 news-image">
+                              <img src="./image/powerless.jpg" alt="News Image">
+                            </div>
+                            <div class="col-md-8">
+                              <!-- <div class="mb-2">
+                               
+                              </div> -->
+                              <h4>Một giấc mơ thành sự thật</h4>
+                              <span class="featured-tag">MỚI</span>
+                              <p class="mota-p">Xin chúc mừng tác giả YA đoạt giải thưởng Sách thiếu nhi và YA B&N năm 2024! Lauren Roberts chưa bao giờ có ý định viết…</p>
+                              <p>By: Admin</p>
+                              <!-- <p><span>21,415 Comments</span> / <span>24,565 Views</span></p> -->
+                            </div>
+                          </div>
+                        </div>
+                
+                        <!-- Repeat similar blocks for more news items if needed -->
+                        
+                      </div>
                     </div>
-                    <div class="product"> 
-                        <div class="product-image">
-                            <img src="./image/lab02.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/labTH/Lab02">Hãy bấm vào đây để xem chi tiết bài thực hành</a></p>
-                            <div class="mo-ta"> Các bài tập về table và List</div>
-                        </div>
-                    </div>
-                    <div class="product"> 
-                        <div class="product-image">
-                            <img src="./image/lab03.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/labTH/Lab03">Hãy bấm vào đây để xem chi tiết bài thực hành</a></p>
-                            <div class="mo-ta"> Các bài tập về Frame và Form </div>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/lab04.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/labTH/Lab04">Hãy bấm vào đây để xem chi tiết bài thực hành </a></p>
-                            <div class="mo-ta"> Các bài tập về CSS cơ bản </div>
-                            
-                        </div>
-                    </div>
+                  </div>
                 </div>
-                
-                
-                <div id="product-1">
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/lab05.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/labTH/Lab05">Hãy bấm vào đây để xem chi tiết bài thực hành </a></p>
-                            <div class="mo-ta"> Các bài tập về những thuộc tính CSS cơ bản</div>
-                            
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/lab06.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/labTH/lab06">Hãy bấm vào đây để xem chi tiết bài thực hành </a></p>
-                            <div class="mo-ta"> Xây dựng layout responsive bằng CSS </div>
-                            
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/lab07.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/labTH/lab7">Hãy bấm vào đây để xem chi tiết bài thực hành </a></p>
-                            <div class="mo-ta"> Các bài tập về Javascript </div>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="./image/lab08.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                            <p><a href="/labTH/Lab08">Hãy bấm vào đây để xem chi tiết bài thực hành </a></p>
-                            <div class="mo-ta"> Các bài tập Javascript nâng cao </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                
-                
-        
-                
             </div>
         </div>
     </div>
@@ -203,9 +216,9 @@
         <div id="footer-top">
             <div class="footer-section">
                 
-                <img id="footer-top-logo" src="./image/logo.png" alt="Logo">
+                <img id="footer-top-logo" src="./image/logo_BookStore.png" alt="Logo">
                 <br>
-                <span>An Edu Shop đồ án webisite cuối kì môn học thực hành nhập môn web</span>
+                <span>Mua sách trực tuyến tại A&DBOOKSTOER, Nhà sách được yêu thích tại Việt Nam.</span>
             </div>
             <div class="footer-section">
                 <!-- Thẻ div chứa thông tin -->
@@ -213,7 +226,7 @@
                 <ul id="information-footer">
                     <li>Lớp D21_TH01 tại Việt Nam</li>
                     <li>Địa chỉ: 180 Cao Lỗ, Phường 4, Quận 8, TP Hồ Chí Minh</li>
-                    <li>Email: DH52100001@student.stu.edu.vn</li>
+                    <li>Email: AD@gmail.com</li>
                     <li>Điện thoại: (028) 38 505 520</li>
                 </ul>
             </div>
@@ -227,7 +240,7 @@
                 <div id="row">
                     <hr id="hr">
                     <div id="footer-copyright">
-                        <span>Họ và tên: Nguyễn Văn Trường An | MSSV: DH52100001 | Lớp:D21_TH01 | Ca 3 | Thứ 7</span>
+                        <span>© 180 Cao Lỗ, Phường 4, Quận 8, TP Hồ Chí Minh</span>
                     </div>
                 </div>
             </div>

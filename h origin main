@@ -1,0 +1,59 @@
+[33mcommit 7e131963c1a5a968eab055b382e4222229072efa[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Dung Le <nguyenletiendung0@gmail.com>
+Date:   Sun Oct 20 20:39:11 2024 +0700
+
+    Thêm ảnh chi tiết sản phẩm
+
+[33mcommit 02ad26e6d4fffd46fd8ebde7d7ef7274011ac922[m
+Author: Dung Le <nguyenletiendung0@gmail.com>
+Date:   Sun Oct 20 11:29:15 2024 +0700
+
+    Thêm ảnh mới và sửa đổi index.html
+
+[33mcommit 99073d96cb553c775e33c458ad3efe35e666d0d7[m
+Author: TruongAn202 <nguyenvantruongan7745@gmail.com>
+Date:   Sun Oct 20 10:31:30 2024 +0700
+
+    Fix lỗi Hope: The Autobiography, fix giá The Boyfriend
+
+[33mcommit 3f7be9bb512e71e687f713d6a3434ba99c92f6cd[m
+Author: TruongAn202 <nguyenvantruongan7745@gmail.com>
+Date:   Sun Oct 20 07:53:42 2024 +0700
+
+    Update icon giỏ hàng
+
+[33mcommit f57a3f5874b5982636e8183144ad3eae42d4c5ba[m
+Author: Dung Le <nguyenletiendung0@gmail.com>
+Date:   Sat Oct 19 21:45:04 2024 +0700
+
+    Update mua sách trang chi tiết và trang mua hàng
+
+[33mcommit a1562df1c20e7ccb38ae37307264693b3ddef1b4[m
+Author: TruongAn202 <nguyenvantruongan7745@gmail.com>
+Date:   Sat Oct 19 10:36:26 2024 +0700
+
+    Sửa cấu trúc trang chi tiết sản phẩm(thongtin.html) - sản phẩm The Boyfriend
+
+[33mcommit b4b4e8929c3215aec7bcf55fdfca0a2543263a8e[m
+Author: Dung Le <nguyenletiendung0@gmail.com>
+Date:   Sat Oct 19 00:44:37 2024 +0700
+
+    Thêm ảnh mới và sửa đổi index
+
+[33mcommit 55fee8ba0555bb465c1f5f8c1af833e703973d67[m
+Author: TruongAn202 <nguyenvantruongan7745@gmail.com>
+Date:   Fri Oct 18 21:15:03 2024 +0700
+
+    Update 8spDau TrangChu MuaSach
+
+[33mcommit a3720b126b9521df3faae08138c3a1ed19051acf[m
+Author: TruongAn202 <145119931+TruongAn202@users.noreply.github.com>
+Date:   Fri Oct 18 15:55:55 2024 +0700
+
+    Update README.md
+
+[33mcommit 2a2ad472b97acaf757db2113c91da385b8d0b6dd[m
+Author: TruongAn202 <nguyenvantruongan7745@gmail.com>
+Date:   Fri Oct 18 12:52:21 2024 +0700
+
+    init project
