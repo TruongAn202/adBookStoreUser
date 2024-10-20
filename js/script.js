@@ -302,155 +302,148 @@ var courseData = {
 
 // Đối tượng courseData1
 var courseData1 = {
-    "tieudeKhoahoc" : "Khóa học excel cho người đi làm",
-    "placeCcon" : "Khóa học excel cho người đi làm",
-    "tieudeBanner": "Khóa học excel cho người đi làm",
-    "image": "../image/excel.jpg",
-    "courseName": "Khóa học excel cho người đi làm",
+    "tieudeKhoahoc" : "Great Big Beautiful Life",
+    "placeCcon" : "Great Big Beautiful Life",
+    "tieudeBanner": "Great Big Beautiful Life",
+    "image": "../image/GreatBig.jpg",
+    "courseName": "Great Big Beautiful Life",
     "newPrice": "299.000đ",
     "oldPrice": "700.000đ",
     "description": [
-        "Excel là một công cụ hữu hiệu trong công việc mà bất cứ ai muốn tăng hiệu suất đều phải nắm rõ. Với các bài giảng bài bản được chắt lọc theo hướng mang lại tính ứng dụng cao cho học viên, khóa học này sẽ đem đến cho bạn các kiến thức sau:",
-        "- Các hàm hữu ích trong Excel",
-        "- Cách vẽ biểu đồ và tạo báo cáo",
-        "- Định dạng trong Excel",
-        "- Cách xử lý dữ liệu hiệu quả"
+        "Một nữ thừa kế khó nắm bắt, một câu chuyện tình yêu và một bí ẩn. Thanh lọc, lãng mạn, bi thảm và quyến rũ, Emily Henry nói với độc giả của mình rằng cuốn sách này đã thách thức cô ấy như chưa từng có. Hãy lấy thêm một bản sao — bạn sẽ muốn chia sẻ nó với tất cả mọi người mà bạn biết."
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "Freida McFadden",
     "benefits": [
-        "Thành thạo các thao tác, các hàm, câu lệnh nâng cao trong Excel",
-        "Nắm được các thủ thuật Excel giúp tăng tốc thao tác của bạn",
-        "Áp dụng được ngay các kiến thức đã học vào công việc tổng hơp, phân tích và xử lý dữ liệu",
-        "Nâng cao được năng suất và hiệu quả công việc của bạn ngay lập tức"
+        "Hai nhà văn cạnh tranh nhau để có cơ hội kể câu chuyện lớn hơn cuộc đời về một người phụ nữ với nhiều tình tiết bất ngờ trong cuốn tiểu thuyết mới hấp dẫn và sâu sắc này của Emily Henry.",
+        "Hài hước và sâu sắc: Cuốn sách mang đến sự pha trộn giữa hài hước và những suy tư sâu sắc về sự tự do, độc lập, cùng những khó khăn trong việc chấp nhận các giá trị xã hội áp đặt lên phụ nữ.",
+        "Chủ đề cuộc sống hiện đại: Cuốn sách tập trung vào các khía cạnh của cuộc sống hiện đại, đặc biệt là đối với những phụ nữ độc thân, phản ánh những thay đổi trong xã hội về quan niệm hôn nhân và gia đình.",
+        "Văn phong sống động: Tác giả sử dụng lối viết linh hoạt, sống động, kết hợp giữa các tình huống đời thường và sự quan sát thông minh, thu hút người đọc qua các câu chuyện cá nhân hài hước và đầy màu sắc."
     ]
 };
 
 var courseData2 = {
-    "tieudeKhoahoc" : "4 Bước cốt lõi xây dựng team marketing từ zero đến hero.",
-    "placeCcon" : "4 Bước cốt lõi xây dựng team marketing từ zero đến hero.",
-    "tieudeBanner": "4 Bước cốt lõi xây dựng team marketing từ zero đến hero.",
-    "image": "../image/teamwork.png",
-    "courseName": "4 Bước cốt lõi xây dựng team marketing từ zero đến hero.",
+    "tieudeKhoahoc" : "Onyx Storm",
+    "placeCcon" : "Onyx Storm",
+    "tieudeBanner": "Onyx Storm",
+    "image": "../image/OnyxStorm.jpg",
+    "courseName": "Onyx Storm",
     "newPrice": "399.000đ",
     "oldPrice": "1.000.000đ",
     "description": [
-    "Việc quản lý nhân viên hiệu quả là yêu cầu cơ bản của một doanh nghiệp nếu muốn đi lên một cách nhanh chóng.",
-    "Lý thuyết này lại càng đúng với đội nhóm làm trong lĩnh vực marketing bởi xây dựng một team marketing ở Việt Nam là một công việc thực sự đau đầu.",
-    "Nhiều quản lý đã thử hết cách này đến cách khác nhưng kết cục họ nhận được vẫn là phải “cân” team thâu đêm suốt sáng."
+    "Cái kết gây sốc của Iron Flame khiến chúng ta chóng mặt vì muốn xem phần thứ ba trong loạt phim phi thường của Yarros. Với tình yêu đã giành được và mất đi, những trận chiến đã diễn ra và chiến thắng — Onyx Storm là một chuyến đi sắc bén khác trên lưng rồng."
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "Rebecca Yarros",
     "benefits": [
-    "Thành thạo các thao tác, các hàm, câu lệnh nâng cao trong Excel",
-    "Nắm được các thủ thuật Excel giúp tăng tốc thao tác của bạn",
-    "Áp dụng được ngay các kiến thức đã học vào công việc tổng hơp, phân tích và xử lý dữ liệu",
-    "Nâng cao được năng suất và hiệu quả công việc của bạn ngay lập tức",
-    "Giúp Founder/Manager biết cách huấn luyện nhân viên trở nên giỏi hơn mình mà không tốn nhiều thời gian.",
-    "Giúp Founder/Manager giảm tải 70% công việc quản lý vụn vặt, để tập trung vào những công việc cấp cao hơn như suy nghĩ hướng marketing mới, lên kế hoạch...",
-    "Biết cách làm cho nhân viên ngày càng trở nên sáng tạo hơn, không còn lo cảnh bị cạn kiệt ý tưởng sau một thời gian chạy ads nữa.",
-    "Giúp Founder/Manager tận dụng được trí tuệ nhân viên, tránh được cảnh 'một mình phải suy nghĩ hộ cả team' như hiện tại.",
-    "Biết cách làm cho nhân viên trở nên am hiểu về khách hàng, thị trường như mình.",
-    "Biết cách khiến nhân viên ngày càng tự chủ động hơn trong công việc hàng ngày, không còn lệ thuộc vào Founder/Manager nữa.",
-    "Biết cách làm cho nhân viên tự biết cách gọt giũa, chọn lọc các ý tưởng của họ, giảm các ý tưởng không khả thi hoặc nhàm chán đi.",
-    "Giúp Founder/Manager biết cách lựa chọn những nhân sự còn non kinh nghiệm nhưng có thể phát triển được."
+    "Sau gần mười tám tháng học tại Cao đẳng Chiến tranh Basgiath, Violet Sorrengail biết rằng không còn thời gian cho việc học nữa. Không còn thời gian cho sự bất định nữa.",
+    "Bởi vì trận chiến đã thực sự bắt đầu, và với kẻ thù đang tiến đến từ bên ngoài bức tường và bên trong hàng ngũ của họ, không thể biết nên tin tưởng ai.",
+    "Bây giờ Violet phải vượt qua những khu vực Aretian đang suy yếu để tìm kiếm đồng minh từ những vùng đất xa lạ để sát cánh cùng Navarre. Chuyến đi sẽ thử thách mọi trí thông minh, may mắn và sức mạnh của cô, nhưng cô sẽ làm bất cứ điều gì để cứu những gì cô yêu quý—rồng, gia đình, nhà cửa và anh .",
+    "Họ cần một đội quân. Họ cần sức mạnh. Họ cần phép thuật . Và họ cần một thứ duy nhất mà chỉ Violet mới có thể tìm thấy—sự thật.",
+    "Nhưng một cơn bão đang đến...và không phải ai cũng có thể sống sót sau cơn thịnh nộ của nó."
     ]
 };
 
 var courseData3 = {
-    "tieudeKhoahoc" : "Thuyết trình chuyên nghiệp & ấn tượng",
-    "placeCcon" : "Thuyết trình chuyên nghiệp & ấn tượng",
-    "tieudeBanner": "Thuyết trình chuyên nghiệp & ấn tượng",
-    "image": "../image/thuyettrinh.png",
-    "courseName": "Thuyết trình chuyên nghiệp & ấn tượng",
+    "tieudeKhoahoc" : "The Knight and the Moth",
+    "placeCcon" : "The Knight and the Moth",
+    "tieudeBanner": "The Knight and the Moth",
+    "image": "../image/TheKnightandtheMoth.jpg",
+    "courseName": "The Knight and the Moth",
     "newPrice": "99.000đ",
     "oldPrice": "199.000đ",
     "description": [
-        "Là khoá học được thiết kế dựa trên tiến trình thực tế từ lúc bạn nhận được yêu cầu thuyết trình cho đến khi hoàn thành bài thuyết trình của mình một cách hiệu quả. “Thuyết trình chuyên nghiệp &amp; ấn tượng” sẽ mang đến những kiến thức, kinh nghiệm sát với thực tế của doanh nghiệp từ chuyên gia có uy tín. Bạn sẽ có được những kiến thức &amp; kỹ năng cần thiết cho quá trình xây dựng &amp; trình bày bài thuyết trình của mình như xác định các thông tin nền tảng, quan trọng; lên ý tưởng &amp; sắp xếp bố cục hợp lý; lựa chọn cách trình bày trực quan phù hợp; vượt qua nỗi sợ thuyết trình và làm chủ giọng nói. Từ đó, bạn có thể sẵn sàng, tự tin &amp; hoàn thành tốt các buổi thuyết trình của mình."
+        "Một câu chuyện cổ tích khiến bạn mê mẩn, Rachel Gillig ( One Dark Window ) đan xen giữa sự lãng mạn, phép thuật và văn hóa dân gian thành một câu chuyện tuyệt vời. Câu chuyện này hoàn hảo cho những người hâm mộ Naomi Novik và Ava Reid."
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "Rachel Gillig",
     "benefits": [
-    "Ôn tập kiến thức liên tục, tăng hiệu quả học tập.",
-    "Học tập chủ động, học tập tương tác.",
-    "Thực hành & nhận phản hồi xuyên suốt khoá học.",
-    "Cung cấp kiến thức, kỹ năng & kinh nghiệm trong việc xây dựng & trình bày bài thuyết trình từ chuyên gia uy tín."
+    "Sybil Delling đã dành chín năm mơ ước không có giấc mơ nào cả.",
+    "Trong giấc mơ, cô nhận được những hình ảnh từ sáu nhân vật siêu nhiên được gọi là Điềm báo..",
+    "Từ họ, cô có thể dự đoán những điều khủng khiếp trước khi chúng xảy ra, và các lãnh chúa cũng như người dân thường đều du hành khắp vương quốc đồng cỏ lộng gió của Traum để biết tương lai của họ thông qua những giấc mơ của cô."
     ]
 };
 
 var courseData4 = {
-    "tieudeKhoahoc" : "Lập trình C# trong 5 tuần - Nâng cao",
-    "placeCcon" : "Lập trình C# trong 5 tuần - Nâng cao",
-    "tieudeBanner": "Lập trình C# trong 5 tuần - Nâng cao",
-    "image": "../image/cShap.jpg",
-    "courseName": "Lập trình C# trong 5 tuần - Nâng cao",
+    "tieudeKhoahoc" : "One Dark Window",
+    "placeCcon" : "One Dark Window",
+    "tieudeBanner": "One Dark Window",
+    "image": "../image/OneDarkWindow.jpg",
+    "courseName": "One Dark Window",
     "newPrice": "500.000đ",
     "oldPrice": "1.500.000đ",
     "description": [
-        "Các kiến thức nâng cao về ngôn ngữ lập trình C#."
+        "Tác phẩm đầu tay kỳ ảo đen tối, tươi tốt này mang đến thế giới đầy cảm xúc, phép thuật giống như bài tarot của phù thủy và một chủ đề lãng mạn nồng nhiệt. Đây là sự tưởng tượng lại một cách lỏng lẻo của bản ballad dân gian Anh The Highwayman và đọc giống như một câu chuyện ngụ ngôn vượt thời gian. Hoàn hảo cho những người hâm mộ Sarah J. Maas, Naomi Novik, Hannah Whitten và những người muốn có một chút gia vị trong thế giới tưởng tượng quái vật gothic của họ."
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": " Rachel Gillig",
     "benefits": [
-        "Có được kiến thức toàn diện về ngôn ngữ lập trình C#.",
-        "Có khả năng phát triển phần mềm tương tác cơ sở dữ liệu bằng C#.",
-        "Xây dựng được kiến trúc đa tầng trong C#.",
-        "Là cơ sở để lập trình di động đa nền tảng với Xamarin.",
-        "Là cơ sở để tiếp tục nghiên cứu công nghệ mới LINQ."
+        "Elspeth cần một con quái vật. Con quái vật đó có thể là cô.",
+        "Elspeth Spindle cần nhiều hơn may mắn để được an toàn trong vương quốc kỳ lạ, bị sương mù bao phủ mà cô gọi là nhà—cô cần một con quái vật. Cô gọi anh ta là Ác mộng, một linh hồn cổ xưa, thất thường bị mắc kẹt trong đầu cô. Anh ta bảo vệ cô. Anh ta giữ bí mật của cô.",
+        "Nhưng không có gì là miễn phí, đặc biệt là phép thuật.",
+        "Khi Elspeth gặp một tên cướp đường bí ẩn trên con đường rừng, cuộc sống của cô đã thay đổi hoàn toàn. Bị đẩy vào một thế giới bóng tối và lừa dối, cô tham gia vào một nhiệm vụ nguy hiểm để chữa khỏi vương quốc khỏi ma thuật đen đang lây nhiễm nó. Ngoại trừ tên cướp đường tình cờ là cháu trai của Nhà vua, Đội trưởng của Destriers… và phạm tội phản quốc.",
+        "Anh ta và Elspeth có thời gian cho đến Solstice để thu thập mười hai Thẻ Providence—chìa khóa để chữa khỏi. Nhưng khi tiền cược tăng cao và sức hấp dẫn không thể phủ nhận của họ ngày càng mãnh liệt, Elspeth buộc phải đối mặt với bí mật đen tối nhất của mình: Ác mộng đang từ từ, đen tối, chiếm lấy tâm trí cô. Và cô có thể không thể ngăn cản anh ta."
     ]
 };
 
 var courseData5 = {
-    "tieudeKhoahoc" : "SEO chuyên nghiệp từ cơ bản đến nâng cao",
-    "placeCcon" : "SEO chuyên nghiệp từ cơ bản đến nâng cao",
-    "tieudeBanner": "SEO chuyên nghiệp từ cơ bản đến nâng cao",
-    "image": "../image/SEO.png",
-    "courseName": "SEO chuyên nghiệp từ cơ bản đến nâng cao",
+    "tieudeKhoahoc" : "The Mighty Red",
+    "placeCcon" : "The Mighty Red",
+    "tieudeBanner": "The Mighty Red",
+    "image": "../image/TheMightyRed.jpg",
+    "courseName": "The Mighty Red",
     "newPrice": "379.000đ",
     "oldPrice": "800.000đ",
     "description": [
-        "SEO đóng vai trò hết sức quan trọng đối với tất cả doanh nghiệp, cá nhân,hộ kinh doanh để phát triển"
+        "Tác giả đoạt giải Pulitzer Louise Erdrich trở lại thế giới của The Beet Queen trong câu chuyện sâu sắc về thế giới tự nhiên, địa điểm và cộng đồng, hoàn hảo cho những người hâm mộ Demon Copperhead của Barbara Kingsolver và The Overstory của Richard Powers."
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "Louise Erdrich",
     "benefits": [
-        "Có thể tự SEO và kinh doanh riêng.",
-        "Có thể tự mở dịch vụ SEO.",
-        "Làm SEO Leader tại các công ty."
+        "Trong cuốn tiểu thuyết tuyệt vời này, tác giả đoạt giải Pulitzer và Giải thưởng Sách quốc gia Louise Erdrich kể câu chuyện về tình yêu, sức mạnh tự nhiên, khát vọng tâm linh và tác động bi thảm của những hoàn cảnh không thể kiểm soát lên cuộc sống của những người bình thường.",
+        "Lịch sử là một trận lụt. Màu đỏ hùng mạnh...",
+        "Gary Geist, một chàng trai trẻ sợ hãi sắp được thừa kế hai trang trại, vô cùng muốn kết hôn với Kismet Poe, một người đàn ông Goth bốc đồng, sa ngã, không thể đọc được tương lai của mình nhưng dường như đã quyết định được tương lai của mình. "
     ]
 };
 
 var courseData6 = {
-    "tieudeKhoahoc" : "Chiến lược tài chính",
-    "placeCcon" : "Chiến lược tài chính",
-    "tieudeBanner": "Chiến lược tài chính",
-    "image": "../image/taichinh.jpg",
-    "courseName": "Chiến lược tài chính",
+    "tieudeKhoahoc" : "Intermezzo",
+    "placeCcon" : "Intermezzo",
+    "tieudeBanner": "Intermezzo",
+    "image": "../image/Intermezzo.jpg",
+    "courseName": "Intermezzo",
     "newPrice": "699.000đ",
     "oldPrice": "1.700.000đ",
     "description": [
-        "Chiến lược tài chính và những điều cần biết để có thể hoạch định kế hoạch kinh doanh của các doanh nghiệp"
+        "Tất cả chúng ta đều bị Sally Rooney mê hoặc với tác phẩm đầu tay tuyệt vời Conversations with Friends — giờ chúng ta đã sẵn sàng để yêu thêm lần nữa. Intermezzo thực sự thăng hoa với những mối quan hệ phức tạp (lãng mạn và gia đình) và lối viết đặc trưng mà chúng ta không thể ngừng yêu từ một biểu tượng văn học."
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": " Sally Rooney",
     "benefits": [
-        "Đọc và hiểu các báo cáo tài chính.",
-        "Có khả năng đánh giá tài chính của công ty.",
-        "Hiểu và thực hiện các chiến lược tài chính phù hợp với nhu cầu thực tế."
+        "Một câu chuyện vô cùng cảm động về nỗi đau, tình yêu và gia đình từ hiện tượng toàn cầu Sally Rooney.",
+        "Ngoài việc là anh em, Peter và Ivan Koubek dường như có rất ít điểm chung.",
+        "Peter là một luật sư ở Dublin ngoài ba mươi tuổi—thành đạt, có năng lực và dường như không thể bị tấn công. Nhưng sau cái chết của cha mình, anh phải dùng thuốc để ngủ và đấu tranh để quản lý mối quan hệ của mình với hai người phụ nữ rất khác nhau—mối tình đầu bền bỉ của anh, Sylvia, và Naomi, một sinh viên đại học mà cuộc sống chỉ là một trò đùa dài.",
+        "Ivan là một kỳ thủ cờ vua chuyên nghiệp hai mươi hai tuổi. Anh luôn coi mình là người vụng về trong giao tiếp xã hội, một kẻ cô độc, trái ngược hẳn với người anh trai lắm lời của mình. Bây giờ, trong những tuần đầu của nỗi đau mất mát, Ivan gặp Margaret, một người phụ nữ lớn tuổi đang thoát khỏi quá khứ đầy biến động của chính mình, và cuộc sống của họ nhanh chóng và gắn bó chặt chẽ với nhau.",
+        "Đối với hai anh em đang đau buồn và những người họ yêu thương, đây là một khoảng thời gian mới - một giai đoạn của khát khao, tuyệt vọng và khả năng; một cơ hội để tìm hiểu xem cuộc sống của một người có thể chứa đựng được bao nhiêu mà không bị tan vỡ."
     ]
 };
 
 var courseData7 = {
-    "tieudeKhoahoc" : "Học Photoshop trọn bộ trong 7 ngày",
-    "placeCcon" : "Học Photoshop trọn bộ trong 7 ngày",
-    "tieudeBanner": "Học Photoshop trọn bộ trong 7 ngày",
-    "image": "../image/photoshop.png",
-    "courseName": "Học Photoshop trọn bộ trong 7 ngày",
+    "tieudeKhoahoc" : "The Striker",
+    "placeCcon" : "The Striker",
+    "tieudeBanner": "The Striker",
+    "image": "../image/TheStriker.jpg",
+    "courseName": "The Striker",
     "newPrice": "999.000đ",
     "oldPrice": "2.700.000đ",
     "description": [
-        "Học thiết kế đồ họa chuyên nghiệp với Photoshop."
+        "Đây là Ted Lasso với mối tình bị cấm đoán mà tất cả chúng ta đều khao khát. Liệu nữ diễn viên ballet tài năng này có thể chiếm được trái tim (và cái tôi) của cầu thủ bóng đá giỏi nhất thế giới không?"
     ],
-    "instructor": "Nguyễn Văn Trường An",
+    "instructor": "Ana Huang",
     "benefits": [
-        "Nắm được các nguyên lý về cách chỉnh sửa ảnh và tối ưu việc sử dụng Photoshop.",
-        "Có thể chỉnh sửa ảnh phong cảnh theo ý muốn.",
-        "Có thể tạo ra những bức ảnh động.",
-        "Có thể làm được banner quảng cáo 'độc' và 'lạ'."
+        "Cô ấy là người phụ nữ duy nhất anh muốn...và cũng là người duy nhất anh không thể có được.",
+        "Asher Donovan là một huyền thoại sống - cầu thủ được yêu thích nhất của Giải Ngoại hạng Anh, cầu thủ bóng đá (có thể nói là) vĩ đại nhất thế giới.",
+        "Nhưng những trò hề liều lĩnh và việc chuyển đội gần đây của anh đã gây ra nhiều tranh cãi, và khi mối thù của anh với đối thủ trở thành đồng đội khiến họ mất chức vô địch, họ buộc phải gắn kết trong quá trình tập luyện chéo ngoài mùa giải.",
+        "Sống sót qua mùa hè không phải là điều khó khăn...cho đến khi Asher gặp huấn luyện viên mới của họ. Cô ấy xinh đẹp, tài năng, và dù anh có cố gắng thế nào, anh cũng không thể rời mắt khỏi cô.",
+        "Vấn đề duy nhất? Cô ấy là em gái của đối thủ của anh ta—và hoàn toàn không được phép đụng tới.",
+        "Scarlett DuBois là một cựu diễn viên ba lê nổi tiếng nhưng sự nghiệp của cô đã bị cắt ngắn bởi một tai nạn thương tâm.",
+        "Hiện là giáo viên tại một học viện khiêu vũ danh tiếng nhưng vẫn bị ám ảnh bởi những bóng ma quá khứ, điều cuối cùng cô muốn là dành cả mùa hè để huấn luyện chéo với Asher Donovan.",
+        "Cô ấy đã thề sẽ không bao giờ hẹn hò với một cầu thủ bóng đá, nhưng khi anh trai cô rời thị trấn vì có việc khẩn cấp, cô thấy mình bị đẩy vào tình thế nguy hiểm khi ở rất gần với chàng tiền đạo đẹp trai, quyến rũ này.",
+        "Tập luyện, cô ấy có thể giải quyết được. Nhưng yêu? Điều đó là không thể - đặc biệt là khi anh ấy là người duy nhất có khả năng làm tan vỡ trái tim cô ấy."
     ]
 };
 
@@ -678,6 +671,46 @@ var courseData17 = {
     "Hưởng thụ sự hài hước và chân thành trong cách viết của Cher, khiến độc giả cảm thấy gần gũi và dễ dàng đồng cảm với những trải nghiệm cá nhân của cô.",
     "Khám phá những khía cạnh chưa từng được kể về cuộc sống riêng tư của Cher, từ vai trò của một người mẹ cho đến những khó khăn và niềm vui trong gia đình.",
     "Đem lại nguồn cảm hứng mạnh mẽ cho độc giả, khuyến khích họ theo đuổi ước mơ của mình bất chấp mọi thử thách, giống như Cher đã làm trong suốt sự nghiệp của mình."
+]
+
+};
+
+/*them 2 sp cua 10 sp dau */
+var courseData16 = {
+    "tieudeKhoahoc" : "Sunrise on the Reaping",
+    "placeCcon" : "Sunrise on the Reaping",
+    "tieudeBanner": "Sunrise on the Reaping",
+    "image": "../image/SunriseontheReaping.jpg",
+    "courseName": "Sunrise on the Reaping",
+    "newPrice": "499.000đ",
+    "oldPrice": "800.000đ",
+    "description": [
+        "Cuốn sách thứ năm phi thường trong loạt truyện Hunger Games! Phiên bản độc quyền của Barnes & Noble này có cuộc trò chuyện sâu sắc giữa Suzanne Collins và nhà xuất bản của cô, David Levithan."
+    ],
+    "instructor": "Suzanne Collins",
+    "benefits": [
+    "Khi ngày đầu tiên của Hunger Games lần thứ năm mươi bắt đầu, nỗi sợ hãi bao trùm các quận của Panem. Năm nay, để vinh danh Quarter Quell, số lượng vật phẩm được đưa ra khỏi nhà sẽ tăng gấp đôi.",
+    "Trở lại Quận 12, Haymitch Abernathy đang cố gắng không nghĩ quá nhiều về cơ hội của mình. Tất cả những gì anh quan tâm là vượt qua ngày hôm nay và ở bên cô gái anh yêu.",
+    "Khi tên của Haymitch được gọi, anh có thể cảm thấy mọi giấc mơ của mình tan vỡ. Anh bị tách khỏi gia đình và tình yêu của mình, bị đưa đến Capitol cùng với ba cống phẩm khác của Quận 12: một người bạn trẻ gần như là chị em với anh, một người cá cược bắt buộc và là cô gái kiêu ngạo nhất thị trấn. ",
+    "Khi Thế vận hội bắt đầu, Haymitch hiểu rằng anh đã bị sắp đặt để thất bại. Nhưng có điều gì đó trong anh muốn chiến đấu... và để cuộc chiến đó vang vọng xa hơn đấu trường chết chóc."
+]
+};
+var courseData19 = {
+    "tieudeKhoahoc" : "Two Twisted Crowns",
+    "placeCcon" : "Two Twisted Crowns",
+    "tieudeBanner": "Two Twisted Crowns",
+    "image": "../image/TwoTwistedCrowns.jpg",
+    "courseName": "Two Twisted Crowns",
+    "newPrice": "499.000đ",
+    "oldPrice": "800.000đ",
+    "description": [
+        "Toàn bộ vương quốc đang gặp nguy hiểm và quái vật tràn lan! Two Twisted Crowns có tất cả những yếu tố kỳ ảo đen tối khiến bạn yêu thích bộ truyện cùng với sự trao quyền cho phụ nữ và âm hưởng không khí."
+    ],
+    "instructor": "Rachel Gillig",
+    "benefits": [
+    "Trong  phần tiếp theo bán chạy nhất của New York Times của  One Dark Window , Elspeth phải đối mặt với sức nặng của những hành động của mình khi cô và Ravyn bắt đầu một nhiệm vụ nguy hiểm để cứu vương quốc—hoàn hảo cho độc giả của For the Wolf của Hannah Whitten và The Year of the Witching  của Alexis Henderson",
+    "Bị một vị vua bạo chúa nắm giữ và bị ma thuật đen thống trị, vương quốc đang gặp nguy hiểm. Elspeth và Ravyn đã thu thập được hầu hết mười hai Thẻ Providence, nhưng thẻ cuối cùng—và quan trọng nhất—vẫn chưa được tìm thấy: Twin Alders. Nếu họ muốn tìm thấy thẻ trước Solstice và giải thoát vương quốc, họ sẽ cần phải đi qua khu rừng sương mù nguy hiểm. Người duy nhất có thể dẫn họ đi qua là con quái vật có chung đầu với Elspeth: Ác mộng.",
+    "Và hắn không còn muốn chia sẻ nữa."
 ]
 
 };
