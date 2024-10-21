@@ -272,11 +272,13 @@ body::-webkit-scrollbar-thumb { /*định dạng tay cầm thanh cuộn*/
 }
 
 .card img {
-    width: 60%;
+    width: 100%;
     border-radius: 10px;
     transition: transform 0.3s;
 }
-
+#ImgSpChitietgiohang{
+    width: 60%;
+}
 .card:hover img {
     transform: scale(1.1);
 }
