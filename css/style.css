@@ -272,7 +272,7 @@ body::-webkit-scrollbar-thumb { /*định dạng tay cầm thanh cuộn*/
 }
 
 .card img {
-    width: 100%;
+    width: 60%;
     border-radius: 10px;
     transition: transform 0.3s;
 }
