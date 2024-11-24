@@ -1,98 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANEDUSHOP - Lead Your Future</title>
-    <link rel="icon" type="image/png" href="/image/icon-conen.png">
-    <link rel="stylesheet" href="./css/style.css">
-     <link rel="stylesheet" href="./css/styleKH.css"> 
-    <link rel="stylesheet" href="./css/styleAbout.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- them icon cua bootstrap o trên de them icon -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</head>
-<body>
-    <nav class=" navbar navbar-expand-xl fixed-top" id="header">
-        <a class="navbar-brand" href="/index.html"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" id="#nut-menu-nho">
-            <i class="bi bi-list" id="icon-nho"></i>
-        </button>
-        <div class="collapse navbar-collapse le-phai" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-action">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/index.html">Trang chủ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/khoahoc.html">Mua sách</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/aboutus.html" tabindex="-1" aria-disabled="true">Về chúng tôi</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/lienhe.html" tabindex="-1" aria-disabled="true">Liên hệ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/labTH.html" tabindex="-1" aria-disabled="true">Bản tin</a>
-            </li>
-          </ul>
-          <form id="search" class="d-flex">
-            <input id="input-search" class="form-control me-2" type="search" placeholder="Tìm kiếm">
-            <button type="submit"><img src="./image/icons-search-32.png" alt="Search"></button>
-          </form>
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-action">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-cart-fill"></i> <span class="badge bg-warning cart-item-count">1</span> Giỏ hàng 
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li class="dropdown-item">
-                  <div class="d-flex align-items-center">
-                    <img src="/image/The_Boyfriend.jpg" alt="Sản phẩm 1" class="img-fluid me-2" style="width: 50px;">
-                    <div class="flex-grow-1">
-                      <div class="fw-bold">The Boyfriend</div>
-                      <div class="text-muted"></div> 
-                    </div>
-                    <button type="button" class="btn-close" aria-label="Close"></button>
-                  </div>
-                </li>
-                <li><hr class="dropdown-divider"></li>
-                <!-- <li class="dropdown-item">
-                  <div class="d-flex align-items-center">
-                    <img src="/image/excel.jpg" alt="Sản phẩm 2" class="img-fluid me-2" style="width: 50px;">
-                    <div class="flex-grow-1">
-                      <div class="fw-bold">Excel</div>
-                      <div class="text-muted">Trần Thị Hoa</div>
-                    </div>
-                    <button type="button" class="btn-close" aria-label="Close"></button>
-                  </div>
-                </li> -->
-                <li><hr class="dropdown-divider"></li>
-                <!-- Thêm các sản phẩm khác tương tự -->
-                <li><a class="dropdown-item" href="/chitietgiohang.html">Tới giỏ hàng</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/chitietgiohang.html">Thanh toán</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-fill"></i> Tài khoản
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/login.html">Đăng nhập</a></li>
-                <li><a class="dropdown-item" href="/login.html">Đăng ký</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/login.html">Thông tin TK</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    <div id="content">
+<div id="content">
         <div id="banner-school">
             <div class="overlay"></div>
             <div id="gr-td-dk">
@@ -129,7 +35,7 @@
                 <div id="product-1">
                     <div class="product " > 
                         <div class="product-image">
-                            <img src="./image/The_Boyfriend.jpg" alt="">
+                            <img src="view/layout/assets/image/The_Boyfriend.jpg" alt="">
                             <button id="addToCartButton" class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -148,7 +54,7 @@
                 </div>
                 <div class="product ">
                     <div class="product-image">
-                        <img src="./image/GreatBig.jpg" alt="">
+                        <img src="view/layout/assets/image/GreatBig.jpg" alt="">
                         <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
                     <div class="product-info">
@@ -164,7 +70,7 @@
                 </div>
                 <div class="product ">
                     <div class="product-image">
-                        <img src="./image/OnyxStorm.jpg" alt="">
+                        <img src="view/layout/assets/image/OnyxStorm.jpg" alt="">
                         <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
                     <div class="product-info">
@@ -180,7 +86,7 @@
                 </div>
                 <div class="product ">
                     <div class="product-image">
-                        <img src="./image/TheKnightandtheMoth.jpg" alt="">
+                        <img src="view/layout/assets/image/TheKnightandtheMoth.jpg" alt="">
                         <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
                     <div class="product-info">
@@ -196,7 +102,7 @@
                 </div>
                 <div class="product ">
                     <div class="product-image">
-                        <img src="./image/SunriseontheReaping.jpg" alt="">
+                        <img src="view/layout/assets/image/SunriseontheReaping.jpg" alt="">
                         <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
                     <div class="product-info">
@@ -216,7 +122,7 @@
                 <div id="product-1">
                     <div class="product"> 
                         <div class="product-image">
-                            <img src="./image/OneDarkWindow.jpg" alt="">
+                            <img src="view/layout/assets/image/OneDarkWindow.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -232,7 +138,7 @@
                 </div>
                 <div class="product">
                     <div class="product-image">
-                        <img src="./image/TheMightyRed.jpg" alt="">
+                        <img src="view/layout/assets/image/TheMightyRed.jpg" alt="">
                         <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
                     <div class="product-info">
@@ -249,7 +155,7 @@
                 </div>
                 <div class="product">
                     <div class="product-image">
-                        <img src="./image/Intermezzo.jpg" alt="">
+                        <img src="view/layout/assets/image/Intermezzo.jpg" alt="">
                         <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
                     <div class="product-info">
@@ -265,7 +171,7 @@
                 </div>
                 <div class="product">
                     <div class="product-image">
-                        <img src="./image/TheStriker.jpg" alt="">
+                        <img src="view/layout/assets/image/TheStriker.jpg" alt="">
                         <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
                     <div class="product-info">
@@ -281,7 +187,7 @@
                 </div>
                 <div class="product">
                     <div class="product-image">
-                        <img src="./image/TwoTwistedCrowns.jpg" alt="">
+                        <img src="view/layout/assets/image/TwoTwistedCrowns.jpg" alt="">
                         <button class="product-button">THÊM VÀO GIỎ</button>
                     </div>
                     <div class="product-info">
@@ -300,7 +206,7 @@
                 <div id="product-1">
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9780316539951_p0_v4_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9780316539951_p0_v4_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -316,7 +222,7 @@
                     </div>
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9780593320969_p0_v2_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9780593320969_p0_v2_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -332,7 +238,7 @@
                     </div>
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9781665971720_p0_v2_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9781665971720_p0_v2_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -348,7 +254,7 @@
                     </div>
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9781668002957_p0_v3_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9781668002957_p0_v3_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -364,7 +270,7 @@
                     </div>
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9780062863102_p0_v3_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9780062863102_p0_v3_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -383,7 +289,7 @@
                 <div id="product-1">
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9781668052273_p0_v2_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9781668052273_p0_v2_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -399,7 +305,7 @@
                     </div>
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9781536223316_p0_v1_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9781536223316_p0_v1_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -415,7 +321,7 @@
                     </div>
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9781464240942_p0_v2_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9781464240942_p0_v2_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -431,7 +337,7 @@
                     </div>
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9781797237138_p0_v1_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9781797237138_p0_v1_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -447,7 +353,7 @@
                     </div>
                     <div class="product">
                         <div class="product-image">
-                            <img src="./image/9780593978771_p0_v3_s600x595.jpg" alt="">
+                            <img src="view/layout/assets/image/9780593978771_p0_v3_s600x595.jpg" alt="">
                             <button class="product-button">THÊM VÀO GIỎ</button>
                         </div>
                         <div class="product-info">
@@ -473,73 +379,3 @@
             </div>
         </div>
     </div>
-    <div id="footer">
-        <div id="footer-top">
-            <div class="footer-section">
-                
-                <img id="footer-top-logo" src="./image/logo_BookStore.png" alt="Logo">
-                <br>
-                <span>Mua sách trực tuyến tại A&DBOOKSTOER, Nhà sách được yêu thích tại Việt Nam.</span>
-            </div>
-            <div class="footer-section">
-                <!-- Thẻ div chứa thông tin -->
-                <p id="dc-footer">THÔNG TIN</p>
-                <ul id="information-footer">
-                    <li>Lớp D21_TH01 tại Việt Nam</li>
-                    <li>Địa chỉ: 180 Cao Lỗ, Phường 4, Quận 8, TP Hồ Chí Minh</li>
-                    <li>Email: AD@gmail.com</li>
-                    <li>Điện thoại: (028) 38 505 520</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <!-- Thẻ div chứa iframe dẫn link đến Google Map -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15679.817641153899!2d106.6778321!3d10.7379972!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f62a90e5dbd%3A0x674d5126513db295!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgU8OgaSBHw7Ju!5e0!3m2!1svi!2s!4v1714446027103!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-        <div id="footer-bottom">
-            <div id="container">
-                <div id="row">
-                    <hr id="hr">
-                    <div id="footer-copyright">
-                        <span>© 180 Cao Lỗ, Phường 4, Quận 8, TP Hồ Chí Minh</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3"></div>
-    <!-- chat box -->
-    <div class="chat-box border rounded">
-        <div class="chat-header d-flex justify-content-between align-items-center">
-          <h5>Chat box</h5>
-          <button type="button" class="btn-close" aria-label="Close"></button>
-        </div>
-        <div class="chat-body">
-          <!-- Messages will appear here -->
-          <div class="chat-message">
-            <strong>Admin:</strong> Xin chào, tôi giúp gì được cho bạn?
-          </div>
-        </div>
-        <div class="chat-footer">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Type a message...">
-            <button class="btn btn-warning" type="button">Send</button>
-          </div>
-        </div>
-        </div>
-    
-      <div class="chat-bubble">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png" alt="Chat">
-      </div>
-      <!-- end chat box --> 
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="bi bi-chevron-double-up"></i></button>
-    <script src="./js/script.js"></script>
-    <script>
-        function selectButton(button) { //các nút chuyển trang
-            const buttons = document.querySelectorAll('.button-container button');
-            buttons.forEach(btn => btn.classList.remove('selected'));
-            button.classList.add('selected');
-        }
-    </script>
-</body>
-</html>
