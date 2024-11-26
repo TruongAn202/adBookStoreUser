@@ -33,7 +33,7 @@ body::-webkit-scrollbar-thumb { /*định dạng tay cầm thanh cuộn*/
     width: 100px; 
     height: 40px; 
     background-size: contain !important; /*ảnh co giãn phù hợp kích thước thẻ a*/
-    background: url('/tichhop/image/logo_BookStore.png') no-repeat center center; /*canh giữa theo chiều ngang và dọc*/ 
+    background: url('/GiaoDienUser_Update_1/view/layout/assets/tichhop/image/logo_BookStore.png') no-repeat center center; /*canh giữa theo chiều ngang và dọc*/ 
     margin-left: 30px;
 }
 .nav-link .badge { /*thẻ span so luong sp da them vao gio*/
@@ -492,7 +492,7 @@ span {
     margin-right: 0; /* Loại bỏ margin phải của phần tử cuối cùng */
 }
 
-.horizontal-list button {
+.horizontal-list a {
     /* Thêm CSS cho các nút */
     padding: 5px 10px;
     background-color: #fccf00;
@@ -500,6 +500,7 @@ span {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
     width: 175px;
     height: 51px;
     margin: 0px;
@@ -508,7 +509,7 @@ span {
     font-family: Arial, Helvetica, sans-serif !important;
 }
 
-.horizontal-list button:hover {
+.horizontal-list a:hover {
     background-color: black; /* Đổi màu nền khi hover */
     color: #fccf00; /* Đổi màu chữ khi hover */
 }
