@@ -5,7 +5,6 @@
         $linksanpham = 'index.php?pg=sanpham&maloai=' . urlencode($maLoai) . '#product-section'; //thêm #product-section để lọc => tải lại trang =>tự chuyển đến #product-section
         $loaisachlist .= '<li><a href="' . $linksanpham . '">' . $tenLoai . '</a></li>';
     }
-    
 ?>
 <div id="content">
         <div id="banner-school">
@@ -47,7 +46,15 @@
                             $sanphamlist.='<div class="product " > 
                         <div class="product-image">
                             <img src="view/layout/assets/image/'.$anh.'" alt="">
-                            <button id="addToCartButton" class="product-button">THÊM VÀO GIỎ</button>
+                            <form action="index.php?pg=addcart" method="post">
+                                <input type="hidden" value="'.$maSach.'" name="maSach" >
+                                <input type="hidden" value="'.$tenSach.'" name="tenSach" >
+                                <input type="hidden" value="'.$anh.'" name="anh" >
+                                <input type="hidden" value="'.$giaKM.'" name="giaKM" >
+                                <input type="hidden" value="'.$tenTG.'" name="tenTG" >
+                                <input type="hidden" value="1" name="soLuong" >
+                                <input type="submit" value="Thêm vào giỏ" name="btnaddcart" >
+                            </form> 
                         </div>
                         <div class="product-info">
                             <!-- Thông tin và giá -->

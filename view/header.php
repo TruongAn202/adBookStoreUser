@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="view/layout/assets/css/styleAbout.css">
     <link rel="stylesheet" href="view/layout/assets/css/styleLH.css">
     <link rel="stylesheet" href="view/layout/assets/css/styleBanTin.css">
+    <link rel="stylesheet" href="view/layout/assets/css/styleChiTietGioHang.css">
+    <link rel="stylesheet" href="view/layout/assets/css/styleLogin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -83,9 +85,9 @@
                 </li> -->
                 <li><hr class="dropdown-divider"></li>
                 <!-- Thêm các sản phẩm khác tương tự -->
-                <li><a class="dropdown-item" href="/chitietgiohang.html">Tới giỏ hàng</a></li>
+                <li><a class="dropdown-item" href="index.php?pg=chitietgiohang">Tới giỏ hàng</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/chitietgiohang.html">Thanh toán</a></li>
+                <li><a class="dropdown-item" href="index.php?pg=chitietgiohang">Thanh toán</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -93,10 +95,10 @@
                 <i class="bi bi-person-fill"></i> Tài khoản
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/login.html">Đăng nhập</a></li>
-                <li><a class="dropdown-item" href="/login.html">Đăng ký</a></li>
+                <li><a class="dropdown-item" href="index.php?pg=dangnhap">Đăng nhập</a></li>
+                <li><a class="dropdown-item" href="index.php?pg=dangnhap">Đăng ký</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/login.html">Thông tin TK</a></li>
+                <li><a class="dropdown-item" href="index.php?pg=dangnhap">Thông tin TK</a></li>
               </ul>
             </li>
           </ul>

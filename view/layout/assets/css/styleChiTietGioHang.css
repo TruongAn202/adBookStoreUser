@@ -6,17 +6,17 @@
     padding: 0px;
 }
 
-
 /* bootstrap */
-.container {
+/* .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-  }
+  } */
   
   .card {
-    flex: 1 1 100%; /* Card chiếm 100% width trên màn hình nhỏ */
+    /* flex: 1 1 100%;  */
+    /* Card chiếm 100% width trên màn hình nhỏ */
   }
   
   .right {
@@ -24,17 +24,7 @@
     margin-top: 20px; /* Khoảng cách giữa card và right panel khi xếp chồng */
   }
   
-  @media (min-width: 992px) {
-    .card {
-      flex: 1 0 60%; /* Card chiếm 60% của container trên màn hình lớn */
-    }
-  
-    .right {
-      flex: 1 0 35%; /* Right panel chiếm 35% của container trên màn hình lớn */
-      margin-left: 20px; /* Khoảng cách giữa card và right panel trên màn hình lớn */
-      margin-top: 0; /* Bỏ khoảng cách khi xếp chồng trên màn hình nhỏ */
-    }
-  }
+ 
   h4{ /*chữ hóa đơn*/
     text-align: center;
   }
@@ -145,7 +135,17 @@
 }
 /*xuong hang */
 
-
+@media (min-width: 992px) {
+    /* .card {
+      flex: 1 0 60%; 
+    } */
+  
+    .right {
+      flex: 1 0 35%; /* Right panel chiếm 35% của container trên màn hình lớn */
+      margin-left: 20px; /* Khoảng cách giữa card và right panel trên màn hình lớn */
+      margin-top: 0; /* Bỏ khoảng cách khi xếp chồng trên màn hình nhỏ */
+    }
+  }
 
 @media screen and (max-width: 768px) {
     .sub-left, .sub-right {
@@ -172,4 +172,10 @@
 }
 /*hoa don*/
 
+.delete-item {
+    position: absolute; 
+    right: 10px; 
+    top: 10px; 
+    color: #212121;
+}
 

@@ -130,7 +130,17 @@
                     <div class="product " > 
                         <div class="product-image">
                             <img src="./image/The_Boyfriend.jpg" alt="">
-                            <button id="addToCartButton" class="product-button">THÊM VÀO GIỎ</button>
+
+                            <form action="index.php?pg=addcart" method="post">
+                                <input type="hidden" value="'.$maSach.'" name="maSach" >
+                                <input type="hidden" value="'.$tenSach.'" name="tenSach" >
+                                <input type="hidden" value="'.$anh.'" name="anh" >
+                                <input type="hidden" value="'.$tenSach.'" name="tenSach" >
+                                <input type="hidden" value="1" name="soLuong" >
+                                <input type="submit" value="Thêm vào giỏ" name="btnaddcart" >
+                                <!-- <button id="addToCartButton" class="product-button">THÊM VÀO GIỎ</button> -->
+                            </form> 
+                            
                         </div>
                         <div class="product-info">
                             <!-- Thông tin và giá -->
