@@ -30,7 +30,7 @@
 
 //thong bao them sp thanh cong
 //lang nghe sk them sp hien thong bao - để ở đầu
-document.querySelectorAll('.product-button').forEach(button => {
+document.querySelectorAll('.input[type="submit"][name="btnaddcart"]').forEach(button => {
     button.addEventListener('click', function() {
       var toastContainer = document.getElementById('toast-container');
       var toastId = 'toast-' + Date.now(); // Unique ID for each toast

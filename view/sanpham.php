@@ -30,50 +30,122 @@
                       <br>
                       </div>
                 </div>
-                
+                <!-- sd -->
+                <div class="container mt-4">
+                    <div class="row">
+                        <!-- Sidebar -->
+                        <div class="col-md-3 sidebar">
+                            <div class="mb-3">
+                                <input type="text" class="form-control search-bar" placeholder="Tìm kiếm">
+                            </div>
+
+                            <h5 class="filter-title">Lọc theo danh mục</h5>
+                            <ul class="category-list">
+                                <?=$loaisachlist?>
+                            </ul>
+
+                            <h5 class="filter-title">Lọc theo giá</h5>
+                            <form method="GET" action="#" id="filterForm">
+                                <ul class="category-list">
+                                <li>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="price" value="0-150000" id="price1" onchange="submitForm()">
+                                    <label class="form-check-label" for="price1">
+                                        0 - 150,000₫ <span class="float-end soluongbaiviet"></span>
+                                    </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="price" value="150000-300000" id="price2" onchange="submitForm()">
+                                    <label class="form-check-label" for="price2">
+                                        150,000₫ - 300,000₫ <span class="float-end soluongbaiviet"></span>
+                                    </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="price" value="300000-500000" id="price3" onchange="submitForm()">
+                                    <label class="form-check-label" for="price3">
+                                        300,000₫ - 500,000₫ <span class="float-end soluongbaiviet"></span>
+                                    </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="price" value="500000-700000" id="price4" onchange="submitForm()">
+                                    <label class="form-check-label" for="price4">
+                                        500,000₫ - 700,000₫ <span class="float-end soluongbaiviet"></span>
+                                    </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="price" value="700000+" id="price5" onchange="submitForm()">
+                                    <label class="form-check-label" for="price5">
+                                        700,000₫ - Trở Lên <span class="float-end soluongbaiviet"></span>
+                                    </label>
+                                    </div>
+                                </li>
+                                </ul>
+                            </form>
+                            </div>
+                        <!-- Product List -->
+                        <div id="product-1" class="col-md-9">
+                        <?php
+                            $sanphamlist = '';
+                            foreach ($sanpham_list as $item) {
+                                extract($item);
+                                $sanphamlist .= '<div class="product"> 
+                                    <div class="product-image">
+                                        <img src="view/layout/assets/image/'.$anh.'" alt="">
+                                        <form action="index.php?pg=addcart" method="post">
+                                            <input type="hidden" value="'.$maSach.'" name="maSach">
+                                            <input type="hidden" value="'.$tenSach.'" name="tenSach">
+                                            <input type="hidden" value="'.$anh.'" name="anh">
+                                            <input type="hidden" value="'.$giaKM.'" name="giaKM">
+                                            <input type="hidden" value="'.$tenTG.'" name="tenTG">
+                                            <input type="hidden" value="1" name="soLuong">
+                                            <input type="submit" value="Thêm vào giỏ" name="btnaddcart" class="product-button">
+                                        </form> 
+                                    </div>
+                                    <div class="product-info">
+                                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData)">'.$tenSach.'</a></p>
+                                        <div class="mo-ta">'.$tenNXB.'</div>
+                                        <div class="tac-gia">'.$tenTG.'</div>
+                                        <div class="ql-price">
+                                            <div class="price">'.$giaKM.'đ</div>
+                                            <div class="old-price">'.$gia.'đ</div>
+                                        </div>
+                                    </div>
+                                </div>';
+                            }
+                            echo $sanphamlist;
+                        ?>
+                        </div>
+                    </div>
+                    </div>
+                 <!-- sssd -->
                 <div id="danh-muc">
                     <ul class="horizontal-list">
                         <!-- hiển thị kết quả vòng for ở đầu trang -->
-                        <?=$loaisachlist?> 
+                        
                     </ul>
                 </div>
-            
-                <div id="product-1">
-                    <?php
-                        $sanphamlist='';
-                        foreach ($sanpham_list as $item) {
-                            extract($item);
-                            $sanphamlist.='<div class="product " > 
-                        <div class="product-image">
-                            <img src="view/layout/assets/image/'.$anh.'" alt="">
-                            <form action="index.php?pg=addcart" method="post">
-                                <input type="hidden" value="'.$maSach.'" name="maSach" >
-                                <input type="hidden" value="'.$tenSach.'" name="tenSach" >
-                                <input type="hidden" value="'.$anh.'" name="anh" >
-                                <input type="hidden" value="'.$giaKM.'" name="giaKM" >
-                                <input type="hidden" value="'.$tenTG.'" name="tenTG" >
-                                <input type="hidden" value="1" name="soLuong" >
-                                <input type="submit" value="Thêm vào giỏ" name="btnaddcart" >
-                            </form> 
-                        </div>
-                        <div class="product-info">
-                            <!-- Thông tin và giá -->
-                             <!-- thay đổi courseData để gọi từng thông tin khác nhau = JSon -->
-                            <p><a href="/information/thongtin.html" onclick="selectCourse(courseData)">'.$tenSach.'</a></a>
-                            </p>
-                            <div class="mo-ta"> '.$tenNXB.' </div>
-                            <div class="tac-gia"> '.$tenTG.'</div>
-                            <div class="ql-price">
-                                <div class="price">'.$giaKM.'đ</div>
-                                <div class="old-price">'.$gia.'đ</div>
-                                <br>
+                <!-- start khung tim kiem -->
+                <!-- <div class="container mt-1 mb-3">
+                     
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for books, authors, or categories..." aria-label="Search">
+                            <button class="btn btn-primary" type="button">Search</button>
                             </div>
                         </div>
-                    </div>';
-                        }
-                        echo $sanphamlist; 
-                    ?>
-                </div>
+                    </div>
+                </div> -->
+                 <!-- end khung tim kiem -->
+                
             
                 <div class="button-container">
                     <button onclick="selectButton(this)">&lt; </button>
@@ -87,3 +159,8 @@
         </div>
         </div>
     </div>
+    <!-- <script>
+        function submitForm() {
+            document.getElementById('filterForm').submit();
+        }
+    </script> -->

@@ -62,7 +62,7 @@
                 <i class="bi bi-cart-fill"></i> <span class="badge bg-warning cart-item-count">1</span> Giỏ hàng 
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li class="dropdown-item">
+                <!-- <li class="dropdown-item">
                   <div class="d-flex align-items-center">
                     <img src="view/layout/assets/image/The_Boyfriend.jpg" alt="Sản phẩm 1" class="img-fluid me-2" style="width: 50px;">
                     <div class="flex-grow-1">
@@ -73,34 +73,41 @@
                   </div>
                 </li>
                 <li><hr class="dropdown-divider"></li>
-                <!-- <li class="dropdown-item">
-                  <div class="d-flex align-items-center">
-                    <img src="/image/excel.jpg" alt="Sản phẩm 2" class="img-fluid me-2" style="width: 50px;">
-                    <div class="flex-grow-1">
-                      <div class="fw-bold">Excel</div>
-                      <div class="text-muted">Trần Thị Hoa</div>
-                    </div>
-                    <button type="button" class="btn-close" aria-label="Close"></button>
-                  </div>
-                </li> -->
-                <li><hr class="dropdown-divider"></li>
-                <!-- Thêm các sản phẩm khác tương tự -->
+                <li><hr class="dropdown-divider"></li> cay nay la dòng gạch ngang -->
+                
                 <li><a class="dropdown-item" href="index.php?pg=chitietgiohang">Tới giỏ hàng</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="index.php?pg=chitietgiohang">Thanh toán</a></li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-fill"></i> Tài khoản
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="index.php?pg=dangnhap">Đăng nhập</a></li>
-                <li><a class="dropdown-item" href="index.php?pg=dangnhap">Đăng ký</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="index.php?pg=dangnhap">Thông tin TK</a></li>
-              </ul>
-            </li>
+            <?php
+                if (!empty($_SESSION['username'])) {
+                    // Nếu người dùng đã đăng nhập
+                    echo '<li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-fill"></i> '.$_SESSION['username'].'
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                
+                                <li><a class="dropdown-item" href="index.php?pg=thongtintk">Thông tin TK</a></li>
+                                <li><a class="dropdown-item" href="index.php?pg=dangxuat">Đăng xuất</a></li>
+                              </ul>
+                            </li>';
+                } else {
+                    // Nếu người dùng chưa đăng nhập
+                    echo '<li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-fill"></i> Tài khoản
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="index.php?pg=dangnhap">Đăng nhập</a></li>
+                                <li><a class="dropdown-item" href="index.php?pg=dangky">Đăng ký</a></li>
+                                
+                                
+                              </ul>
+                            </li>';
+                }
+              ?>
           </ul>
         </div>
       </nav>

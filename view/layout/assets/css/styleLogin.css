@@ -66,6 +66,16 @@
 #login-btn{
     cursor: pointer;
 }
+
+.btn-color-dangnhap{
+    background-color: #fccf00 !important;
+    color: black;
+    cursor: pointer;
+}
+.btn-color-dangnhap:hover{
+    background-color: black !important;
+    color: #fccf00 !important;
+}
 @media only screen and (max-width: 465px) {
     /* Thêm các điều chỉnh cho menu tại đây nếu cần */
     #background-login{
