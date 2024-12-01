@@ -23,7 +23,7 @@
 
 .info-container {
     width: 100%;
-    padding: 0px 20px 20px 20px;
+    padding: 15px 20px 20px 20px;
     background-color: #f0f0f0;
     margin-left: 18px;
 }
@@ -100,6 +100,7 @@ h2{
 }
 #lo-trinh{
     margin-top: 50px;
+    padding: 20px;
 }
 #lo-trinh ul li{
    padding-bottom: 19px;
@@ -152,6 +153,7 @@ h2{
 /*danh gia*/
 #danh-gia {
     margin-top: 50px;
+    padding: 20px;
 }
 
 .review {
@@ -232,3 +234,8 @@ h2{
     }
 }
 
+.sevices-chitietsach{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 53px;
+}

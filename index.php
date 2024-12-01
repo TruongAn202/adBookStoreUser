@@ -7,6 +7,7 @@
     include_once "model/bantin.php";
     include_once "model/loaisanpham.php";
     include_once "model/user.php";
+    include_once "model/chitietthongtinsach.php";
     //echo var_dump($newproduct); kiem tra xem ket noi duoc chua
     //connectdb();
     include_once "view/header.php";
@@ -102,6 +103,32 @@
                 break;   
             case 'lienhe':
                 include_once "view/lienhe.php";
+                break;
+            case 'aboutus':
+                include_once "view/aboutus.php";
+                break;
+            case 'chitietthongtinsach':
+                if (isset($_GET['maSach']) && !empty($_GET['maSach'])) { //neu ma sach ton tai(<a href="index.php?pg=chitietthongtinsach&maSach='.$maSach.'">'.$tenSach.'</a>)
+                    $maSach = $_GET['maSach'];                   
+                    // Gọi hàm lấy thông tin sách
+                    $sach = getChiTietSach($maSach);
+                    if ($sach) {
+                        $tenSach = $sach['tenSach']; //lay tu biến $sach đã được truy vấn từ csdl, phần tử key = tenSach(tên cột trong CSDL)
+                        $gia = number_format($sach['gia']);
+                        $giaKM = number_format($sach['giaKM']);
+                        $tenTG = $sach['tenTG'];
+                        $anh = $sach['anh'];
+                        $moTa = $sach['moTa'];
+                        $moTaDayDu = $sach['moTaDayDu'];
+                        
+                    } else {
+                        echo "Không tìm thấy thông tin sách.";
+                    }
+                } else {
+                    // Nếu không có mã sách trong URL
+                    echo "Mã sách không hợp lệ.";
+                }
+                include_once "view/chitietthongtinsach.php";
                 break;
             case 'login': //key này lấy du lieu khi click vao nut dang nhap tren from
                 if (isset($_POST['login']) && $_POST['login']) {

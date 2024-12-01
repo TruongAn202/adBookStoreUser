@@ -40,3 +40,40 @@
     }
     
 }
+/* nut tìm kiếm ở trang san pham */
+#searchForm button[type="submit"] {
+    width: 135px; /* Chiều rộng */
+    height: 45px; /* Chiều cao */
+    font-size: 16px; /* Kích thước font chữ */
+    background-color: #fccf00; /* Màu nền đen */
+    color: black; /* Màu chữ vàng */
+    border: none; /* Không có viền */
+    display: block; /* Hiển thị là block để căn giữa */
+    margin: 23px auto; /* Căn giữa theo chiều ngang */
+    border-radius: 10px;
+    cursor: pointer;
+}
+#searchForm button[type="submit"]:hover {
+    background-color: black; /* Màu nền khi hover */
+    color: #fccf00; /* Màu chữ khi hover */
+}
+
+
+
+/* cai nay la nút lọc o trang san pham */
+#filterForm button[type="submit"] {
+    width: 135px; /* Chiều rộng */
+    height: 45px; /* Chiều cao */
+    font-size: 16px; /* Kích thước font chữ */
+    background-color: #fccf00; /* Màu nền đen */
+    color: black; /* Màu chữ vàng */
+    border: none; /* Không có viền */
+    display: block; /* Hiển thị là block để căn giữa */
+    margin: 23px auto; /* Căn giữa theo chiều ngang */
+    border-radius: 10px;
+    cursor: pointer;
+}
+#filterForm button[type="submit"]:hover {
+    background-color: black; /* Màu nền khi hover */
+    color: #fccf00; /* Màu chữ khi hover */
+}

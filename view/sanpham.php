@@ -49,7 +49,7 @@
                                     <?php endforeach; ?>
                                 <?php endif; ?>
 
-                                <button type="submit" class="btn btn-primary mt-2">Tìm kiếm</button>
+                                <button type="submit" class="btn btn-primary mt-2 ">Tìm kiếm</button>
                             </form>
                             </div>
                             <!-- Lọc theo danh mục -->
@@ -114,7 +114,7 @@
                                 </ul>
 
                                 <!-- Nút lọc -->
-                                <button type="submit" class="btn btn-primary mt-3">Lọc</button>
+                                <button type="submit" class="btn btn-primary ">Lọc</button>
                             </form>
 
                             </div>
@@ -138,7 +138,7 @@
                                         </form> 
                                     </div>
                                     <div class="product-info">
-                                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData)">'.$tenSach.'</a></p>
+                                        <p><a href="index.php?pg=chitietthongtinsach&maSach='.$maSach.'">'.$tenSach.'</a></p>
                                         <div class="mo-ta">'.$tenNXB.'</div>
                                         <div class="tac-gia">'.$tenTG.'</div>
                                         <div class="ql-price">
@@ -160,20 +160,6 @@
                         
                     </ul>
                 </div>
-                <!-- start khung tim kiem -->
-                <!-- <div class="container mt-1 mb-3">
-                     
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for books, authors, or categories..." aria-label="Search">
-                            <button class="btn btn-primary" type="button">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                 <!-- end khung tim kiem -->
-                
             
                 <div class="button-container">
                     <button onclick="selectButton(this)">&lt; </button>
@@ -192,3 +178,4 @@
             document.getElementById('filterForm').submit();
         }
     </script> -->
+    
