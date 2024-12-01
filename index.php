@@ -13,25 +13,35 @@
     if(isset($_GET['pg'])&&($_GET['pg']!="")){ //pg là biến nếu nó = product thì thực thi lệnh case
         switch ($_GET['pg']) {
             case 'sanpham':
-                // Kiểm tra xem có tham số 'maloai' trong URL không
-                $maLoai = isset($_GET['maloai']) && !empty($_GET['maloai']) ? $_GET['maloai'] : '';
-                // Kiểm tra xem có từ khóa tìm kiếm trong URL không
+                // Lấy tham số từ URL
+                $maLoai = isset($_GET['category']) && !empty($_GET['category']) ? $_GET['category'] : [];//ma loai cua khung tìm kiếm , neu ko co thì ở hàm đã setup mặc định rỗng
                 $searchKeyword = isset($_GET['search']) ? trim($_GET['search']) : '';
-                // Nếu có từ khóa tìm kiếm, gọi hàm searchProducts để tìm sản phẩm
+                $giaTien = isset($_GET['price']) ? $_GET['price'] : '';
+                $danhMucLoaiSach = isset($_GET['category']) ? $_GET['category'] : [];
+                // Nếu có từ khóa tìm kiếm, lọc theo từ khóa và loại
                 if (!empty($searchKeyword)) {
-                    $sanpham_list = searchProducts($searchKeyword, $maLoai); // Nếu có maLoai thì tìm theo loại
+                    $sanpham_list = searchProducts($searchKeyword, $maLoai);
                 } else {
-                    // Nếu không có từ khóa tìm kiếm, lấy tất cả sản phẩm theo loại
-                    $sanpham_list = getproduct($maLoai);
+                    if (!empty($danhMucLoaiSach) && !empty($giaTien)) {
+                        // Lọc theo cả loại sản phẩm và giá
+                        $sanpham_list = getFilteredProducts($danhMucLoaiSach, $giaTien);
+                    } elseif (!empty($danhMucLoaiSach)) {
+                        // Lọc chỉ theo loại sản phẩm
+                        $sanpham_list = getFilteredProducts($danhMucLoaiSach, '');
+                    } elseif (!empty($giaTien)) {
+                        // Lọc chỉ theo giá
+                        $sanpham_list = getFilteredProducts([], $giaTien);
+                    } else {
+                        // Nếu không có gì (không lọc), lấy tất cả sản phẩm
+                        $sanpham_list = getFilteredProducts([], '');
+                    }
+                    
                 }
-                // Lấy danh sách loại sách để hiển thị danh mục
+                // Lấy danh sách loại sách để hiển thị
                 $loaisach_list = get_loaisach();
                 // Bao gồm view sản phẩm
                 include_once "view/sanpham.php";
-                break;
-            case 'aboutus':
-                include_once "view/aboutus.php";
-                break;
+                break;            
             case 'thongtintk':
                 if (isset($_SESSION['username'])) {
                     // Người dùng đã đăng nhập, hiển thị trang thông tin tài khoản

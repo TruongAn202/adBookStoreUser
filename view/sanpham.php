@@ -1,10 +1,10 @@
 <?php
-    $loaisachlist = '';
-    foreach ($loaisach_list as $item) {
-        extract($item);
-        $linksanpham = 'index.php?pg=sanpham&maloai=' . urlencode($maLoai) . '#product-section'; //thêm #product-section để lọc => tải lại trang =>tự chuyển đến #product-section
-        $loaisachlist .= '<li><a href="' . $linksanpham . '">' . $tenLoai . '</a></li>';
-    }
+    // $loaisachlist = '';
+    // foreach ($loaisach_list as $item) {
+    //     extract($item);
+    //     $linksanpham = 'index.php?pg=sanpham&maloai=' . urlencode($maLoai) . '#product-section'; //thêm #product-section để lọc => tải lại trang =>tự chuyển đến #product-section
+    //     $loaisachlist .= '<li><a href="' . $linksanpham . '">' . $tenLoai . '</a></li>';
+    // }
 ?>
 <div id="content">
         <div id="banner-school">
@@ -36,63 +36,87 @@
                         <!-- Sidebar -->
                         <div class="col-md-3 sidebar">
                             <div class="mb-3">
-                                <form method="GET" action="index.php?pg=sanpham" id="searchForm">
-                                    <input type="hidden" name="pg" value="sanpham">
-                                    <input type="text" class="form-control search-bar" placeholder="Tìm kiếm" name="search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
-                                    <button type="submit" class="btn btn-primary mt-2">Tìm kiếm</button>
-                                </form>
-                            </div>
+                            <form method="GET" action="index.php?pg=sanpham" id="searchForm">
+                                <input type="hidden" name="pg" value="sanpham">
 
-                            <h5 class="filter-title">Lọc theo danh mục</h5>
-                            <ul class="category-list">
-                                <?=$loaisachlist?>
-                            </ul>
+                                <!-- Giữ lại giá trị search -->
+                                <input type="text" class="form-control search-bar" placeholder="Tìm kiếm" name="search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
 
-                            <h5 class="filter-title">Lọc theo giá</h5>
-                            <form method="GET" action="#" id="filterForm">
-                                <ul class="category-list">
-                                <li>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="price" value="0-150000" id="price1" onchange="submitForm()">
-                                    <label class="form-check-label" for="price1">
-                                        0 - 150,000₫ <span class="float-end soluongbaiviet"></span>
-                                    </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="price" value="150000-300000" id="price2" onchange="submitForm()">
-                                    <label class="form-check-label" for="price2">
-                                        150,000₫ - 300,000₫ <span class="float-end soluongbaiviet"></span>
-                                    </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="price" value="300000-500000" id="price3" onchange="submitForm()">
-                                    <label class="form-check-label" for="price3">
-                                        300,000₫ - 500,000₫ <span class="float-end soluongbaiviet"></span>
-                                    </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="price" value="500000-700000" id="price4" onchange="submitForm()">
-                                    <label class="form-check-label" for="price4">
-                                        500,000₫ - 700,000₫ <span class="float-end soluongbaiviet"></span>
-                                    </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="price" value="700000+" id="price5" onchange="submitForm()">
-                                    <label class="form-check-label" for="price5">
-                                        700,000₫ - Trở Lên <span class="float-end soluongbaiviet"></span>
-                                    </label>
-                                    </div>
-                                </li>
-                                </ul>
+                                <!-- Giữ lại các giá trị category đã chọn -->
+                                <?php if (isset($_GET['category'])): ?>
+                                    <?php foreach ($_GET['category'] as $category): ?>
+                                        <input type="hidden" name="category[]" value="<?= htmlspecialchars($category) ?>">
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+
+                                <button type="submit" class="btn btn-primary mt-2">Tìm kiếm</button>
                             </form>
+                            </div>
+                            <!-- Lọc theo danh mục -->
+                            <form method="GET" action="index.php?pg=sanpham" id="filterForm">
+                                <input type="hidden" name="pg" value="sanpham">
+                                
+                                <!-- Lọc theo danh mục -->
+                                <h5 class="filter-title">Lọc theo danh mục</h5>
+                                <ul class="category-list">
+                                    <!-- $loaisach_list từ index -->
+                                    <?php
+                                        foreach ($loaisach_list as $item) {
+                                            // Extract các giá trị trong $item để sử dụng như các biến độc lập
+                                            extract($item);
+                                            // Echo các phần tử HTML với giá trị động
+                                            echo '<li>';
+                                            echo '<div class="form-check">';
+                                            echo '<input class="form-check-input" type="checkbox" name="category[]" value="' . $maLoai . '" id="category_' . $maLoai . '"';
+                                            // Kiểm tra xem category có được chọn trong URL không
+                                            if (isset($_GET['category']) && in_array($maLoai, $_GET['category'])) {
+                                                echo ' checked';
+                                            }
+                                            echo '>';
+                                            echo '<label class="form-check-label" for="category_' . $maLoai . '">' . $tenLoai . '</label>';
+                                            echo '</div>';
+                                            echo '</li>';
+                                        }
+                                    ?>
+
+                                </ul>                         
+                                <!-- Lọc theo giá -->
+                                <h5 class="filter-title">Lọc theo giá</h5>
+                                <ul class="category-list">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="price" value="0-150000" id="price1"
+                                                <?php if (isset($_GET['price']) && $_GET['price'] == '0-150000') echo 'checked'; ?>>
+                                            <label class="form-check-label" for="price1">0 - 150,000₫</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="price" value="150000-300000" id="price2"
+                                                <?php if (isset($_GET['price']) && $_GET['price'] == '150000-300000') echo 'checked'; ?>>
+                                            <label class="form-check-label" for="price2">150,000₫ - 300,000₫</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="price" value="300000-500000" id="price3"
+                                                <?php if (isset($_GET['price']) && $_GET['price'] == '300000-500000') echo 'checked'; ?>>
+                                            <label class="form-check-label" for="price3">300,000₫ - 500,000₫</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="price" value="500000+" id="price4"
+                                                <?php if (isset($_GET['price']) && $_GET['price'] == '500000+') echo 'checked'; ?>>
+                                            <label class="form-check-label" for="price4">500,000₫ trở lên</label>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <!-- Nút lọc -->
+                                <button type="submit" class="btn btn-primary mt-3">Lọc</button>
+                            </form>
+
                             </div>
                         <!-- Product List -->
                         <div id="product-1" class="col-md-9">
