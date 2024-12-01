@@ -13,26 +13,75 @@
     if(isset($_GET['pg'])&&($_GET['pg']!="")){ //pg là biến nếu nó = product thì thực thi lệnh case
         switch ($_GET['pg']) {
             case 'sanpham':
-                if(isset($_GET['maloai'])&&($_GET['maloai']!="")){ //maloai nay la trên url chứ không phải trong csdl nên ko cần : maLoai
-                    $maLoai=$_GET['maloai'];
-                    
-                }else{
-                    $maLoai='';
+                // Kiểm tra xem có tham số 'maloai' trong URL không
+                $maLoai = isset($_GET['maloai']) && !empty($_GET['maloai']) ? $_GET['maloai'] : '';
+                // Kiểm tra xem có từ khóa tìm kiếm trong URL không
+                $searchKeyword = isset($_GET['search']) ? trim($_GET['search']) : '';
+                // Nếu có từ khóa tìm kiếm, gọi hàm searchProducts để tìm sản phẩm
+                if (!empty($searchKeyword)) {
+                    $sanpham_list = searchProducts($searchKeyword, $maLoai); // Nếu có maLoai thì tìm theo loại
+                } else {
+                    // Nếu không có từ khóa tìm kiếm, lấy tất cả sản phẩm theo loại
+                    $sanpham_list = getproduct($maLoai);
                 }
-
-                //var_dump($maLoai); 
-
-                $sanpham_list=getproduct($maLoai);
-                $loaisach_list=get_loaisach(); //lấy loại sách để hiển thị danh mục bên trang sản phẩm
+                // Lấy danh sách loại sách để hiển thị danh mục
+                $loaisach_list = get_loaisach();
+                // Bao gồm view sản phẩm
                 include_once "view/sanpham.php";
                 break;
             case 'aboutus':
                 include_once "view/aboutus.php";
                 break;
+            case 'thongtintk':
+                if (isset($_SESSION['username'])) {
+                    // Người dùng đã đăng nhập, hiển thị trang thông tin tài khoản
+                    include_once "view/thongtintk.php";
+                }else {
+                    // Chuyển hướng người dùng đến trang đăng nhập nếu chưa đăng nhập
+                    header("Location: index.php?pg=dangnhap");
+                }
+                break;
             case 'dangky':
+                if (isset($_POST['dangky']) && $_POST['dangky']) {
+                    $username = $_POST['username'];
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+                    $confirm_password = $_POST['confirm_password'];
+            
+                    // Kiểm tra mật khẩu khớp nhau
+                    if ($password !== $confirm_password) {
+                        $error = "Mật khẩu và nhập lại mật khẩu không khớp!";
+                        include_once "view/dangky.php";
+                        break;
+                    }
+            
+                    // Kiểm tra email đã tồn tại chưa
+                    $sql = "SELECT * FROM roleadminuser WHERE email = '$email'";
+                    $result = get_all($sql);
+            
+                    if (!empty($result)) {
+                        $error = "Email đã tồn tại!";
+                        include_once "view/dangky.php";
+                        break;
+                    }
+            
+                    // Mã hóa mật khẩu
+                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            
+                    // Lưu thông tin người dùng vào database
+                    $sql = "INSERT INTO roleadminuser (email, username, `password`) 
+                            VALUES ('$email', '$username', '$hashed_password')";
+                    $conn = connectdb();
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+            
+                    $success = "Đăng ký thành công! Bạn sẽ được chuyển về trang đăng nhập trong giây lát.";
+                    
+                }
                 include_once "view/dangky.php";
                 break;
-            case 'dangnhap':
+                
+            case 'dangnhap': //trang dang nhap khi click vao các nút đăng nhập
                 include_once "view/dangnhap.php";
                 break;
             case 'dangxuat':
@@ -44,21 +93,36 @@
             case 'lienhe':
                 include_once "view/lienhe.php";
                 break;
-            case 'login':
-                if(isset($_POST['login'])&&($_POST['login'])){ // nếu phuong thuc này tồn tại && được click(nó đúng)
-                    $username=$_POST['user']; //user lấy bên form trang dangnhap.php
-                    $password=$_POST['pass'];
-                    $kq=getUserInfo($username, $password);
+            case 'login': //key này lấy du lieu khi click vao nut dang nhap tren from
+                if (isset($_POST['login']) && $_POST['login']) {
+                    $username = $_POST['user']; 
+                    $password = $_POST['pass']; 
                     
-                    $role=$kq[0]['vaiTro'];
-                    if (!empty($kq) && $kq[0]['vaiTro'] === 'user'){
-                        $_SESSION['vaiTro']=$role;
-                        $_SESSION['iduser']=$kq[0]['email'];
-                        $_SESSION['username']=$kq[0]['username'];
-                        header('location: index.php'); // load lại trang thì session mới hiểu
-                        break;
+                    // Gọi hàm getUserInfo để lấy thông tin
+                    $kq = getUserInfo($username);
+                    
+                    if (!empty($kq)) { // Kiểm tra nếu kết quả không rỗng
+                        $hashedPassword = $kq[0]['password']; // Lấy mật khẩu đã mã hóa từ CSDL(câu sql chỉ trả về 1 phần tử thì đương nhiên là pt thứ 0)
+                        
+                        if (password_verify($password, $hashedPassword)) { //kiểm tra xem pass lấy từ form có giống với password đã dùng hàm mã trong csdl không
+                            // Đăng nhập thành công
+                            $_SESSION['vaiTro'] = $kq[0]['vaiTro'];
+                            $_SESSION['iduser'] = $kq[0]['email'];
+                            $_SESSION['username'] = $kq[0]['username']; // Đảm bảo không có lỗi
+                            // header('location: index.php');
+                            $successDN = "Đăng nhập thành công, xin chờ giây lát chuyển về trang chủ!";
+                        } else {
+                            // Mật khẩu sai
+                            $errorDN = "Mật khẩu không chính xác!";
+                            
+                        }
+                    } else {
+                        // Không tìm thấy tài khoản
+                        $errorDN = "Tên đăng nhập không tồn tại!";
+                        
                     }
                 }
+                include_once "view/dangnhap.php";
                 
             case 'bantin':
                 $newbantin = getnewbantin(); //getnewbantin() này ở bantin.php bên model(câu lệnh sql)

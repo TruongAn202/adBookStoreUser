@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="view/layout/assets/css/styleBanTin.css">
     <link rel="stylesheet" href="view/layout/assets/css/styleChiTietGioHang.css">
     <link rel="stylesheet" href="view/layout/assets/css/styleLogin.css">
+    <link rel="stylesheet" href="view/layout/assets/css/styleTTTK.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -45,15 +46,10 @@
               <a class="nav-link" href="index.php?pg=bantin" tabindex="-1" aria-disabled="true">Bản tin</a>
             </li>
           </ul>
-          <form id="search" class="d-flex">
-            <input id="input-search" list="datalistOptions" class="form-control me-2" type="search" placeholder="Tìm kiếm">
-            <datalist id="datalistOptions">
-                <option value="Khóa học làm giàu">
-                <option value="Khóa học IT">
-                <option value="Khóa học Toeic 500">
-                <option value="Dạy Con">
-                <option value="Excel nâng cao">
-              </datalist>
+          <form id="search" class="d-flex" method="GET" action="index.php?pg=sanpham">
+            <!-- phai co name = pg value = sanpham thi no moi dung theo định dạng của index, nhảy qua trang sản phẩm -->
+            <input type="hidden" name="pg" value="sanpham"> 
+            <input id="input-search" list="datalistOptions" class="form-control me-2" type="search" placeholder="Tìm kiếm" name="search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
             <button type="submit"><img src="view/layout/assets/image/icons-search-32.png" alt="Search"></button>
           </form>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-action">
@@ -76,7 +72,7 @@
                 <li><hr class="dropdown-divider"></li> cay nay la dòng gạch ngang -->
                 
                 <li><a class="dropdown-item" href="index.php?pg=chitietgiohang">Tới giỏ hàng</a></li>
-                <li><hr class="dropdown-divider"></li>
+                <!-- <li><hr class="dropdown-divider"></li> -->
                 <li><a class="dropdown-item" href="index.php?pg=chitietgiohang">Thanh toán</a></li>
               </ul>
             </li>

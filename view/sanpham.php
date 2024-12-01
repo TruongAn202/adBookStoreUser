@@ -36,7 +36,11 @@
                         <!-- Sidebar -->
                         <div class="col-md-3 sidebar">
                             <div class="mb-3">
-                                <input type="text" class="form-control search-bar" placeholder="Tìm kiếm">
+                                <form method="GET" action="index.php?pg=sanpham" id="searchForm">
+                                    <input type="hidden" name="pg" value="sanpham">
+                                    <input type="text" class="form-control search-bar" placeholder="Tìm kiếm" name="search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+                                    <button type="submit" class="btn btn-primary mt-2">Tìm kiếm</button>
+                                </form>
                             </div>
 
                             <h5 class="filter-title">Lọc theo danh mục</h5>

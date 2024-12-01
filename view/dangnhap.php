@@ -1,3 +1,60 @@
+<!-- start dang nhap -->
+ <!-- Modal for Success (Đăng nhập thành công) -->
+<div class="modal fade" id="successDN" tabindex="-1" aria-labelledby="successDNLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="successDNLabel">Thành công</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <?php echo isset($successDN) ? $successDN : ''; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Error (Lỗi đăng nhập) -->
+<div class="modal fade" id="errorDN" tabindex="-1" aria-labelledby="errorDNLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="errorDNLabel">Lỗi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <?php echo isset($errorDN) ? $errorDN : ''; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    <?php if (isset($successDN)): ?>
+      var successModal = new bootstrap.Modal(document.getElementById('successDN'));
+      successModal.show();
+      
+      // Chuyển hướng sau 2 giây
+      setTimeout(function() {
+        window.location.href = "index.php"; // Chuyển về trang index
+      }, 2000);
+    <?php endif; ?>
+
+    <?php if (isset($errorDN)): ?>
+      var errorModal = new bootstrap.Modal(document.getElementById('errorDN'));
+      errorModal.show();
+    <?php endif; ?>
+  });
+</script>
+
+ <!-- end dang nhap -->
 <div id="content">
         <div id="banner-school">
             <div class="overlay"></div>
@@ -39,7 +96,7 @@
                             </div>
                         </form>
                         <div class="mt-3 text-center">
-                        <small>Chưa có tài khoản? <a href="#">Đăng ký</a></small>
+                        <small>Chưa có tài khoản? <a href="index.php?pg=dangky">Đăng ký</a></small>
                         </div>
                     </div>
                 </div>
