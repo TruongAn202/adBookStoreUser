@@ -23,59 +23,56 @@
             </div>
                 
                 
-                <div class="container">
-                    <?php
-                        if(isset($_SESSION['giohang'])&&is_array($_SESSION['giohang'])){
-                            $i=0;
-                            foreach ($_SESSION['giohang'] as $item) { //su dung mang da tao ben trang index
-                                extract($item);
-                                $linkdel="index.php?pg=delcart&ind=".$i; //xoa theo $ind la xoa theo chỉ mục(index)
-                                echo '<div class="card mb-3 col-lg-8">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img id="ImgSpChitietgiohang" src="view/layout/assets/image/'.$anh.'" class="img-fluid rounded-start" alt="">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body"> 
-                                                <h4 class="card-title">'.$tenSach.'</h4>
-                                                <p class="card-text">'.$tenTG.'</p>
-                                                <div class="ql-tanggiam-price">
-                                                    <div class="tangiam">
-                                                        <button class="decrease qtybtn">-</button>
-                                                        <input type="text" value="'.$soLuong.'" id="hienthi">
-                                                        <button class="increase qtybtn">+</button>
-                                                    </div>
-                                                    <div class="ql-price">
-                                                        <div class="price">'.$giaKM.'</div>
-                                                        <div class="old-price">1.000.000đ</div>
-                                                    </div>
-                                                </div>
-                                                <!-- Thêm icon xóa ở đây -->
-                                                <a href="'.$linkdel.'" class="delete-item" title="Xóa sản phẩm">
-                                                    <i class="fas fa-trash-alt"></i> <!-- Biểu tượng font-awesome -->
-                                                </a>
+            <div class="container">
+                <?php
+                if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])) {
+                    $i = 0;
+                    foreach ($_SESSION['giohang'] as $item) {
+                        extract($item);
+                        $linkdel = "index.php?pg=delcart&ind=" . $i; 
+                        echo '<div class="card mb-3 col-lg-8 product-item-hoadon" data-price="' . $giaKM . '">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img id="ImgSpChitietgiohang" src="view/layout/assets/image/' . $anh . '" class="img-fluid rounded-start" alt="">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body"> 
+                                        <h4 class="card-title">' . $tenSach . '</h4>
+                                        <p class="card-text">' . $tenTG . '</p>
+                                        <div class="ql-tanggiam-price">
+                                            <div class="tangiam">
+                                                <button class="decrease qtybtn">-</button>
+                                                <input type="text" value="' . $soLuong . '" class="hienthi">
+                                                <button class="increase qtybtn">+</button>
+                                            </div>
+                                            <div class="ql-price">
+                                                <div class="price">' . $giaKM . 'đ</div>
+                                                <div class="old-price">' . $gia . 'đ</div>
                                             </div>
                                         </div>
+                                        <a href="' . $linkdel . '" class="delete-item" title="Xóa sản phẩm">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
                                     </div>
-                                </div>';
-                                $i++;
-                            }
-                            
-                        }
-                    ?>
-                
-                    <div class="right col-lg-4">
-                        <h4>Hóa đơn</h4>
-                        <ul>
+                                </div>
+                            </div>
+                        </div>';
+                        $i++;
+                    }
+                }
+                ?>
+                <div class="right col-lg-4">
+                    <h4>Hóa đơn</h4>
+                    <ul>
                         <li><div>Giảm giá</div><div id="tien-hd1">Không áp dụng</div></li>
                         <hr>
                         <li><div>Mã giảm giá</div><div id="tien-hd1">Không áp dụng</div></li>
                         <hr>
                         <li><div>Tổng cộng</div><div id="tien-hd"></div></li>
-                        </ul>
-                        <button>THANH TOÁN</button>
-                    </div>
+                    </ul>
+                    <a  href="index.php?pg=thanhtoan">Thanh toán</a>
                 </div>
+            </div>
                 
                 <h3>Có thể bạn sẽ thích</h3>
                 <div id="product-1" class="product-container">
@@ -168,48 +165,47 @@
         </div>
     </div>
     <script>
-                // Lấy giá trị từ class 'price' và chuyển đổi thành số
-        const priceElement = document.querySelector('.price'); // Lấy phần tử đầu tiên có class 'price'
-        const pricePerUnit = parseFloat(priceElement.textContent.trim().replace(/[^\d.-]/g, '')); // Chuyển chuỗi thành số
-        console.log(pricePerUnit); // Kiểm tra giá trị số đã chuyển đổi
+           document.querySelectorAll('.product-item-hoadon').forEach(function (productItem) {
+            const priceElement = productItem.querySelector('.price');
+            const pricePerUnit = parseFloat(priceElement.textContent.replace(/[^\d.-]/g, ''));
 
-        // Lấy các phần tử DOM cần thiết
-        const decreaseBtn = document.querySelector('.decrease');
-        const increaseBtn = document.querySelector('.increase');
-        const quantityInput = document.getElementById('hienthi');
-        const totalPriceElement = document.getElementById('tien-hd');
+            const decreaseBtn = productItem.querySelector('.decrease');
+            const increaseBtn = productItem.querySelector('.increase');
+            const quantityInput = productItem.querySelector('.hienthi');
 
-        // Đặt sự kiện click cho nút giảm
-        decreaseBtn.addEventListener('click', function() {
-            let currentQuantity = parseInt(quantityInput.value) || 1;
-            if (currentQuantity > 1) {
-                currentQuantity--;
+            decreaseBtn.addEventListener('click', function () {
+                let currentQuantity = parseInt(quantityInput.value) || 1;
+                if (currentQuantity > 1) {
+                    currentQuantity--;
+                    quantityInput.value = currentQuantity;
+                    updateOverallTotal();
+                }
+            });
+
+            increaseBtn.addEventListener('click', function () {
+                let currentQuantity = parseInt(quantityInput.value) || 1;
+                currentQuantity++;
                 quantityInput.value = currentQuantity;
-                updateTotalPrice(currentQuantity);
+                updateOverallTotal();
+            });
+
+            function updateOverallTotal() {
+                let overallTotal = 0;
+                document.querySelectorAll('.product-item-hoadon').forEach(function (item) {
+                    const itemPrice = parseFloat(item.querySelector('.price').textContent.replace(/[^\d.-]/g, '')) || 0;
+                    const quantity = parseInt(item.querySelector('.hienthi').value) || 1;
+                    overallTotal += itemPrice * quantity;
+                });
+                document.querySelector('#tien-hd').textContent = formatCurrency(overallTotal);
             }
+
+            function formatCurrency(amount) {
+                return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+            }
+
+            updateOverallTotal(); // Cập nhật tổng cộng khi load trang.
         });
 
-        // Đặt sự kiện click cho nút tăng
-        increaseBtn.addEventListener('click', function() {
-            let currentQuantity = parseInt(quantityInput.value) || 1;
-            currentQuantity++;
-            quantityInput.value = currentQuantity;
-            updateTotalPrice(currentQuantity);
-        });
-
-        // Cập nhật tổng giá trị hóa đơn dựa trên số lượng
-        function updateTotalPrice(quantity) {
-            const totalPrice = quantity * pricePerUnit;
-            totalPriceElement.textContent = formatCurrency(totalPrice);
-        }
-
-        // Hàm định dạng số tiền thành chuỗi có định dạng tiền tệ
-        function formatCurrency(amount) {
-            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
-        }
-
-        // Cập nhật giá trị tổng giá trị ban đầu
-        updateTotalPrice(parseInt(quantityInput.value)); 
 
                             
     </script>

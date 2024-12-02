@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="view/layout/assets/css/styleBanTin.css">
     <link rel="stylesheet" href="view/layout/assets/css/styleChiTietGioHang.css">
     <link rel="stylesheet" href="view/layout/assets/css/styleLogin.css">
+    <link rel="stylesheet" href="view/layout/assets/css/styleThanhToan.css">
     <!-- thong tin tai khoan -->
     <link rel="stylesheet" href="view/layout/assets/css/styleTTTK.css">
     <link rel="stylesheet" href="view/layout/assets/css/stylettct.css">

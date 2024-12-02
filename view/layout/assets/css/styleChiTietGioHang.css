@@ -72,7 +72,7 @@
 #tien-hd1{
     margin-right: 10px;
 }
-.right button {
+.right a {
     color: #212121;
     width: 97%;
     height: 60px;
@@ -82,10 +82,13 @@
     margin-bottom: 20px;
     background-color: #FCCF00;
     border: none;
-
+    text-decoration: none;
+    display: flex;              /* Biến thẻ a thành flex container */
+    justify-content: center;    /* Canh giữa theo chiều ngang */
+    align-items: center;        /* Canh giữa theo chiều dọc */
 }
 
-.right button:hover{
+.right a:hover{
     cursor: pointer;
     background-color: #212121;
     color: #FCCF00;

@@ -132,6 +132,7 @@
                                             <input type="hidden" value="'.$tenSach.'" name="tenSach">
                                             <input type="hidden" value="'.$anh.'" name="anh">
                                             <input type="hidden" value="'.$giaKM.'" name="giaKM">
+                                            <input type="hidden" value="'.$gia.'" name="gia">
                                             <input type="hidden" value="'.$tenTG.'" name="tenTG">
                                             <input type="hidden" value="1" name="soLuong">
                                             <input type="submit" value="Thêm vào giỏ" name="btnaddcart" class="product-button">

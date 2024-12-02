@@ -8,6 +8,7 @@
     include_once "model/loaisanpham.php";
     include_once "model/user.php";
     include_once "model/chitietthongtinsach.php";
+    include_once "model/home.php";
     //echo var_dump($newproduct); kiem tra xem ket noi duoc chua
     //connectdb();
     include_once "view/header.php";
@@ -182,11 +183,15 @@
                     $anh=$_POST['anh'];
                     $soLuong=$_POST['soLuong'];
                     $giaKM=$_POST['giaKM'];
+                    $gia=$_POST['gia'];
                     $tenTG=$_POST['tenTG'];
-                    $sach=["maSach"=>$maSach, "tenSach"=>$tenSach, "anh"=>$anh, "soLuong"=>$soLuong, "giaKM"=>$giaKM, "tenTG"=>$tenTG];
+                    $sach=["maSach"=>$maSach, "tenSach"=>$tenSach, "anh"=>$anh, "soLuong"=>$soLuong, "giaKM"=>$giaKM, "tenTG"=>$tenTG, "gia"=>$gia];
                     $_SESSION['giohang'][]=$sach;
                     header('location: index.php?pg=chitietgiohang');
                 }
+                break;
+            case 'thanhtoan':
+                include_once "view/thanhtoan.php";
                 break;
             default: //gõ tầm bậy auto vào home
                 //$newproduct=getnewproduct();
@@ -196,8 +201,10 @@
         }
         
     }else{
-        //$newproduct=getnewproduct();
-        //echo var_dump($newproduct);
+        $sachXemNhieu_List = getProductHomeXemNhieu();
+        $sachMuaNhieu_List = getProductHomeMuaNhieu();
+        $sachDeCu_List = getProductHomeDeCu();
+        $sachHot_List = getProductHomeHot();
         include_once "view/home.php";
     }
     include_once "view/footer.php";
