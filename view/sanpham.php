@@ -143,8 +143,8 @@
                                         <div class="mo-ta">'.$tenNXB.'</div>
                                         <div class="tac-gia">'.$tenTG.'</div>
                                         <div class="ql-price">
-                                            <div class="price">'.$giaKM.'đ</div>
-                                            <div class="old-price">'.$gia.'đ</div>
+                                            <div class="price">'.number_format($giaKM, 0, ',', '.').'đ</div>
+                                            <div class="old-price">'.number_format($gia, 0, ',', '.').'đ</div>
                                         </div>
                                     </div>
                                 </div>';

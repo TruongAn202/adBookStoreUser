@@ -24,51 +24,63 @@
                 
                 
             <div class="container">
-            <?php
-                if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
-                    $i = 0;
-                    foreach ($_SESSION['giohang'] as $item) {
-                        extract($item);
-                        $linkdel = "index.php?pg=delcart&ind=" . $i; 
-                        echo '<div class="card mb-3 col-lg-8 product-item-hoadon" data-price="' . $giaKM . '">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img id="ImgSpChitietgiohang" src="view/layout/assets/image/' . $anh . '" class="img-fluid rounded-start" alt="">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body"> 
-                                        <h4 class="card-title">' . $tenSach . '</h4>
-                                        <p class="card-text">' . $tenTG . '</p>
-                                        <div class="ql-tanggiam-price">
-                                            <div class="tangiam">
-                                                <button class="decrease qtybtn">-</button>
-                                                <input type="text" value="' . $soLuong . '" class="hienthi">
-                                                <button class="increase qtybtn">+</button>
-                                            </div>
-                                            <div class="ql-price">
-                                                <div class="price">' . $giaKM . 'đ</div>
-                                                <div class="old-price">' . $gia . 'đ</div>
+                <?php
+                    if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                        $i = 0;
+                        foreach ($_SESSION['giohang'] as $item) {
+                            extract($item);
+                            $linkdel = "index.php?pg=delcart&ind=" . $i; 
+                            echo '<div class="card mb-3 col-lg-8 product-item-hoadon" data-price="' . $giaKM . '">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img id="ImgSpChitietgiohang" src="view/layout/assets/image/' . $anh . '" class="img-fluid rounded-start" alt="">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body"> 
+                                                <h4 class="card-title">' . $tenSach . '</h4>
+                                                <p class="card-text">' . $tenTG . '</p>
+                                                <div class="ql-tanggiam-price">
+                                                    <div class="tangiam">
+                                                        <form action="index.php?pg=updateCart" method="post">
+                                                            <button type="submit" name="decrease" value="' . $i . '" class="qtybtn">-</button>
+                                                            <input type="text" name="soLuong" value="' . $soLuong . '" class="hienthi" readonly>
+                                                            <button type="submit" name="increase" value="' . $i . '" class="qtybtn">+</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="ql-price">
+                                                        <div class="price">' . $giaKM . 'đ</div>
+                                                        <div class="old-price">' . $gia . 'đ</div>
+                                                    </div>
+                                                </div>
+                                                <a href="' . $linkdel . '" class="delete-item" title="Xóa sản phẩm">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
                                             </div>
                                         </div>
-                                        <a href="' . $linkdel . '" class="delete-item" title="Xóa sản phẩm">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
                                     </div>
+                                </div>';
+                            $i++;
+                        }
+                    } else {
+                        echo '<div class="container">
+                                <div class="alert alert-warning text-center mt-5" role="alert">
+                                    <i class="bi bi-cart-x fs-1"></i>
+                                    <h4 class="mt-3">Giỏ hàng của bạn hiện đang trống.</h4>
+                                    <p>Hãy thêm sản phẩm vào giỏ để tiếp tục mua sắm!</p>
+                                    <a href="index.php" class="btn btn-tieptuc mt-3">Quay lại cửa hàng</a>
                                 </div>
-                            </div>
-                        </div>';
-                        $i++;
+                            </div>';
                     }
-                } else {
-                    echo '<div class="container">
-                            <div class="alert alert-warning text-center mt-5" role="alert">
-                                <i class="bi bi-cart-x fs-1"></i>
-                                <h4 class="mt-3">Giỏ hàng của bạn hiện đang trống.</h4>
-                                <p>Hãy thêm sản phẩm vào giỏ để tiếp tục mua sắm!</p>
-                                <a href="index.php" class="btn btn-tieptuc mt-3">Quay lại cửa hàng</a>
-                            </div>
-                        </div>
-                        ';
+                ?>
+                <!-- tinh tong tien -->
+                <?php
+                $tongTien = 0;
+                if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                    foreach ($_SESSION['giohang'] as $item) {
+                        extract($item);
+                        // Tính tổng giá trị sản phẩm (số lượng * giá khuyến mãi)
+                        $tongTien += $soLuong * $giaKM;
+                    }
                 }
                 ?>
                 <div class="right col-lg-4">
@@ -78,10 +90,11 @@
                         <hr>
                         <li><div>Mã giảm giá</div><div id="tien-hd1">Không áp dụng</div></li>
                         <hr>
-                        <li><div>Tổng cộng</div><div id="tien-hd"></div></li>
+                        <li><div>Tổng cộng</div><div id="tien-hd"><?php echo number_format($tongTien, 0, ',', '.') . ' đ'; ?></div></li>
                     </ul>
-                    <a  href="index.php?pg=thanhtoan">Thanh toán</a>
+                    <a href="index.php?pg=thanhtoan">Thanh toán</a>
                 </div>
+
             </div>
                 
                 <h3>Có thể bạn sẽ thích</h3>

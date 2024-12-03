@@ -127,40 +127,73 @@
                     </div>
 
                     <!-- Kiểm tra lại đơn hàng -->
-                    <div class="col-12">
-                        <div class="card custom-card">
-                            <div class="card-header">
-                                <h4>Kiểm tra lại đơn hàng</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <!-- Cột 1: Ảnh sách -->
-                                    <div class="col-md-4">
-                                        <img src="path_to_image.jpg" alt="Tên sách" class="img-fluid">
-                                    </div>
-
-                                    <!-- Cột 2: Tên sách và đơn giá -->
-                                    <div class="col-md-4">
-                                        <h5 class="card-title">Tên sách</h5>
-                                        <p class="card-text">Đơn giá: <span class="price">300.000đ</span></p>
-                                    </div>
-
-                                    <!-- Cột 3: Số lượng, tổng cộng -->
-                                    <div class="col-md-4">
-                                        <div class="d-flex justify-content-between">
-                                            <div class="qty">
-                                                <p><strong>Số lượng:</strong> 1</p> <!-- Hiển thị số lượng cố định -->
+                    <h4>Kiểm tra lại đơn hàng</h4>
+                    <?php
+                    if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                        $i = 0;
+                        foreach ($_SESSION['giohang'] as $item) {
+                            extract($item);
+                            $linkdel = "index.php?pg=delcart&ind=" . $i; 
+                            // Tính tổng tiền của sản phẩm (số lượng * giá khuyến mãi)
+                            $totalPrice = $soLuong * $giaKM;
+                            ?>
+                            <div class="col-12">
+                                <div class="card custom-card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <!-- Cột 1: Ảnh sách -->
+                                            <div class="col-md-4">
+                                                <img src="view/layout/assets/image/<?php echo $anh; ?>" alt="<?php echo $tenSach; ?>" class="img-fluid">
                                             </div>
-                                            <div class="total">
-                                                <p>Tổng cộng: <span id="total-price">300.000đ</span></p>
+
+                                            <!-- Cột 2: Tên sách và đơn giá -->
+                                            <div class="col-md-4">
+                                                <h5 class="card-title"><?php echo $tenSach; ?></h5>
+                                                <p class="card-text">Đơn giá: <span class="price"><?php echo number_format($giaKM, 0, ',', '.') . 'đ'; ?></span></p>
+                                            </div>
+
+                                            <!-- Cột 3: Số lượng, tổng cộng -->
+                                            <div class="col-md-4">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="qty">
+                                                        <p><strong>Số lượng:</strong> <?php echo $soLuong; ?></p>
+                                                    </div>
+                                                    <div class="total">
+                                                        <p>Tổng cộng: <span id="total-price"><?php echo number_format($totalPrice, 0, ',', '.') . 'đ'; ?></span></p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $i++;
+                        }
+                    } else {
+                        echo '<p>Giỏ hàng của bạn đang trống.</p>';
+                    }
+                    ?>
+                    <!-- tinh tong tat ca san pham -->
+                    <?php
+                        $totalAmount = 0; // Khởi tạo biến tổng tiền
+
+                        // Kiểm tra nếu giỏ hàng có sản phẩm
+                        if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                            // Duyệt qua tất cả sản phẩm trong giỏ hàng
+                            foreach ($_SESSION['giohang'] as $item) {
+                                // Tính tổng tiền của sản phẩm (giá * số lượng)
+                                $totalAmount += $item['giaKM'] * $item['soLuong'];
+                            }
+                        }
+                    ?>
+                    <!-- end tinh tong -->
+                    <div class="d-flex justify-content-end">
+                        <div class="total-amount text-end fs-3 fw-bold">
+                            <span>Tổng cộng: </span>
+                            <span id="total-price" class="text-success fs-3"><?php echo number_format($totalAmount, 0, ',', '.') . 'đ'; ?></span>
                         </div>
                     </div>
-
                     <!-- Submit Button -->
                     <div class="col-12 text-center mt-3 mb-3">
                         <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>

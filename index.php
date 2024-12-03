@@ -100,6 +100,7 @@
                 unset($_SESSION['vaiTro']);
                 unset($_SESSION['iduser']);
                 unset($_SESSION['username']);
+                unset($_SESSION['giohang']); 
                 header('location: index.php');
                 break;   
             case 'lienhe':
@@ -147,6 +148,9 @@
                             $_SESSION['vaiTro'] = $kq[0]['vaiTro'];
                             $_SESSION['iduser'] = $kq[0]['email'];
                             $_SESSION['username'] = $kq[0]['username']; // Đảm bảo không có lỗi
+                            $_SESSION['email'] = $kq[0]['email'];
+                            $_SESSION['diachi'] = $kq[0]['diaChi'];
+                            $_SESSION['sdt'] = $kq[0]['soDienThoai'];
                             // header('location: index.php');
                             $successDN = "Đăng nhập thành công, xin chờ giây lát chuyển về trang chủ!";
                         } else {
@@ -211,6 +215,30 @@
                         ];
                     }
                     header('Location: index.php?pg=chitietgiohang');
+                }
+                break;
+            case 'updateCart':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if (isset($_POST['decrease']) || isset($_POST['increase'])) {
+                        $index = isset($_POST['decrease']) ? $_POST['decrease'] : $_POST['increase']; // Lấy chỉ số sản phẩm từ form
+                        $soLuong = $_POST['soLuong']; // Lấy số lượng từ input
+
+                        // Kiểm tra giỏ hàng có tồn tại và là mảng
+                        if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])) {
+                            $product = &$_SESSION['giohang'][$index]; // Lấy sản phẩm từ giỏ hàng theo index
+
+                            // Xử lý tăng hoặc giảm số lượng
+                            if (isset($_POST['decrease']) && $product['soLuong'] > 1) {
+                                $product['soLuong']--; // Giảm số lượng
+                            } elseif (isset($_POST['increase'])) {
+                                $product['soLuong']++; // Tăng số lượng
+                            }
+
+                            // Sau khi cập nhật số lượng, chuyển hướng về trang giỏ hàng
+                            header('Location: index.php?pg=chitietgiohang');
+                            exit;
+                        }
+                    }
                 }
                 break;
             case 'thanhtoan':

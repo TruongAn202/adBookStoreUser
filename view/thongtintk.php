@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="email" value="">
+                                    <input type="text" class="form-control" id="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label for="diachi" class="form-label">Địa chỉ</label>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="sdt" class="form-label">Số điện thoại</label>
-                                    <input type="text" class="form-control" id="sdt" value="">
+                                    <input type="text" class="form-control" id="sdt" value="<?php echo isset($_SESSION['sdt']) ? $_SESSION['sdt'] : ''; ?>">
                                 </div>
                                 <!-- <div class="mb-3 row">
                                     <div class="col-md-4">
