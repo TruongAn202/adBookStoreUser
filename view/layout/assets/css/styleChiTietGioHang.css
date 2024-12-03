@@ -93,6 +93,17 @@
     background-color: #212121;
     color: #FCCF00;
 }
+
+.btn-tieptuc {
+    color: #212121 !important;
+    background-color: #FCCF00 !important;
+}
+
+.btn-tieptuc:hover{
+    cursor: pointer !important;
+    background-color: #212121 !important;
+    color: #FCCF00 !important;
+}
 /*san pham*/
 
 .sub-right {

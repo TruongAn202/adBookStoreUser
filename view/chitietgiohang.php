@@ -24,8 +24,8 @@
                 
                 
             <div class="container">
-                <?php
-                if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])) {
+            <?php
+                if (isset($_SESSION['giohang']) && is_array($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
                     $i = 0;
                     foreach ($_SESSION['giohang'] as $item) {
                         extract($item);
@@ -59,6 +59,16 @@
                         </div>';
                         $i++;
                     }
+                } else {
+                    echo '<div class="container">
+                            <div class="alert alert-warning text-center mt-5" role="alert">
+                                <i class="bi bi-cart-x fs-1"></i>
+                                <h4 class="mt-3">Giỏ hàng của bạn hiện đang trống.</h4>
+                                <p>Hãy thêm sản phẩm vào giỏ để tiếp tục mua sắm!</p>
+                                <a href="index.php" class="btn btn-tieptuc mt-3">Quay lại cửa hàng</a>
+                            </div>
+                        </div>
+                        ';
                 }
                 ?>
                 <div class="right col-lg-4">
@@ -76,87 +86,37 @@
                 
                 <h3>Có thể bạn sẽ thích</h3>
                 <div id="product-1" class="product-container">
-                    
-                  <div class="product ">
-                    <div class="product-image">
-                        <img src="view/layout/assets/image/GreatBig.jpg" alt="">
-                        <button class="product-button">THÊM VÀO GIỎ</button>
-                    </div>
-                    <div class="product-info">
-                        <!-- Thông tin và giá -->
-                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData1)">Great Big Beautiful Life</a></p>
-                        <div class="mo-ta">Signed A&D Exclusive Edition</div>
-                        <div class="tac-gia">Emily Henry</div>
-                        <div class="ql-price">
-                            <div class="price">299.000đ</div>
-                            <div class="old-price">700.000đ</div>
-                        </div>
-                    </div>
-                </div>
-                    <div class="product ">
-                      <div class="product-image">
-                          <img src="view/layout/assets/image/OnyxStorm.jpg" alt="">
-                          <button class="product-button">THÊM VÀO GIỎ</button>
-                      </div>
-                      <div class="product-info">
-                          <!-- Thông tin và giá -->
-                          <p><a href="/information/thongtin.html" onclick="selectCourse(courseData2)">Onyx Storm</a></p>
-                          <div class="mo-ta">Deluxe Limited Edition</div>
-                          <div class="tac-gia">Rebecca Yarros</div>
-                          <div class="ql-price">
-                              <div class="price">499.000đ</div>
-                              <div class="old-price">1.100.000đ</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product ">
-                    <div class="product-image">
-                        <img src="view/layout/assets/image/TheKnightandtheMoth.jpg" alt="">
-                        <button class="product-button">THÊM VÀO GIỎ</button>
-                    </div>
-                    <div class="product-info">
-                        <!-- Thông tin và giá -->
-                        <p><a href="/information/thongtin.html" onclick="selectCourse(courseData3)">The Knight and the Moth</a></p>
-                        <div class="mo-ta"> A&D Exclusive Edition</div>
-                        <div class="tac-gia">Rachel Gillig</div>
-                        <div class="ql-price">
-                            <div class="price">99.000đ</div>
-                            <div class="old-price">199.000đ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                  <div class="product-image">
-                      <img src="view/layout/assets/image/9781668052273_p0_v2_s600x595.jpg" alt="">
-                      <button class="product-button">THÊM VÀO GIỎ</button>
-                  </div>
-                  <div class="product-info">
-                      <!-- Thông tin và giá -->
-                      <p><a href="/information/thongtin.html" onclick="selectCourse(courseData12)">War</a></p>
-                      <div class="mo-ta"> A&D Book Club Edition</div>
-                      <div class="tac-gia">  Bob Woodward</div>
-                      <div class="ql-price">
-                          <div class="price">800.000đ</div>
-                          <div class="old-price">1.500.000đ</div>
-                      </div>
-                  </div>
-              </div>
-                <div class="product ">
-                  <div class="product-image">
-                      <img src="view/layout/assets/image/SunriseontheReaping.jpg" alt="">
-                      <button class="product-button">THÊM VÀO GIỎ</button>
-                  </div>
-                  <div class="product-info">
-                      <!-- Thông tin và giá -->
-                      <p><a href="/information/thongtin.html" onclick="selectCourse(courseData16)">Sunrise on the Reaping</a></p>
-                      <div class="mo-ta"> A Hunger Games Novel</div>
-                      <div class="tac-gia">Suzanne Collins</div>
-                      <div class="ql-price">
-                          <div class="price">99.000đ</div>
-                          <div class="old-price">199.000đ</div>
-                      </div>
-                  </div>
-              </div>
+                    <?php
+                        $sachDeCuList = '';
+                        foreach ($sachDeCu_List as $item){
+                            extract($item);
+                            echo '<div class="product ">
+                                    <div class="product-image">
+                                        <img src="view/layout/assets/image/'.$anh.'" alt="">
+                                        <form action="index.php?pg=addcart" method="post">
+                                            <input type="hidden" value="'.$maSach.'" name="maSach">
+                                            <input type="hidden" value="'.$tenSach.'" name="tenSach">
+                                            <input type="hidden" value="'.$anh.'" name="anh">
+                                            <input type="hidden" value="'.$giaKM.'" name="giaKM">
+                                            <input type="hidden" value="'.$gia.'" name="gia">
+                                            <input type="hidden" value="'.$tenTG.'" name="tenTG">
+                                            <input type="hidden" value="1" name="soLuong">
+                                            <input type="submit" value="Thêm vào giỏ" name="btnaddcart" class="product-button">
+                                        </form>
+                                    </div>
+                                    <div class="product-info">
+                                        <!-- Thông tin và giá -->
+                                        <p><a href="index.php?pg=chitietthongtinsach&maSach='.$maSach.'">'.$tenSach.'</a></p>
+                                        <div class="mo-ta">'.$tenNXB.'</div>
+                                        <div class="tac-gia">'.$tenTG.'</div>
+                                        <div class="ql-price">
+                                            <div class="price">'.$giaKM.'đ</div>
+                                            <div class="old-price">'.$gia.'0đ</div>
+                                        </div>
+                                    </div>
+                                </div>';
+                        }
+                    ?>
 
                 </div>
                 <!-- <button id="prevButton">Qua trái</button>

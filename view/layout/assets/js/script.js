@@ -833,4 +833,32 @@ updateProductVisibility();
 /*thong bao them sp */
 
 /* end thong bao them sp */
+/*add san pham vao gio hang ma khong can chuyen trang */
+// $(document).ready(function() {
+//     // Khi form được submit
+//     $('#add-to-cart-form').submit(function(event) {
+//         event.preventDefault(); // Ngừng hành động mặc định (reload trang)
+
+//         var formData = $(this).serialize(); // Lấy tất cả dữ liệu từ form
+
+//         // Thực hiện yêu cầu AJAX
+//         $.ajax({
+//             url: 'index.php?pg=addcart', // Đường dẫn gửi yêu cầu
+//             type: 'POST', // Phương thức gửi
+//             data: formData, // Dữ liệu gửi đi
+//             dataType: 'json', // Kiểu dữ liệu trả về
+//             success: function(response) {
+//                 if (response.success) {
+//                     alert(response.message); // Hiển thị thông báo thành công
+//                     $('#cart-item-count').text(response.newCartCount); // Cập nhật số lượng giỏ hàng (nếu có phần tử này)
+//                 } else {
+//                     alert('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng!');
+//                 }
+//             },
+//             error: function() {
+//                 alert('Lỗi kết nối đến server!');
+//             }
+//         });
+//     });
+// });
 

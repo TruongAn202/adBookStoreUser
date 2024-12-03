@@ -3,7 +3,7 @@
             <div class="overlay"></div>
             <div id="gr-td-dk">
                 <h1 id="duongke">|</h1>
-                <h1 id="tieude-banner">Khóa học excel cho người đi làm</h1>
+                <h1 id="tieude-banner"><?= $tenSach ?></h1>
             </div>
             
         </div>
@@ -84,18 +84,16 @@
                     
                 </div> -->
             </div>
-            <div id="danh-gia" class="info-container">
+            <!-- <div id="danh-gia" class="info-container">
                 <h3>Đánh giá của học viên</h3>
                 <div class="review">
                     <div class="comment">
-                        <!-- Thêm ảnh comment của học viên -->
+                       
                         <img src="view/layout/assets/image/danhgia1.png" alt="Hình ảnh đánh giá">
                         <img src="view/layout/assets/image/danhgia2.png" alt="Hình ảnh đánh giá">
                     </div>
-                    
                 </div>
-                <!-- Thêm các đánh giá khác tương tự -->
-            </div>
+            </div> -->
             <div class="cauhoi-thuonggap">
                 <h3>Các câu hỏi thường gặp</h3>
                 <div class="accordion accordion-flush" id="accordionFlushExample">

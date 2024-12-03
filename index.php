@@ -174,20 +174,43 @@
                 }              
                 break;
             case 'chitietgiohang':
+                $sachDeCu_List = getProductHomeDeCu();
                 include_once "view/chitietgiohang.php";
                 break;
             case 'addcart':
-                if(isset($_POST['btnaddcart'])){
-                    $maSach=$_POST['maSach'];
-                    $tenSach=$_POST['tenSach'];
-                    $anh=$_POST['anh'];
-                    $soLuong=$_POST['soLuong'];
-                    $giaKM=$_POST['giaKM'];
-                    $gia=$_POST['gia'];
-                    $tenTG=$_POST['tenTG'];
-                    $sach=["maSach"=>$maSach, "tenSach"=>$tenSach, "anh"=>$anh, "soLuong"=>$soLuong, "giaKM"=>$giaKM, "tenTG"=>$tenTG, "gia"=>$gia];
-                    $_SESSION['giohang'][]=$sach;
-                    header('location: index.php?pg=chitietgiohang');
+                if (!isset($_SESSION['giohang'])) {
+                    $_SESSION['giohang'] = [];
+                }
+                if (isset($_POST['btnaddcart'])) {
+                    $maSach = $_POST['maSach'];
+                    $tenSach = $_POST['tenSach'];
+                    $anh = $_POST['anh'];
+                    $giaKM = $_POST['giaKM'];
+                    $gia = $_POST['gia'];
+                    $tenTG = $_POST['tenTG'];
+                    $soLuong = $_POST['soLuong'];
+                    // Kiểm tra sản phẩm có trong giỏ hàng chưa
+                    $found = false;
+                    foreach ($_SESSION['giohang'] as &$item) {
+                        if ($item['maSach'] === $maSach) {
+                            $item['soLuong'] += $soLuong; // Tăng số lượng
+                            $found = true;
+                            break;
+                        }
+                    }
+                    // Nếu chưa có sản phẩm, thêm sản phẩm mới
+                    if (!$found) {
+                        $_SESSION['giohang'][] = [
+                            'maSach' => $maSach,
+                            'tenSach' => $tenSach,
+                            'anh' => $anh,
+                            'giaKM' => $giaKM,
+                            'gia' => $gia,
+                            'tenTG' => $tenTG,
+                            'soLuong' => $soLuong
+                        ];
+                    }
+                    header('Location: index.php?pg=chitietgiohang');
                 }
                 break;
             case 'thanhtoan':

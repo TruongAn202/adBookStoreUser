@@ -165,10 +165,10 @@
                     <button class="next-btn">&gt;</button>
                 </div>
                 <div class="breadcrumb-container">
-                    <h3>Recently Reviewed</h3>
+                    <h3>Tiêu điểm</h3>
                     <hr id="the-hr-home" class="border border-warning border-3 opacity-75">
                 </div>
-                <span> Những cuốn sách được review gần đây</span>
+                <span> Những cuốn sách được cho là tiêu điểm gần đây</span>
                 <div id="product-1">
                     <?php
                         $sachDeCuList='';
@@ -233,10 +233,10 @@
               
     
                 <div class="breadcrumb-container">
-                    <h3>Our Best Nonfiction Books</h3>
+                    <h3>Những cuốn sách tốt nhất</h3>
                     <hr id="the-hr-home" class="border border-warning border-3 opacity-75">
                 </div>
-                <span>Những cuốn sách Nonfiction được tuyển chọn hay nhất cho bạn.</span>
+                <span>Những cuốn sách được tuyển chọn hay nhất cho bạn.</span>
                 <div id="product-1">
                     <?php
                         $sachHotList='';

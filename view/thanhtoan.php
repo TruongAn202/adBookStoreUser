@@ -38,10 +38,7 @@
                                         <label for="name" class="form-label">Họ và tên người nhận</label>
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Nhập họ và tên người nhận" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email" required>
-                                    </div>
+                                    
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Số điện thoại</label>
                                         <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại" required>

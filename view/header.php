@@ -58,7 +58,7 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu-action">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-cart-fill"></i> <span class="badge bg-warning cart-item-count">1</span> Giỏ hàng 
+                <i class="bi bi-cart-fill"></i> <span class="badge bg-warning cart-item-count"><?php echo count($_SESSION['giohang']); ?></span> Giỏ hàng 
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <!-- <li class="dropdown-item">
