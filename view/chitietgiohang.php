@@ -137,48 +137,4 @@
             </div>
         </div>
     </div>
-    <script>
-           document.querySelectorAll('.product-item-hoadon').forEach(function (productItem) {
-            const priceElement = productItem.querySelector('.price');
-            const pricePerUnit = parseFloat(priceElement.textContent.replace(/[^\d.-]/g, ''));
-
-            const decreaseBtn = productItem.querySelector('.decrease');
-            const increaseBtn = productItem.querySelector('.increase');
-            const quantityInput = productItem.querySelector('.hienthi');
-
-            decreaseBtn.addEventListener('click', function () {
-                let currentQuantity = parseInt(quantityInput.value) || 1;
-                if (currentQuantity > 1) {
-                    currentQuantity--;
-                    quantityInput.value = currentQuantity;
-                    updateOverallTotal();
-                }
-            });
-
-            increaseBtn.addEventListener('click', function () {
-                let currentQuantity = parseInt(quantityInput.value) || 1;
-                currentQuantity++;
-                quantityInput.value = currentQuantity;
-                updateOverallTotal();
-            });
-
-            function updateOverallTotal() {
-                let overallTotal = 0;
-                document.querySelectorAll('.product-item-hoadon').forEach(function (item) {
-                    const itemPrice = parseFloat(item.querySelector('.price').textContent.replace(/[^\d.-]/g, '')) || 0;
-                    const quantity = parseInt(item.querySelector('.hienthi').value) || 1;
-                    overallTotal += itemPrice * quantity;
-                });
-                document.querySelector('#tien-hd').textContent = formatCurrency(overallTotal);
-            }
-
-            function formatCurrency(amount) {
-                return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
-            }
-
-            updateOverallTotal(); // Cập nhật tổng cộng khi load trang.
-        });
-
-
-                            
-    </script>
+    

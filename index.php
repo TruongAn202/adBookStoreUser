@@ -53,6 +53,12 @@
                     header("Location: index.php?pg=dangnhap");
                 }
                 break;
+            case 'chitiethoadon': //trang dang nhap khi click vao các nút đăng nhập
+                include_once "view/chitiethoadon.php";
+                break;
+            case 'chucmungthanhtoan': //trang dang nhap khi click vao các nút đăng nhập
+                include_once "view/chucmungthanhtoan.php";
+                break;
             case 'dangky':
                 if (isset($_POST['dangky']) && $_POST['dangky']) {
                     $username = $_POST['username'];
@@ -132,7 +138,7 @@
                 }
                 include_once "view/chitietthongtinsach.php";
                 break;
-            case 'login': //key này lấy du lieu khi click vao nut dang nhap tren from
+            case 'login': //key này lấy du lieu khi click vao nut dang nhap tren from cua trang dangnhap
                 if (isset($_POST['login']) && $_POST['login']) {
                     $username = $_POST['user']; 
                     $password = $_POST['pass']; 
@@ -151,6 +157,7 @@
                             $_SESSION['email'] = $kq[0]['email'];
                             $_SESSION['diachi'] = $kq[0]['diaChi'];
                             $_SESSION['sdt'] = $kq[0]['soDienThoai'];
+                            unset($_SESSION['giohang']); //khi dang nhap thanh cong thi xoa gio hang khi chua dang nhap, chi khi nao đặt hàng thành cong mới luu vao csdl, còn chưa đặt hàng thì xóa hết
                             // header('location: index.php');
                             $successDN = "Đăng nhập thành công, xin chờ giây lát chuyển về trang chủ!";
                         } else {
