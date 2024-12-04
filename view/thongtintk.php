@@ -30,7 +30,7 @@
                     <div class="col-md-3">
                         <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action">Thông tin tài khoản</a>
-                        <a href="index.php?pg=chitiethoadon" class="list-group-item list-group-item-action">Chi tiết hóa đơn</a>
+                        <a href="index.php?pg=chitiethoadon" class="list-group-item list-group-item-action">Đơn hàng của tôi</a>
                    
                         </div>
                     </div>

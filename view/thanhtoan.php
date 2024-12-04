@@ -33,7 +33,7 @@
                                 <h4>Địa chỉ giao hàng</h4>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="index.php?pg=chucmungthanhtoan">
+                                <form method="POST" action="index.php?pg=xacnhanthanhtoan">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Họ và tên người nhận</label>
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Nhập họ và tên người nhận" required>
@@ -52,8 +52,7 @@
                                     <div class="mb-3">
                                         <label for="shipping-method" class="form-label">Phương thức vận chuyển</label>
                                         <select class="form-select" id="shipping-method" name="shipping_method" required>
-                                            <option selected>Chọn phương thức vận chuyển</option>
-                                            <option value="giaoTietKiem">Giao hàng tiêu chuẩn</option>
+                                            <option selected value="giaoTietKiem">Giao hàng tiêu chuẩn</option>
                                             <option value="giaoNhanh">Giao hàng nhanh</option>
                                         </select>
                                     </div>
@@ -63,9 +62,8 @@
                                     <div class="mb-3">
                                         <label for="payment-method" class="form-label">Phương thức thanh toán</label>
                                         <select class="form-select" id="payment-method" name="payment_method" required>
-                                            <option selected>Chọn phương thức thanh toán</option>
                                             <option value="chuyenkhoan">Online</option>
-                                            <option value="COD">Tiền mặt khi nhận hàng</option>
+                                            <option selected value="COD">Tiền mặt khi nhận hàng</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">

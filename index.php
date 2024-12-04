@@ -53,11 +53,83 @@
                     header("Location: index.php?pg=dangnhap");
                 }
                 break;
-            case 'chitiethoadon': //trang dang nhap khi click vao các nút đăng nhập
+            case 'chitiethoadon': 
+                if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
+                    $email = $_SESSION['email'];            
+                    $conn = connectdb(); //ko co cai nay khng ket noi duoc
+                    // Lấy thông tin hóa đơn theo email
+                    $sql_hd = $conn->prepare("SELECT * FROM hoadon WHERE email = :email");
+                    $sql_hd->bindParam(':email', $email, PDO::PARAM_STR);
+                    $sql_hd->execute();
+
+                    if ($sql_hd->rowCount() > 0) {
+                        // Lấy tất cả hóa đơn của người dùng
+                        $hoadon = $sql_hd->fetchAll(PDO::FETCH_ASSOC);
+                        
+                        // Lấy chi tiết các hóa đơn
+                        $chitiethoadon = [];
+                        foreach ($hoadon as $hd) {
+                            $maHD = $hd['maHD'];  // Lấy maHD của từng hóa đơn
+                            $sql_cthd = $conn->prepare("SELECT ct.maSach, s.tenSach, ct.soLuong, ct.donGia 
+                                                        FROM chitiethoadon ct 
+                                                        JOIN sach s ON ct.maSach = s.maSach 
+                                                        WHERE ct.maHD = :maHD");
+                            $sql_cthd->bindParam(':maHD', $maHD, PDO::PARAM_STR);
+                            $sql_cthd->execute();
+                            
+                            if ($sql_cthd->rowCount() > 0) {
+                                $chitiethoadon[] = $sql_cthd->fetchAll(PDO::FETCH_ASSOC);
+                            } else {
+                                $chitiethoadon[] = [];  // Trường hợp không có chi tiết cho hóa đơn
+                            }
+                        }
+                    } else {
+                        echo "Không tìm thấy hóa đơn cho email này.";
+                        // Optionally, handle the case where no orders are found
+                    }
+                } else {
+                    echo "Email không hợp lệ.";
+                }
                 include_once "view/chitiethoadon.php";
                 break;
-            case 'chucmungthanhtoan': //trang dang nhap khi click vao các nút đăng nhập
-                include_once "view/chucmungthanhtoan.php";
+            case 'chucmungthanhtoan':
+                if (isset($_GET['maHD']) && !empty($_GET['maHD'])) {
+                    $maHD = $_GET['maHD'];
+                
+                    // Truy vấn lấy dữ liệu từ ba bảng: hoadon, chitiethoadon và roleadminuser
+                    $sql = "
+                        SELECT *
+                        FROM 
+                            hoadon h
+                        JOIN 
+                            chitiethoadon c ON h.maHD = c.maHD
+                        JOIN 
+                            sach s ON c.maSach = s.maSach
+                        JOIN 
+                            roleadminuser r ON h.email = r.email
+                        WHERE 
+                            h.maHD = '$maHD'
+                    ";
+                
+                    // Lấy dữ liệu từ hàm get_all
+                    $result = get_all($sql);
+                
+                    if ($result) {
+                        // Dữ liệu trả về từ $result có thể được sử dụng ở đây
+                        $hoadon = $result[0]; // Ví dụ lấy phần tử đầu tiên trong mảng kết quả
+                
+                        // Truy vấn chi tiết hóa đơn 
+                        $sql_cthd = "SELECT * FROM chitiethoadon WHERE maHD = '$maHD'";
+                        $chitiethoadon = get_all($sql_cthd);
+                
+                        // Chuyển đến trang chúc mừng thanh toán và truyền dữ liệu vào
+                        include_once "view/chucmungthanhtoan.php";
+                    } else {
+                        echo "Mã hóa đơn không hợp lệ hoặc không tồn tại.";
+                    }
+                } else {
+                    echo "Mã hóa đơn không hợp lệ.";
+                }
                 break;
             case 'dangky':
                 if (isset($_POST['dangky']) && $_POST['dangky']) {
@@ -178,17 +250,17 @@
                 //echo var_dump($newbantin);
                 include_once "view/bantin.php";
                 break;
-            case 'delcart':
+            case 'delcart': //xóa sp trong giỏ
                 if(isset($_GET['ind'])&&($_GET['ind']>=0)){
                     array_splice($_SESSION['giohang'], $_GET['ind'], 1);//(mang su dung, xoa theo chi muc(ind), xoa bao nhieu phan tu)
                     header('location: index.php?pg=chitietgiohang'); //vi dung session nen phai load lai
                 }              
                 break;
-            case 'chitietgiohang':
+            case 'chitietgiohang': //trang gio hang
                 $sachDeCu_List = getProductHomeDeCu();
                 include_once "view/chitietgiohang.php";
                 break;
-            case 'addcart':
+            case 'addcart': //nút thêm san pham
                 if (!isset($_SESSION['giohang'])) {
                     $_SESSION['giohang'] = [];
                 }
@@ -251,6 +323,70 @@
             case 'thanhtoan':
                 include_once "view/thanhtoan.php";
                 break;
+            case 'xacnhanthanhtoan':
+                // Kiểm tra giỏ hàng trống
+                if (empty($_SESSION['giohang'])) {
+                    // Xử lý khi giỏ hàng trống
+                    echo "Giỏ hàng của bạn trống. Vui lòng thêm sản phẩm vào giỏ hàng.";
+                    exit;
+                }
+
+                // Lấy thông tin từ form thanh toán
+                $email = $_SESSION['email'];
+                $tenNguoiNhan = isset($_POST['name']) ? trim($_POST['name']) : '';
+                $diaChiNguoiNhan = isset($_POST['address']) ? trim($_POST['address']) : '';
+                $soDienThoai = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+                $phuongThucGiaoHang = isset($_POST['shipping_method']) ? $_POST['shipping_method'] : '';
+                $phuongThucThanhToan = isset($_POST['payment_method']) ? $_POST['payment_method'] : '';
+                $ghiChu = isset($_POST['payment_note']) ? trim($_POST['payment_note']) : '';
+                $ngayLapHD = date('Y-m-d'); // Lấy ngày hiện tại
+
+                // Tạo mã hóa đơn duy nhất
+                $maHD = uniqid('HD');
+
+                // Kết nối cơ sở dữ liệu
+                $conn = connectdb();
+
+                // Lưu thông tin hóa đơn vào database
+                $sql_hoadon = "INSERT INTO hoadon (maHD, email, tenNguoiNhan, diaChiNguoiNhan, soDienThoai, ngayLapHD, phuongThucGiaoHang, phuongThucThanhToan, ghiChu) 
+                            VALUES (:maHD, :email, :tenNguoiNhan, :diaChiNguoiNhan, :soDienThoai, :ngayLapHD, :phuongThucGiaoHang, :phuongThucThanhToan, :ghiChu)";
+                $stmt = $conn->prepare($sql_hoadon);
+                $stmt->execute([
+                    ':maHD' => $maHD,
+                    ':email' => $email,
+                    ':tenNguoiNhan' => $tenNguoiNhan,
+                    ':diaChiNguoiNhan' => $diaChiNguoiNhan,
+                    ':soDienThoai' => $soDienThoai,
+                    ':ngayLapHD' => $ngayLapHD,
+                    ':phuongThucGiaoHang' => $phuongThucGiaoHang,
+                    ':phuongThucThanhToan' => $phuongThucThanhToan,
+                    ':ghiChu' => $ghiChu
+                ]);
+
+                // Lưu chi tiết hóa đơn từ giỏ hàng
+                foreach ($_SESSION['giohang'] as $item) {
+                    $maSach = $item['maSach'];
+                    $soLuong = $item['soLuong'];
+                    $donGia = $item['giaKM'] > 0 ? $item['giaKM'] : $item['gia']; // Kiểm tra giá khuyến mãi
+
+                    $sql_chitiethd = "INSERT INTO chitiethoadon (maHD, maSach, soLuong, donGia) 
+                                    VALUES (:maHD, :maSach, :soLuong, :donGia)";
+                    $stmt = $conn->prepare($sql_chitiethd);
+                    $stmt->execute([
+                        ':maHD' => $maHD,
+                        ':maSach' => $maSach,
+                        ':soLuong' => $soLuong,
+                        ':donGia' => $donGia
+                    ]);
+                }
+
+                // Xóa giỏ hàng sau khi thanh toán thành công
+                unset($_SESSION['giohang']);
+
+                // Chuyển hướng tới trang xác nhận thanh toán
+                header("Location: index.php?pg=chucmungthanhtoan&maHD=$maHD");
+                exit;
+                break;
             default: //gõ tầm bậy auto vào home
                 //$newproduct=getnewproduct();
                 //echo var_dump($newproduct);
@@ -266,4 +402,5 @@
         include_once "view/home.php";
     }
     include_once "view/footer.php";
+
 ?>
