@@ -54,7 +54,7 @@
                 }
                 break;
             case 'chitiethoadon': 
-                if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
+                if (isset($_SESSION['email']) && !empty($_SESSION['email'])) { //neu nguoi dung da dang nhap
                     $email = $_SESSION['email'];            
                     $conn = connectdb(); //ko co cai nay khng ket noi duoc
                     // Lấy thông tin hóa đơn theo email
@@ -62,10 +62,9 @@
                     $sql_hd->bindParam(':email', $email, PDO::PARAM_STR);
                     $sql_hd->execute();
 
-                    if ($sql_hd->rowCount() > 0) {
+                    if ($sql_hd->rowCount() > 0) { //đếm số dòng từ câu truy vấn trả về, >0 là truy vấn ok
                         // Lấy tất cả hóa đơn của người dùng
-                        $hoadon = $sql_hd->fetchAll(PDO::FETCH_ASSOC);
-                        
+                        $hoadon = $sql_hd->fetchAll(PDO::FETCH_ASSOC); //lấy tất cả kết qua trả về từ câu truy vấn, PDO::FETCH_ASSOC trả về mảng co key, value                
                         // Lấy chi tiết các hóa đơn
                         $chitiethoadon = [];
                         foreach ($hoadon as $hd) {
@@ -73,19 +72,18 @@
                             $sql_cthd = $conn->prepare("SELECT ct.maSach, s.tenSach, ct.soLuong, ct.donGia 
                                                         FROM chitiethoadon ct 
                                                         JOIN sach s ON ct.maSach = s.maSach 
-                                                        WHERE ct.maHD = :maHD");
+                                                        WHERE ct.maHD = :maHD"); //prepare là chuẩn bị 1 câu truy vấn để thực thi ở excute()
                             $sql_cthd->bindParam(':maHD', $maHD, PDO::PARAM_STR);
-                            $sql_cthd->execute();
+                            $sql_cthd->execute(); //thực thi câu truy vấn đã chuẩn bị ở prepare
                             
                             if ($sql_cthd->rowCount() > 0) {
-                                $chitiethoadon[] = $sql_cthd->fetchAll(PDO::FETCH_ASSOC);
+                                $chitiethoadon[] = $sql_cthd->fetchAll(PDO::FETCH_ASSOC);//lay tat ca tra ve mang key,value
                             } else {
                                 $chitiethoadon[] = [];  // Trường hợp không có chi tiết cho hóa đơn
                             }
                         }
                     } else {
-                        echo "Không tìm thấy hóa đơn cho email này.";
-                        // Optionally, handle the case where no orders are found
+                        echo "Không tìm thấy hóa đơn cho email này.";                      
                     }
                 } else {
                     echo "Email không hợp lệ.";
@@ -96,10 +94,8 @@
                 if (isset($_GET['maHD']) && !empty($_GET['maHD'])) {
                     $maHD = $_GET['maHD'];
                     //var_dump($maHD); // Kiểm tra xem maHD có nhận đúng giá trị hay không
-
                     // Kiểm tra xem người dùng đã đăng nhập hay chưa
                     $isLoggedIn = isset($_SESSION['email']); // Giả sử bạn lưu email trong session khi người dùng đăng nhập
-
                     // Truy vấn cơ bản không bao gồm roleadminuser
                     $sql = "
                         SELECT *
@@ -110,7 +106,6 @@
                         JOIN 
                             sach s ON c.maSach = s.maSach
                     ";
-
                     // Nếu người dùng đã đăng nhập, thêm JOIN với roleadminuser
                     if ($isLoggedIn) {
                         $sql .= " 
@@ -118,19 +113,15 @@
                             roleadminuser r ON h.email = r.email
                         ";
                     }
-
                     $sql .= " WHERE h.maHD = '$maHD'";
-
                     // Lấy dữ liệu từ hàm get_all
-                    $result = get_all($sql);
-                    
+                    $result = get_all($sql);                  
                     if ($result) {
                         $hoadon = $result[0]; // Lấy phần tử đầu tiên trong mảng kết quả
                         //var_dump($hoadon);
                         // Truy vấn chi tiết hóa đơn 
                         $sql_cthd = "SELECT * FROM chitiethoadon WHERE maHD = '$maHD'";
                         $chitiethoadon = get_all($sql_cthd);
-
                         // Chuyển đến trang chúc mừng thanh toán và truyền dữ liệu vào
                         include_once "view/chucmungthanhtoan.php";
                     } else {
@@ -140,34 +131,36 @@
                     echo "Mã hóa đơn không hợp lệ.";
                 }
                 break;
-
             case 'dangky':
                 if (isset($_POST['dangky']) && $_POST['dangky']) {
                     $username = $_POST['username'];
                     $email = $_POST['email'];
                     $password = $_POST['password'];
                     $confirm_password = $_POST['confirm_password'];
-            
                     // Kiểm tra mật khẩu khớp nhau
                     if ($password !== $confirm_password) {
                         $error = "Mật khẩu và nhập lại mật khẩu không khớp!";
                         include_once "view/dangky.php";
                         break;
-                    }
-            
+                    }         
                     // Kiểm tra email đã tồn tại chưa
                     $sql = "SELECT * FROM roleadminuser WHERE email = '$email'";
-                    $result = get_all($sql);
-            
+                    $result = get_all($sql);           
                     if (!empty($result)) {
                         $error = "Email đã tồn tại!";
                         include_once "view/dangky.php";
                         break;
                     }
-            
+                    // Kiểm tra tên tài khoản đã tồn tại chưa
+                    $sql_username = "SELECT * FROM roleadminuser WHERE username = '$username'";
+                    $result = get_all($sql_username);           
+                    if (!empty($result)) {
+                        $error = "Tên tài khoản đã tồn tại!";
+                        include_once "view/dangky.php";
+                        break;
+                    }
                     // Mã hóa mật khẩu
-                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            
+                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);           
                     // Lưu thông tin người dùng vào database
                     $sql = "INSERT INTO roleadminuser (email, username, `password`) 
                             VALUES ('$email', '$username', '$hashed_password')";
@@ -179,8 +172,7 @@
                     
                 }
                 include_once "view/dangky.php";
-                break;
-                
+                break;               
             case 'dangnhap': //trang dang nhap khi click vao các nút đăng nhập
                 include_once "view/dangnhap.php";
                 break;
@@ -223,14 +215,11 @@
             case 'login': //key này lấy du lieu khi click vao nut dang nhap tren from cua trang dangnhap
                 if (isset($_POST['login']) && $_POST['login']) {
                     $username = $_POST['user']; 
-                    $password = $_POST['pass']; 
-                    
+                    $password = $_POST['pass'];                    
                     // Gọi hàm getUserInfo để lấy thông tin
-                    $kq = getUserInfo($username);
-                    
+                    $kq = getUserInfo($username);                   
                     if (!empty($kq)) { // Kiểm tra nếu kết quả không rỗng
-                        $hashedPassword = $kq[0]['password']; // Lấy mật khẩu đã mã hóa từ CSDL(câu sql chỉ trả về 1 phần tử thì đương nhiên là pt thứ 0)
-                        
+                        $hashedPassword = $kq[0]['password']; // Lấy mật khẩu đã mã hóa từ CSDL(câu sql chỉ trả về 1 phần tử thì đương nhiên là pt thứ 0)                      
                         if (password_verify($password, $hashedPassword)) { //kiểm tra xem pass lấy từ form có giống với password đã dùng hàm mã trong csdl không
                             // Đăng nhập thành công
                             $_SESSION['vaiTro'] = $kq[0]['vaiTro'];
@@ -244,17 +233,14 @@
                             $successDN = "Đăng nhập thành công, xin chờ giây lát chuyển về trang chủ!";
                         } else {
                             // Mật khẩu sai
-                            $errorDN = "Mật khẩu không chính xác!";
-                            
+                            $errorDN = "Mật khẩu không chính xác!";                            
                         }
                     } else {
                         // Không tìm thấy tài khoản
-                        $errorDN = "Tên đăng nhập không tồn tại!";
-                        
+                        $errorDN = "Tên đăng nhập không tồn tại!";                       
                     }
                 }
-                include_once "view/dangnhap.php";
-                
+                include_once "view/dangnhap.php";               
             case 'bantin':
                 $newbantin = getnewbantin(); //getnewbantin() này ở bantin.php bên model(câu lệnh sql)
                 //echo var_dump($newbantin);
@@ -340,7 +326,6 @@
                     echo "Giỏ hàng của bạn trống. Vui lòng thêm sản phẩm vào giỏ hàng.";
                     exit;
                 }
-
                 // Lấy thông tin từ form thanh toán
                 $email = $_SESSION['email'];
                 $tenNguoiNhan = isset($_POST['name']) ? trim($_POST['name']) : '';
@@ -350,13 +335,10 @@
                 $phuongThucThanhToan = isset($_POST['payment_method']) ? $_POST['payment_method'] : '';
                 $ghiChu = isset($_POST['payment_note']) ? trim($_POST['payment_note']) : '';
                 $ngayLapHD = date('Y-m-d'); // Lấy ngày hiện tại
-
                 // Tạo mã hóa đơn duy nhất
                 $maHD = uniqid('HD');
-
                 // Kết nối cơ sở dữ liệu
                 $conn = connectdb();
-
                 // Lưu thông tin hóa đơn vào database
                 $sql_hoadon = "INSERT INTO hoadon (maHD, email, tenNguoiNhan, diaChiNguoiNhan, soDienThoaiHD, ngayLapHD, phuongThucGiaoHang, phuongThucThanhToan, ghiChu) 
                             VALUES (:maHD, :email, :tenNguoiNhan, :diaChiNguoiNhan, :soDienThoai, :ngayLapHD, :phuongThucGiaoHang, :phuongThucThanhToan, :ghiChu)";
@@ -372,7 +354,6 @@
                     ':phuongThucThanhToan' => $phuongThucThanhToan,
                     ':ghiChu' => $ghiChu
                 ]);
-
                 // Lưu chi tiết hóa đơn từ giỏ hàng
                 foreach ($_SESSION['giohang'] as $item) {
                     $maSach = $item['maSach'];
@@ -389,7 +370,6 @@
                         ':donGia' => $donGia
                     ]);
                 }
-
                 // Xóa giỏ hàng sau khi thanh toán thành công
                 unset($_SESSION['giohang']);
 
@@ -402,8 +382,7 @@
                 //echo var_dump($newproduct);
                 include_once "view/home.php";
                 break;
-        }
-        
+        }       
     }else{
         $sachXemNhieu_List = getProductHomeXemNhieu();
         $sachMuaNhieu_List = getProductHomeMuaNhieu();

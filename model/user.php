@@ -17,7 +17,6 @@
 function getUserInfo($username) {
     // Kết nối đến cơ sở dữ liệu
     $conn = connectdb();
-    
     // Sử dụng Prepared Statements để tránh SQL Injection
     $stmt = $conn->prepare("SELECT * FROM roleadminuser WHERE username = '".$username."'");
     $stmt->execute();

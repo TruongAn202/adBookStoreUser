@@ -42,10 +42,10 @@
                         <form>
                             <div class="form-section">
                             <div class="row">
-                                <div class="col-md-3 text-center">
+                                <!-- <div class="col-md-3 text-center">
                                 <img src="https://via.placeholder.com/100" alt="Avatar" class="profile-avatar">
                                 <button type="button" class="btn btn-sm btn-link d-block mt-2">Chỉnh sửa</button>
-                                </div>
+                                </div> -->
                                 <div class="col-md-9">
                                 <div class="mb-3">
                                     <label for="fullName" class="form-label">Họ & Tên</label>
