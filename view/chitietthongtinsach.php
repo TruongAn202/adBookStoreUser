@@ -53,9 +53,7 @@
             <div id="lo-trinh" class="info-container">
                 <h5>Mô tả</h5>
                 <div>
-                Thành thạo các thao tác, các hàm, câu lệnh nâng cao trong Excel
-                Nắm được các thủ thuật Excel giúp tăng tốc thao tác của bạn
-                Nâng cao được năng suất và hiệu quả công việc của bạn ngay lập tức
+                  <?= $moTaDayDu ?>
                 </div>
                 <!-- <ul>
                     <li>Thành thạo các thao tác, các hàm, câu lệnh nâng cao trong Excel</li>

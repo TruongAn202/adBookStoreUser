@@ -63,7 +63,7 @@
         if ($priceRange == '500000+') {
             $sql .= " AND sach.giaKM >= 500000";
         } else {
-            list($minPrice, $maxPrice) = explode('-', $priceRange);
+            list($minPrice, $maxPrice) = explode('-', $priceRange); //tách chuỗi lấy dc ở value bên form name = price , bỏ vào $minPrice, $maxPrice
             $sql .= " AND sach.giaKM BETWEEN $minPrice AND $maxPrice";
         }
     }

@@ -176,6 +176,46 @@
             case 'dangnhap': //trang dang nhap khi click vao các nút đăng nhập
                 include_once "view/dangnhap.php";
                 break;
+            case 'suaThongTinTK': //action của form trang thongtintk              
+                $conn = connectdb();
+                // Lấy dữ liệu từ biểu mẫu
+                $email = $_POST['email'];
+                $full_name = $_POST['full_name'];
+                $diaChi = $_POST['diaChi'];
+                $soDienThoai = $_POST['soDienThoai'];
+                if (!empty($email)) {
+                    try {
+                        $sql = "UPDATE roleadminuser 
+                                SET full_name = :full_name, diaChi = :diaChi, soDienThoai = :soDienThoai 
+                                WHERE email = :email";
+                        $stmt = $conn->prepare($sql);
+                        //:email là giữ chỗ cho tham số trong câu truy vấn, bindParam liên kết giữa 2 cái đó, ngăn ngừa tấn công SQL Injection(truy vấn trực tiếp trên thanh URL)
+                        //bindParam: Liên kết biến theo tham chiếu (thay đổi giá trị biến trước khi thực thi sẽ ảnh hưởng đến câu truy vấn).
+                        //bindValue: Gán giá trị tại thời điểm gọi (không bị ảnh hưởng nếu giá trị biến thay đổi sau đó).
+                        $stmt->bindParam(':full_name', $full_name);
+                        $stmt->bindParam(':diaChi', $diaChi);
+                        $stmt->bindParam(':soDienThoai', $soDienThoai);
+                        $stmt->bindParam(':email', $email);
+
+                        $stmt->execute();
+
+                        // Thông báo thành công và reload trang
+                        echo "<script>
+                                alert('Cập nhật thành công!');
+                                window.location.href = 'index.php?pg=thongtintk';
+                            </script>";
+                    } catch (PDOException $e) {
+                        echo "<script>
+                                alert('Lỗi: " . $e->getMessage() . "');
+                            </script>";
+                    }
+                } else {
+                    echo "<script>
+                            alert('Email không được để trống!');
+                        </script>";
+                }
+                break;
+
             case 'dangxuat':
                 unset($_SESSION['vaiTro']);
                 unset($_SESSION['iduser']);
@@ -194,6 +234,7 @@
                     $maSach = $_GET['maSach'];                   
                     // Gọi hàm lấy thông tin sách
                     $sach = getChiTietSach($maSach);
+                    //var_dump($sach);
                     if ($sach) {
                         $tenSach = $sach['tenSach']; //lay tu biến $sach đã được truy vấn từ csdl, phần tử key = tenSach(tên cột trong CSDL)
                         $gia = number_format($sach['gia']);
@@ -201,6 +242,7 @@
                         $tenTG = $sach['tenTG'];
                         $anh = $sach['anh'];
                         $moTa = $sach['moTa'];
+                        $moTaDayDu=$sach['moTaDayDu'];
                         $moTaDayDu = $sach['moTaDayDu'];
                         
                     } else {
@@ -228,6 +270,7 @@
                             $_SESSION['email'] = $kq[0]['email'];
                             $_SESSION['diachi'] = $kq[0]['diaChi'];
                             $_SESSION['sdt'] = $kq[0]['soDienThoai'];
+                            $_SESSION['fullname'] = $kq[0]['full_name'];
                             unset($_SESSION['giohang']); //khi dang nhap thanh cong thi xoa gio hang khi chua dang nhap, chi khi nao đặt hàng thành cong mới luu vao csdl, còn chưa đặt hàng thì xóa hết
                             // header('location: index.php');
                             $successDN = "Đăng nhập thành công, xin chờ giây lát chuyển về trang chủ!";

@@ -1,3 +1,35 @@
+
+<?php
+// Khởi tạo biến
+$full_name = "";
+$email = "";
+$diaChi = "";
+$soDienThoai = "";
+
+// Lấy thông tin từ cơ sở dữ liệu
+try {
+    $conn = connectdb();
+    $sql = "SELECT full_name, email, diaChi, soDienThoai FROM roleadminuser WHERE email = :email";
+    $stmt = $conn->prepare($sql);
+    
+    // Giả sử bạn đã có email từ session hoặc tham số GET
+    $current_email = isset($_SESSION['email']) ? $_SESSION['email'] : ''; 
+    $stmt->bindParam(':email', $current_email);
+    $stmt->execute();
+
+    // Lấy dữ liệu người dùng
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($user) {
+        $full_name = $user['full_name'];
+        $email = $user['email'];
+        $diaChi = $user['diaChi'];
+        $soDienThoai = $user['soDienThoai'];
+    }
+} catch (PDOException $e) {
+    echo "Lỗi: " . $e->getMessage();
+}
+?>
+
 <div id="content">
         <div id="banner-school">
             <div class="overlay"></div>
@@ -39,85 +71,36 @@
                     <div class="col-md-9">
                         
                         <div class="profile-form">
-                        <form>
+                        <form method="POST" action="index.php?pg=suaThongTinTK">
                             <div class="form-section">
-                            <div class="row">
-                                <!-- <div class="col-md-3 text-center">
-                                <img src="https://via.placeholder.com/100" alt="Avatar" class="profile-avatar">
-                                <button type="button" class="btn btn-sm btn-link d-block mt-2">Chỉnh sửa</button>
-                                </div> -->
-                                <div class="col-md-9">
-                                <div class="mb-3">
-                                    <label for="fullName" class="form-label">Họ & Tên</label>
-                                    <input type="text" class="form-control" id="fullName" value="">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="diachi" class="form-label">Địa chỉ</label>
-                                    <input type="text" class="form-control" id="diachi" value="" >
-                                </div>
-                                <div class="mb-3">
-                                    <label for="sdt" class="form-label">Số điện thoại</label>
-                                    <input type="text" class="form-control" id="sdt" value="<?php echo isset($_SESSION['sdt']) ? $_SESSION['sdt'] : ''; ?>">
-                                </div>
-                                <!-- <div class="mb-3 row">
-                                    <div class="col-md-4">
-                                    <label for="birthDay" class="form-label">Ngày sinh</label>
-                                    <select id="birthDay" class="form-select">
-                                        <option selected>20</option>
-                                        <option>21</option>
-                                    </select>
-                                    </div>
-                                    <div class="col-md-4">
-                                    <label for="birthMonth" class="form-label">Tháng</label>
-                                    <select id="birthMonth" class="form-select">
-                                        <option selected>2</option>
-                                        <option>3</option>
-                                    </select>
-                                    </div>
-                                    <div class="col-md-4">
-                                    <label for="birthYear" class="form-label">Năm</label>
-                                    <select id="birthYear" class="form-select">
-                                        <option selected>1999</option>
-                                        <option>2000</option>
-                                    </select>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="mb-3">
+                                            <label for="fullName" class="form-label">Họ & Tên</label>
+                                            <input type="text" class="form-control" id="fullName" name="full_name" value="<?php echo htmlspecialchars($full_name); ?>">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="text" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="diachi" class="form-label">Địa chỉ</label>
+                                            <input type="text" class="form-control" id="diachi" name="diaChi" value="<?php echo htmlspecialchars($diaChi); ?>">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="sdt" class="form-label">Số điện thoại</label>
+                                            <input type="text" class="form-control" id="sdt" name="soDienThoai" value="<?php echo htmlspecialchars($soDienThoai); ?>">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Giới tính</label>
-                                    <div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
-                                        <label class="form-check-label" for="male">Nam</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                        <label class="form-check-label" for="female">Nữ</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="other" value="other">
-                                        <label class="form-check-label" for="other">Khác</label>
-                                    </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div class="mb-3">
-                                    <label for="country" class="form-label">Quốc tịch</label>
-                                    <select id="country" class="form-select">
-                                    <option selected>Chọn quốc tịch</option>
-                                    <option>Việt Nam</option>
-                                    <option>Hoa Kỳ</option>
-                                    </select>
-                                </div> -->
-                                </div>
-                            </div>
                             </div>
                             <div class="form-footer">
-                            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                             </div>
                         </form>
+
+
+
                         </div>
                     </div>
                     </div>
