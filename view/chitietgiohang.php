@@ -92,7 +92,7 @@
                         <hr>
                         <li><div>Tổng cộng</div><div id="tien-hd"><?php echo number_format($tongTien, 0, ',', '.') . ' đ'; ?></div></li>
                     </ul>
-                    <a href="index.php?pg=thanhtoan">Thanh toán</a>
+                    <a href="index.php?pg=thanhtoan" id="btnThanhToan">Thanh toán</a>
                 </div>
 
             </div>
@@ -137,4 +137,11 @@
             </div>
         </div>
     </div>
-    
+<script>
+    document.getElementById('btnThanhToan').addEventListener('click', function (event) {
+        <?php if (!isset($_SESSION['giohang']) || count($_SESSION['giohang']) === 0): ?>
+            event.preventDefault();
+            alert('Giỏ hàng hiện đang trống. Hãy thêm sản phẩm để tiếp tục!');
+        <?php endif; ?>
+    });
+</script>

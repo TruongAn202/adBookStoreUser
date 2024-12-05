@@ -34,7 +34,7 @@
               <ul>
                   <li>Tên người nhận: <?= htmlspecialchars($hoadon['tenNguoiNhan']) ?></li>
                   <li>Địa chỉ: <?= htmlspecialchars($hoadon['diaChiNguoiNhan']) ?></li>
-                  <li>Số điện thoại: <?= htmlspecialchars($hoadon['soDienThoai']) ?></li>
+                  <li>Số điện thoại: <?= $hoadon['soDienThoaiHD'] ?></li>
                   <li>Phương thức thanh toán: 
                       <?php 
                           if ($hoadon['phuongThucThanhToan'] == 'COD') {
@@ -54,6 +54,7 @@
                           }
                       ?>
                   </li>
+                  <li>Chúng tôi sẽ liên lạc với bạn qua số điện thoại mà bạn cung cấp trong vòng 24h kể từ thời điểm đặt hàng thành công.</li>
               </ul>
 
               <h5>Chi tiết đơn hàng:</h5>

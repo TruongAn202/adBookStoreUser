@@ -95,8 +95,12 @@
             case 'chucmungthanhtoan':
                 if (isset($_GET['maHD']) && !empty($_GET['maHD'])) {
                     $maHD = $_GET['maHD'];
-                
-                    // Truy vấn lấy dữ liệu từ ba bảng: hoadon, chitiethoadon và roleadminuser
+                    //var_dump($maHD); // Kiểm tra xem maHD có nhận đúng giá trị hay không
+
+                    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+                    $isLoggedIn = isset($_SESSION['email']); // Giả sử bạn lưu email trong session khi người dùng đăng nhập
+
+                    // Truy vấn cơ bản không bao gồm roleadminuser
                     $sql = "
                         SELECT *
                         FROM 
@@ -105,23 +109,28 @@
                             chitiethoadon c ON h.maHD = c.maHD
                         JOIN 
                             sach s ON c.maSach = s.maSach
+                    ";
+
+                    // Nếu người dùng đã đăng nhập, thêm JOIN với roleadminuser
+                    if ($isLoggedIn) {
+                        $sql .= " 
                         JOIN 
                             roleadminuser r ON h.email = r.email
-                        WHERE 
-                            h.maHD = '$maHD'
-                    ";
-                
+                        ";
+                    }
+
+                    $sql .= " WHERE h.maHD = '$maHD'";
+
                     // Lấy dữ liệu từ hàm get_all
                     $result = get_all($sql);
-                
+                    
                     if ($result) {
-                        // Dữ liệu trả về từ $result có thể được sử dụng ở đây
-                        $hoadon = $result[0]; // Ví dụ lấy phần tử đầu tiên trong mảng kết quả
-                
+                        $hoadon = $result[0]; // Lấy phần tử đầu tiên trong mảng kết quả
+                        //var_dump($hoadon);
                         // Truy vấn chi tiết hóa đơn 
                         $sql_cthd = "SELECT * FROM chitiethoadon WHERE maHD = '$maHD'";
                         $chitiethoadon = get_all($sql_cthd);
-                
+
                         // Chuyển đến trang chúc mừng thanh toán và truyền dữ liệu vào
                         include_once "view/chucmungthanhtoan.php";
                     } else {
@@ -131,6 +140,7 @@
                     echo "Mã hóa đơn không hợp lệ.";
                 }
                 break;
+
             case 'dangky':
                 if (isset($_POST['dangky']) && $_POST['dangky']) {
                     $username = $_POST['username'];
@@ -348,7 +358,7 @@
                 $conn = connectdb();
 
                 // Lưu thông tin hóa đơn vào database
-                $sql_hoadon = "INSERT INTO hoadon (maHD, email, tenNguoiNhan, diaChiNguoiNhan, soDienThoai, ngayLapHD, phuongThucGiaoHang, phuongThucThanhToan, ghiChu) 
+                $sql_hoadon = "INSERT INTO hoadon (maHD, email, tenNguoiNhan, diaChiNguoiNhan, soDienThoaiHD, ngayLapHD, phuongThucGiaoHang, phuongThucThanhToan, ghiChu) 
                             VALUES (:maHD, :email, :tenNguoiNhan, :diaChiNguoiNhan, :soDienThoai, :ngayLapHD, :phuongThucGiaoHang, :phuongThucThanhToan, :ghiChu)";
                 $stmt = $conn->prepare($sql_hoadon);
                 $stmt->execute([
