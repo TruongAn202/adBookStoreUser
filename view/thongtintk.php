@@ -77,19 +77,27 @@ try {
                                     <div class="col-md-9">
                                         <div class="mb-3">
                                             <label for="fullName" class="form-label">Họ & Tên</label>
+<<<<<<< HEAD
                                             <input type="text" class="form-control" id="full_Name" name="full_name" value="<?php echo htmlspecialchars($full_name?? ''); ?>">
+=======
+                                            <input type="text" class="form-control" id="fullName" name="full_name" value="<?php echo htmlspecialchars($full_name ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+>>>>>>> 7350fed921169b745165355b5e38666b87636d40
                                         </div>
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly>
+                                            <input type="text" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($email ?? '', ENT_QUOTES, 'UTF-8'); ?>" >
                                         </div>
                                         <div class="mb-3">
                                             <label for="diachi" class="form-label">Địa chỉ</label>
+<<<<<<< HEAD
                                             <input type="text" class="form-control" id="diachi" name="diaChi" value="<?php echo htmlspecialchars($diaChi?? ''); ?>">
+=======
+                                            <input type="text" class="form-control" id="diachi" name="diaChi" value="<?php echo htmlspecialchars($diaChi ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+>>>>>>> 7350fed921169b745165355b5e38666b87636d40
                                         </div>
                                         <div class="mb-3">
                                             <label for="sdt" class="form-label">Số điện thoại</label>
-                                            <input type="text" class="form-control" id="sdt" name="soDienThoai" value="<?php echo htmlspecialchars($soDienThoai); ?>">
+                                            <input type="text" class="form-control" id="sdt" name="soDienThoai" value="<?php echo htmlspecialchars($soDienThoai ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                                         </div>
                                     </div>
                                 </div>
