@@ -84,8 +84,8 @@
                         <h3 class="card-title text-center mb-4">Đăng nhập</h3>
                         <form action="index.php?pg=login" method="post">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Địa chỉ mail</label>
-                                <input  name="user" class="form-control" id="email" placeholder="Nhập mail của bạn" required>
+                                <label for="email" class="form-label">Tên tài khoản</label>
+                                <input  name="user" class="form-control" id="email" placeholder="Nhập tên tài khoản của bạn" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Mật khẩu</label>

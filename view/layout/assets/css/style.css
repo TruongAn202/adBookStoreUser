@@ -221,6 +221,7 @@ body::-webkit-scrollbar-thumb { /*định dạng tay cầm thanh cuộn*/
     margin-top: -14px;
     font-size: 24px; /* Chỉnh cỡ chữ */
     font-weight: bold; /* In đậm */
+    text-align: center;
 }
 #banner ul {
     list-style: none; /* Loại bỏ dấu đầu dòng của danh sách */
