@@ -41,82 +41,82 @@
   //     return get_all($sql);
   // }
 
-  function getFilteredProducts($categories = [], $priceRange = '') { //bản cũ chạy dc
-    $sql = "SELECT sach.*, 
-                   tacgia.tenTG, 
-                   nhaxuatban.tenNXB, 
-                   loaisach.tenLoai 
-            FROM sach
-            JOIN tacgia ON sach.maTG = tacgia.maTG
-            JOIN nhaxuatban ON sach.maNXB = nhaxuatban.maNXB
-            JOIN loaisach ON sach.maLoai = loaisach.maLoai
-            WHERE 1";
+//   function getFilteredProducts($categories = [], $priceRange = '') { //bản cũ chạy dc
+//     $sql = "SELECT sach.*, 
+//                    tacgia.tenTG, 
+//                    nhaxuatban.tenNXB, 
+//                    loaisach.tenLoai 
+//             FROM sach
+//             JOIN tacgia ON sach.maTG = tacgia.maTG
+//             JOIN nhaxuatban ON sach.maNXB = nhaxuatban.maNXB
+//             JOIN loaisach ON sach.maLoai = loaisach.maLoai
+//             WHERE 1";
 
-    // Lọc theo loại sách (nhiều loại)
-    if (!empty($categories)) {
-        // Kiểm tra và chuyển các giá trị thành chuỗi nếu cần
-        $categoryFilter = "'" . implode("','", $categories) . "'";  // Nối chuỗi và bao quanh bằng dấu nháy đơn
-        $sql .= " AND sach.maLoai IN ($categoryFilter)";
-    }
-    // Lọc theo giá
-    if (!empty($priceRange)) {
-        if ($priceRange == '500000+') {
-            $sql .= " AND sach.giaKM >= 500000";
-        } else {
-            list($minPrice, $maxPrice) = explode('-', $priceRange); //tách chuỗi lấy dc ở value bên form name = price , bỏ vào $minPrice, $maxPrice
-            $sql .= " AND sach.giaKM BETWEEN $minPrice AND $maxPrice";
-        }
-    }
+//     // Lọc theo loại sách (nhiều loại)
+//     if (!empty($categories)) {
+//         // Kiểm tra và chuyển các giá trị thành chuỗi nếu cần
+//         $categoryFilter = "'" . implode("','", $categories) . "'";  // Nối chuỗi và bao quanh bằng dấu nháy đơn
+//         $sql .= " AND sach.maLoai IN ($categoryFilter)";
+//     }
+//     // Lọc theo giá
+//     if (!empty($priceRange)) {
+//         if ($priceRange == '500000+') {
+//             $sql .= " AND sach.giaKM >= 500000";
+//         } else {
+//             list($minPrice, $maxPrice) = explode('-', $priceRange); //tách chuỗi lấy dc ở value bên form name = price , bỏ vào $minPrice, $maxPrice
+//             $sql .= " AND sach.giaKM BETWEEN $minPrice AND $maxPrice";
+//         }
+//     }
 
-    $sql .= " ORDER BY sach.maSach DESC";
+//     $sql .= " ORDER BY sach.maSach DESC";
 
-    return get_all($sql);
-}
+//     return get_all($sql);
+// }
 
 
-// function getFilteredProducts($categories = [], $priceRange = '', $tacgias = [], $limit = null, $offset = null) {
-//   $sql = "SELECT sach.*, 
-//                  tacgia.tenTG, 
-//                  nhaxuatban.tenNXB, 
-//                  loaisach.tenLoai 
-//           FROM sach
-//           JOIN tacgia ON sach.maTG = tacgia.maTG
-//           JOIN nhaxuatban ON sach.maNXB = nhaxuatban.maNXB
-//           JOIN loaisach ON sach.maLoai = loaisach.maLoai
-//           WHERE 1";
+function getFilteredProducts($categories = [], $priceRange = '', $limit = null, $offset = null) {
+  $sql = "SELECT sach.*, 
+                 tacgia.tenTG, 
+                 nhaxuatban.tenNXB, 
+                 loaisach.tenLoai 
+          FROM sach
+          JOIN tacgia ON sach.maTG = tacgia.maTG
+          JOIN nhaxuatban ON sach.maNXB = nhaxuatban.maNXB
+          JOIN loaisach ON sach.maLoai = loaisach.maLoai
+          WHERE 1";
 
-//   // Lọc theo loại sách (nhiều loại)
-//   if (!empty($categories)) {
-//       $categoryFilter = "'" . implode("','", $categories) . "'";  // Nối chuỗi và bao quanh bằng dấu nháy đơn
-//       $sql .= " AND sach.maLoai IN ($categoryFilter)";
-//   }
+  // Lọc theo loại sách (nhiều loại)
+  if (!empty($categories)) {
+      $categoryFilter = "'" . implode("','", $categories) . "'";  // Nối chuỗi và bao quanh bằng dấu nháy đơn
+      $sql .= " AND sach.maLoai IN ($categoryFilter)";
+  }
 
-//   // Lọc theo tác giả (nhiều tác giả)
+  // Lọc theo tác giả (nhiều tác giả)
 //   if (!empty($tacgias)) {
 //       $tacgiaFilter = "'" . implode("','", $tacgias) . "'";  // Nối chuỗi và bao quanh bằng dấu nháy đơn
 //       $sql .= " AND sach.maTG IN ($tacgiaFilter)";
 //   }
 
-//   // Lọc theo giá
-//   if (!empty($priceRange)) {
-//       if ($priceRange == '500000+') {
-//           $sql .= " AND sach.giaKM >= 500000";
-//       } else {
-//           list($minPrice, $maxPrice) = explode('-', $priceRange);
-//           $sql .= " AND sach.giaKM BETWEEN $minPrice AND $maxPrice";
-//       }
-//   }
+  // Lọc theo giá
+  if (!empty($priceRange)) {
+      if ($priceRange == '500000+') {
+          $sql .= " AND sach.giaKM >= 500000";
+      } else {
+          list($minPrice, $maxPrice) = explode('-', $priceRange);
+          $sql .= " AND sach.giaKM BETWEEN $minPrice AND $maxPrice";
+      }
+  }
 
-//   // Sắp xếp
-//   $sql .= " ORDER BY sach.maSach DESC";
+  // Sắp xếp
+  $sql .= " ORDER BY sach.maSach DESC";
 
-//   // Áp dụng phân trang nếu có
-//   if ($limit !== null && $offset !== null) {
-//       $sql .= " LIMIT $limit OFFSET $offset";
-//   }
+  // Áp dụng phân trang nếu có
+  if ($limit !== null && $offset !== null) {
+      $sql .= " LIMIT $limit OFFSET $offset";
+  }
 
-//   return get_all($sql);
-// }
+  return get_all($sql);
+}
 
 
 
