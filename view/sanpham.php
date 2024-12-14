@@ -49,6 +49,8 @@
                                     <?php endforeach; ?>
                                 <?php endif; ?>
 
+                                <!-- Giữ lại các giá trị tacgia đã chọn -->
+
                                 <button type="submit" class="btn btn-primary mt-2 ">Tìm kiếm</button>
                             </form>
                             </div>
@@ -79,7 +81,27 @@
                                         }
                                     ?>
 
-                                </ul>                         
+                                </ul>  
+                                 <!-- Lọc theo tác giả -->
+                                <!-- <h5 class="filter-title">Lọc theo tác giả</h5> -->
+                                <ul class="category-list">
+                                    <?php
+                                    // foreach ($tacgia_list as $tacgia) {
+                                    //     extract($tacgia);
+                                    //     echo '<li>';
+                                    //     echo '<div class="form-check">';
+                                    //     echo '<input class="form-check-input" type="checkbox" name="tacgia[]" value="' . $maTG . '" id="tacgia_' . $maTG . '"';
+                                    //     if (isset($_GET['tacgia']) && in_array($maTG, $_GET['tacgia'])) {
+                                    //         echo ' checked';
+                                    //     }
+                                    //     echo '>';
+                                    //     echo '<label class="form-check-label" for="tacgia_' . $maTG . '">' . $tenTG . '</label>';
+                                    //     echo '</div>';
+                                    //     echo '</li>';
+                                    // }
+                                    ?>
+                                </ul>
+                                                           
                                 <!-- Lọc theo giá -->
                                 <h5 class="filter-title">Lọc theo giá</h5>
                                 <ul class="category-list">
@@ -112,7 +134,7 @@
                                         </div>
                                     </li>
                                 </ul>
-
+                                
                                 <!-- Nút lọc -->
                                 <button type="submit" class="btn btn-primary ">Lọc</button>
                             </form>
@@ -161,15 +183,38 @@
                         
                     </ul>
                 </div>
-            
-                <div class="button-container">
-                    <button onclick="selectButton(this)">&lt; </button>
-                    <button class="selected" onclick="selectButton(this)">1</button>
-                    <button onclick="selectButton(this)">2</button>
-                    <button onclick="selectButton(this)">...</button>
-                    <button onclick="selectButton(this)">&gt;</button>
-                    
+                <!-- start phan trang -->
+                <div class="pagination justify-content-center">
+                    <ul class="pagination button-container">
+                        <!-- Nút "Previous" -->
+                        <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                            <a class="page-link rounded-circle d-flex align-items-center justify-content-center bg-white text-dark border"
+                            href="?pg=sanpham&page=<?= $page - 1 ?>" tabindex="-1">
+                                &lt;
+                            </a>
+                        </li>
+
+                        <!-- Các số trang -->
+                        <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                            <li class="page-item <?= $i == $page ? 'active' : '' ?>">
+                                <a class="page-link rounded-circle d-flex align-items-center justify-content-center 
+                                    <?= $i == $page ? 'bg-warning text-dark border' : 'bg-white text-dark border' ?>"
+                                href="?pg=sanpham&page=<?= $i ?>">
+                                    <?= $i ?>
+                                </a>
+                            </li>
+                        <?php endfor; ?>
+
+                        <!-- Nút "Next" -->
+                        <li class="page-item <?= $page == $total_pages ? 'disabled' : '' ?>">
+                            <a class="page-link rounded-circle d-flex align-items-center justify-content-center bg-white text-dark border"
+                            href="?pg=sanpham&page=<?= $page + 1 ?>">
+                                &gt;
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+                <!-- end phan trang -->
             </div>
         </div>
         </div>

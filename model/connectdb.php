@@ -26,5 +26,15 @@
         $conn=null; //đóng kết nối
         return $arr;
     }
+    function get_one($sql) {
+        $conn = connectdb(); // Kết nối cơ sở dữ liệu
+        $stmt = $conn->prepare($sql); // Chuẩn bị truy vấn SQL
+        $stmt->execute(); // Thực thi truy vấn
+        $stmt->setFetchMode(PDO::FETCH_ASSOC); // Đặt chế độ fetch là mảng kết hợp
+        $row = $stmt->fetch(); // Lấy một bản ghi duy nhất
+        $conn = null; // Đóng kết nối
+        return $row; // Trả về bản ghi
+    }
+    
     
 ?>

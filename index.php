@@ -16,31 +16,61 @@
         switch ($_GET['pg']) {
             case 'sanpham':
                 // Lấy tham số từ URL
-                $maLoai = isset($_GET['category']) && !empty($_GET['category']) ? $_GET['category'] : [];//ma loai cua khung tìm kiếm , neu ko co thì ở hàm đã setup mặc định rỗng
+                $maLoai = isset($_GET['category']) && !empty($_GET['category']) ? $_GET['category'] : [];
                 $searchKeyword = isset($_GET['search']) ? trim($_GET['search']) : '';
                 $giaTien = isset($_GET['price']) ? $_GET['price'] : '';
                 $danhMucLoaiSach = isset($_GET['category']) ? $_GET['category'] : [];
-                // Nếu có từ khóa tìm kiếm, lọc theo từ khóa và loại
+            
+                // Phân trang
+                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Trang hiện tại
+                $items_per_page = 8; // Số sản phẩm trên mỗi trang
+                $offset = ($page - 1) * $items_per_page; // Tính offset
+            
+                // Nếu có từ khóa tìm kiếm
                 if (!empty($searchKeyword)) {
-                    $sanpham_list = searchProducts($searchKeyword, $maLoai);
+                    $sanpham_list = searchProducts($searchKeyword, $maLoai, $tacgias, $items_per_page, $offset);
+                    $total_items = count(searchProducts($searchKeyword, $maLoai, $tacgias)); // Tổng số sản phẩm để phân trang
                 } else {
-                    if (!empty($danhMucLoaiSach) && !empty($giaTien)) {
-                        // Lọc theo cả loại sản phẩm và giá
-                        $sanpham_list = getFilteredProducts($danhMucLoaiSach, $giaTien);
+                    if (!empty($danhMucLoaiSach) && !empty($giaTien) && !empty($tacgias)) {
+                        // Lọc theo loại sản phẩm, giá và tác giả
+                        $sanpham_list = getFilteredProducts($danhMucLoaiSach, $giaTien, $tacgias, $items_per_page, $offset);
+                        $total_items = getTotalProducts($danhMucLoaiSach, $giaTien, $tacgias); // Tổng số sản phẩm
+                    } elseif (!empty($danhMucLoaiSach) && !empty($giaTien)) {
+                        // Lọc theo loại sản phẩm và giá
+                        $sanpham_list = getFilteredProducts($danhMucLoaiSach, $giaTien, [], $items_per_page, $offset);
+                        $total_items = getTotalProducts($danhMucLoaiSach, $giaTien, []); // Tổng số sản phẩm
+                    } elseif (!empty($danhMucLoaiSach) && !empty($tacgias)) {
+                        // Lọc theo loại sản phẩm và tác giả
+                        $sanpham_list = getFilteredProducts($danhMucLoaiSach, '', $tacgias, $items_per_page, $offset);
+                        $total_items = getTotalProducts($danhMucLoaiSach, '', $tacgias); // Tổng số sản phẩm
+                    } elseif (!empty($giaTien) && !empty($tacgias)) {
+                        // Lọc theo giá và tác giả
+                        $sanpham_list = getFilteredProducts([], $giaTien, $tacgias, $items_per_page, $offset);
+                        $total_items = getTotalProducts([], $giaTien, $tacgias); // Tổng số sản phẩm
                     } elseif (!empty($danhMucLoaiSach)) {
                         // Lọc chỉ theo loại sản phẩm
-                        $sanpham_list = getFilteredProducts($danhMucLoaiSach, '');
+                        $sanpham_list = getFilteredProducts($danhMucLoaiSach, '', [], $items_per_page, $offset);
+                        $total_items = getTotalProducts($danhMucLoaiSach, '', []); // Tổng số sản phẩm
                     } elseif (!empty($giaTien)) {
                         // Lọc chỉ theo giá
-                        $sanpham_list = getFilteredProducts([], $giaTien);
+                        $sanpham_list = getFilteredProducts([], $giaTien, [], $items_per_page, $offset);
+                        $total_items = getTotalProducts([], $giaTien, []); // Tổng số sản phẩm
+                    } elseif (!empty($tacgias)) {
+                        // Lọc chỉ theo tác giả
+                        $sanpham_list = getFilteredProducts([], '', $tacgias, $items_per_page, $offset);
+                        $total_items = getTotalProducts([], '', $tacgias); // Tổng số sản phẩm
                     } else {
                         // Nếu không có gì (không lọc), lấy tất cả sản phẩm
-                        $sanpham_list = getFilteredProducts([], '');
+                        $sanpham_list = getFilteredProducts([], '', [], $items_per_page, $offset);
+                        $total_items = getTotalProducts([], '', []); // Tổng số sản phẩm
                     }
-                    
                 }
-                // Lấy danh sách loại sách để hiển thị
+                // Tính tổng số trang
+                $total_pages = ceil($total_items / $items_per_page);
+            
+                // Lấy danh sách loại sách để hiển thị (không phân trang)
                 $loaisach_list = get_loaisach();
+                $tacgia_list =  get_tacgia();
                 // Bao gồm view sản phẩm
                 include_once "view/sanpham.php";
                 break;            
