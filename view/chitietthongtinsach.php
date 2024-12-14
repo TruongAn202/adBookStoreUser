@@ -25,8 +25,8 @@
                             <h4><?= $tenSach ?></h4>
                                 <!-- Thông tin và giá -->
                                 <div class="ql-price">
-                                    <div class="price"><?= $giaKM ?></div>
-                                    <div class="old-price"><?= $gia ?></div>
+                                    <div class="price"><?= number_format($giaKM, 0, ',', '.') ?></div>
+                                    <div class="old-price"><?= number_format($gia, 0, ',', '.') ?></div>
                                 </div>
                         </div>
                         <!-- Thẻ div chứa thông tin người bán -->
@@ -43,8 +43,20 @@
                         </div>
                         <!-- Thẻ div chứa button mua ngay và thêm vào giỏ -->
                         <div class="hanhdong">
-                            <button class="buy-now">Mua Ngay</button>
-                            <button class="add-to-cart">Thêm vào giỏ</button>
+                            <!-- <button class="buy-now">Mua Ngay</button> -->
+                             <?php
+                              echo '<form action="index.php?pg=addcart" method="post">
+                                            <input type="hidden" value="'.$maSach.'" name="maSach">
+                                            <input type="hidden" value="'.$tenSach.'" name="tenSach">
+                                            <input type="hidden" value="'.$anh.'" name="anh">
+                                            <input type="hidden" value="'.$giaKM.'" name="giaKM">
+                                            <input type="hidden" value="'.$gia.'" name="gia">
+                                            <input type="hidden" value="'.$tenTG.'" name="tenTG">
+                                            <input type="hidden" value="1" name="soLuong">
+                                            <input type="submit" value="Thêm vào giỏ" name="btnaddcart" class="add-to-cart">
+                                        </form>';
+                             ?>
+                            <!-- <button class="add-to-cart">Thêm vào giỏ</button> -->
                         </div>
                     </div>
                 </div>
@@ -102,7 +114,7 @@
                         </button>
                       </h2>
                       <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Hehe</div>
+                        <div class="accordion-body">Gọi hotline : +08008008</div>
                       </div>
                     </div>
                     <div class="accordion-item">
@@ -112,7 +124,7 @@
                         </button>
                       </h2>
                       <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Hehehehe</div>
+                        <div class="accordion-body">Gọi hotline : +08008008</div>
                       </div>
                     </div>
                     <div class="accordion-item">
@@ -122,7 +134,7 @@
                         </button>
                       </h2>
                       <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">hihihi</div>
+                        <div class="accordion-body">Gọi hotline : +08008008</div>
                       </div>
                     </div>
                   </div>

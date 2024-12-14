@@ -80,7 +80,7 @@
     
 }
 
-.hanhdong button {
+/* .hanhdong button {
     padding: 10px 20px;
     margin-right: 8px;
     background-color: #fccf00;
@@ -92,8 +92,20 @@
 .hanhdong button:hover {
     background-color: #212121;
     color: #fccf00;
+} */
+.hanhdong input[type="submit"] {
+    padding: 10px 20px;
+    margin-right: 8px;
+    background-color: #fccf00;
+    color: #212121;
+    border: none;
+    cursor: pointer;
 }
 
+.hanhdong input[type="submit"]:hover {
+    background-color: #212121;
+    color: #fccf00;
+}
 /*lo trinh*/
 h2{
     color: #082346;

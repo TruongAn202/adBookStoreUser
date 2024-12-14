@@ -8,6 +8,12 @@
         </div>
         <div id="background-KH">
             <div id="sevices">
+              <div id="place">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                  <li class="breadcrumb-item active">Bản tin</li>  
+                </ol>
+              </div>
                 <div id="product-1">
                   <div class="container mt-5">
                     <div class="row">

@@ -32,11 +32,10 @@
             <div id="sevices">
               <div id="place">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-                  <li class="breadcrumb-item active">Về chúng tôi</li>
-                  
-              </ol>
-                  <div class="breadcrumb-container">
+                  <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                  <li class="breadcrumb-item active">Về chúng tôi</li>  
+                </ol>
+                <div class="breadcrumb-container">
                     <h4 id="tieude-khoahoc">Về chúng tôi</h4>
                     <hr class="border border-warning border-3 opacity-75">
                   <br>

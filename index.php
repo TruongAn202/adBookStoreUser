@@ -267,8 +267,8 @@
                     //var_dump($sach);
                     if ($sach) {
                         $tenSach = $sach['tenSach']; //lay tu biến $sach đã được truy vấn từ csdl, phần tử key = tenSach(tên cột trong CSDL)
-                        $gia = number_format($sach['gia']);
-                        $giaKM = number_format($sach['giaKM']);
+                        $gia = $sach['gia'];
+                        $giaKM = $sach['giaKM'];
                         $tenTG = $sach['tenTG'];
                         $anh = $sach['anh'];
                         $moTa = $sach['moTa'];
