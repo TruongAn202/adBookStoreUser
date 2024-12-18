@@ -291,14 +291,16 @@
                             $successDN = "Đăng nhập thành công, xin chờ giây lát chuyển về trang chủ!";
                         } else {
                             // Mật khẩu sai
-                            $errorDN = "Mật khẩu không chính xác!";                            
+                            $errorDN = "Mật khẩu không chính xác!";
+                                                   
                         }
                     } else {
                         // Không tìm thấy tài khoản
                         $errorDN = "Tên đăng nhập không tồn tại!";                       
                     }
                 }
-                include_once "view/dangnhap.php";               
+                include_once "view/dangnhap.php";
+                break;               
             case 'bantin':
                 $newbantin = getnewbantin(); //getnewbantin() này ở bantin.php bên model(câu lệnh sql)
                 //echo var_dump($newbantin);

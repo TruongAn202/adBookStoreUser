@@ -1,14 +1,14 @@
 <?php
     function connectdb(){
-        // $servername = "sql311.infinityfree.com";
-        // $username = "if0_37491692";
-        // $password = "BwCskEr1P7";
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
+        $servername = "sql311.infinityfree.com";
+        $username = "if0_37491692";
+        $password = "BwCskEr1P7";
+        // $servername = "localhost";
+        // $username = "root";
+        // $password = "";
         try {
-        // $conn = new PDO("mysql:host=$servername;dbname=if0_37491692_dbbookstore;charset=utf8mb4", $username, $password);
-        $conn = new PDO("mysql:host=$servername;dbname=dbbookstore1;charset=utf8mb4", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=if0_37491692_dbbookstore;charset=utf8mb4", $username, $password);
+        //$conn = new PDO("mysql:host=$servername;dbname=dbbookstore1;charset=utf8mb4", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //echo "Connected successfully";
