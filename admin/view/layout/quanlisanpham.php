@@ -11,7 +11,27 @@ if ($conn === null) {
 // Hàm lấy tất cả sách
 function getBooks($conn)
 {
-    $sql = "SELECT maSach,tenSach,loaisach.tenLoai,giaKM,anh,SoLuong,TinhTrang,moTa FROM sach join loaisach on sach.maLoai=loaisach.maLoai";
+    $sql = "SELECT 
+    maSach,
+    tenSach,
+    loaisach.tenLoai,
+    giaKM,
+    anh,
+    SoLuong,
+    TinhTrang,
+    moTa 
+FROM 
+    sach 
+JOIN 
+    loaisach 
+ON 
+    sach.maLoai = loaisach.maLoai
+ORDER BY 
+    CASE 
+        WHEN TinhTrang = 'hết hàng' THEN 1
+        WHEN TinhTrang = 'còn hàng' THEN 2
+        ELSE 3
+    END";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +100,7 @@ if (isset($_SESSION['success_message'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css1/main.css">
-   
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- or -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -91,7 +111,7 @@ if (isset($_SESSION['success_message'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
@@ -102,14 +122,14 @@ if (isset($_SESSION['success_message'])) {
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
             <!-- User Menu-->
-            <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+            <li><a class="app-nav__item" href="../../index.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
             </li>
         </ul>
     </header>
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/Admin.png" width="50px"
+        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="assets/images/Admin.png" width="50px"
                 alt="User Image">
             <div>
                 <p class="app-sidebar__user-name"><b>Admin</b></p>
@@ -118,7 +138,7 @@ if (isset($_SESSION['success_message'])) {
         </div>
         <hr>
         <ul class="app-menu">
-            <li><a class="app-menu__item " href="bangDK.php"><i class='app-menu__icon bx bx-tachometer'></i><span
+            <li><a class="app-menu__item " href="bangDieuKhien.php"><i class='app-menu__icon bx bx-tachometer'></i><span
                         class="app-menu__label">Bảng điều khiển</span></a></li>
 
             <li><a class="app-menu__item active" href="quanlisanpham.php"><i
@@ -127,7 +147,7 @@ if (isset($_SESSION['success_message'])) {
             <li><a class="app-menu__item " href="donhang.php"><i class='app-menu__icon bx bx-task'></i><span
                         class="app-menu__label">Quản lý đơn hàng</span></a></li>
             </li>
-            <li><a class="app-menu__item" href="doanh-thu.php"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a></li>
+            <li><a class="app-menu__item" href="doanhThu.php"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a></li>
             <li><a class="app-menu__item " href="quanliTaiKhoan.php"><i class='app-menu__icon bx bx-id-card'></i>
                     <span class="app-menu__label">Quản lý Tài Khoản</span></a></li>
 
@@ -179,7 +199,7 @@ if (isset($_SESSION['success_message'])) {
                                         <tr>
                                             <td><?php echo $row['maSach']; ?></td>
                                             <td><?php echo $row['tenSach']; ?></td>
-                                            <td><?php echo number_format($row['giaKM'], 0, ',', '.'); ?> đ</td>
+                                            <td><?php echo number_format($row['giaKM'], 0, ',', '.'); ?> VND</td>
                                             <td>
                                                 <?php
                                                 // Đường dẫn đến ảnh trong các thư mục
@@ -209,8 +229,8 @@ if (isset($_SESSION['success_message'])) {
                                             </td>
                                             <td><?php echo $row['moTa']; ?></td>
                                             <td><?php echo $row['tenLoai']; ?></td>
-                                            
-                                           
+
+
                                             <td>
                                                 <a href="delete.php?id=<?php echo $row['maSach']; ?>"
                                                     class="btn btn-primary btn-sm trash" title="Xóa"
@@ -318,8 +338,8 @@ if (isset($_SESSION['success_message'])) {
                 rows.forEach(row => row.style.display = '');
             }
         }
-       // oTable = $('#sampleTable').DataTable({
-            //searching: true // Tắt tính năng tìm kiếm
+        // oTable = $('#sampleTable').DataTable({
+        //searching: true // Tắt tính năng tìm kiếm
         // });
         // $(document).ready(function() {
         //     // Khởi tạo DataTable với phân trang

@@ -12,6 +12,11 @@
     //echo var_dump($newproduct); kiem tra xem ket noi duoc chua
     //connectdb();
     include_once "view/header.php";
+    if (isset($_SESSION['vaiTro']) && $_SESSION['vaiTro'] === 'admin') {
+        session_unset(); // Xóa tất cả dữ liệu trong session
+        session_destroy(); // Hủy session hiện tại
+        header("Location: index.php");
+    }
     if(isset($_GET['pg'])&&($_GET['pg']!="")){ //pg là biến nếu nó = product thì thực thi lệnh case
         switch ($_GET['pg']) {
             case 'sanpham':
@@ -101,7 +106,8 @@
                         echo "Không tìm thấy hóa đơn cho email này.";                      
                     }
                 } else {
-                    echo "Email không hợp lệ.";
+                    //echo "Email không hợp lệ.";
+                    header("Location: index.php?pg=dangnhap");
                 }
                 include_once "view/chitiethoadon.php";
                 break;
@@ -232,10 +238,15 @@
                 break;
 
             case 'dangxuat':
-                unset($_SESSION['vaiTro']);
-                unset($_SESSION['iduser']);
-                unset($_SESSION['username']);
-                unset($_SESSION['giohang']); 
+                // unset($_SESSION['vaiTro']);
+                // unset($_SESSION['iduser']);
+                // unset($_SESSION['username']);
+                // unset($_SESSION['giohang']);
+                // unset($_SESSION['email']); 
+                // Hủy tất cả các biến trong session
+                session_unset();
+                // Hủy phiên làm việc
+                //session_destroy();
                 header('location: index.php');
                 break;   
             case 'lienhe':
@@ -269,38 +280,41 @@
                 }
                 include_once "view/chitietthongtinsach.php";
                 break;
-            case 'login': //key này lấy du lieu khi click vao nut dang nhap tren from cua trang dangnhap
+            case 'login': // key này lấy dữ liệu khi click vào nút đăng nhập trên form của trang đăng nhập
                 if (isset($_POST['login']) && $_POST['login']) {
-                    $username = $_POST['user']; 
-                    $password = $_POST['pass'];                    
+                    $username = $_POST['user'];
+                    $password = $_POST['pass'];
                     // Gọi hàm getUserInfo để lấy thông tin
-                    $kq = getUserInfo($username);                   
+                    $kq = getUserInfo($username);
                     if (!empty($kq)) { // Kiểm tra nếu kết quả không rỗng
-                        $hashedPassword = $kq[0]['password']; // Lấy mật khẩu đã mã hóa từ CSDL(câu sql chỉ trả về 1 phần tử thì đương nhiên là pt thứ 0)                      
-                        if (password_verify($password, $hashedPassword)) { //kiểm tra xem pass lấy từ form có giống với password đã dùng hàm mã trong csdl không
-                            // Đăng nhập thành công
-                            $_SESSION['vaiTro'] = $kq[0]['vaiTro'];
-                            $_SESSION['iduser'] = $kq[0]['email'];
-                            $_SESSION['username'] = $kq[0]['username']; // Đảm bảo không có lỗi
-                            $_SESSION['email'] = $kq[0]['email'];
-                            $_SESSION['diachi'] = $kq[0]['diaChi'];
-                            $_SESSION['sdt'] = $kq[0]['soDienThoai'];
-                            $_SESSION['fullname'] = $kq[0]['full_name'];
-                            unset($_SESSION['giohang']); //khi dang nhap thanh cong thi xoa gio hang khi chua dang nhap, chi khi nao đặt hàng thành cong mới luu vao csdl, còn chưa đặt hàng thì xóa hết
-                            // header('location: index.php');
-                            $successDN = "Đăng nhập thành công, xin chờ giây lát chuyển về trang chủ!";
+                        $hashedPassword = $kq[0]['password']; // Lấy mật khẩu đã mã hóa từ CSDL
+                        if (password_verify($password, $hashedPassword)) { // Kiểm tra xem mật khẩu có đúng không
+                            if ($kq[0]['vaiTro'] === 'user') { // Kiểm tra vai trò
+                                // Đăng nhập thành công
+                                $_SESSION['vaiTro'] = $kq[0]['vaiTro'];
+                                $_SESSION['iduser'] = $kq[0]['email'];
+                                $_SESSION['username'] = $kq[0]['username'];
+                                $_SESSION['email'] = $kq[0]['email'];
+                                $_SESSION['diachi'] = $kq[0]['diaChi'];
+                                $_SESSION['sdt'] = $kq[0]['soDienThoai'];
+                                $_SESSION['fullname'] = $kq[0]['full_name'];
+                                unset($_SESSION['giohang']); // Khi đăng nhập thành công thì xóa giỏ hàng nếu có
+                                $successDN = "Đăng nhập thành công, xin chờ giây lát chuyển về trang chủ!";
+                            } else {
+                                // Vai trò không hợp lệ
+                                $errorDN = "Mật khẩu không chính xác!";
+                            }
                         } else {
                             // Mật khẩu sai
                             $errorDN = "Mật khẩu không chính xác!";
-                                                   
                         }
                     } else {
                         // Không tìm thấy tài khoản
-                        $errorDN = "Tên đăng nhập không tồn tại!";                       
+                        $errorDN = "Tên đăng nhập không tồn tại!";
                     }
                 }
                 include_once "view/dangnhap.php";
-                break;               
+                break;
             case 'bantin':
                 $newbantin = getnewbantin(); //getnewbantin() này ở bantin.php bên model(câu lệnh sql)
                 //echo var_dump($newbantin);

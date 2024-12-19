@@ -11,7 +11,7 @@ if ($conn === null) {
 function getTotalOutOfStockBooks($conn, $tinhTrang = 'hết hàng')
 {
   // Chuẩn bị câu truy vấn để đếm số lượng sách có tình trạng 'hết hàng'
-  $sql = "SELECT COUNT(*) AS count FROM SACH WHERE tinhTrang = :tinhTrang";
+  $sql = "SELECT COUNT(*) AS count FROM sach WHERE tinhTrang = :tinhTrang";
 
   // Chuẩn bị statement
   $stmt = $conn->prepare($sql);
@@ -31,7 +31,7 @@ function getTotalOutOfStockBooks($conn, $tinhTrang = 'hết hàng')
 function TongSanPham($conn)
 {
   // Câu truy vấn để đếm tổng số sách
-  $sql = "SELECT COUNT(*) AS count1 FROM SACH";
+  $sql = "SELECT COUNT(*) AS count1 FROM sach";
 
   // Chuẩn bị statement
   $stmt = $conn->prepare($sql);
@@ -78,8 +78,9 @@ function soLuongDH($conn)
   // Trả về tổng số sách có trong cơ sở dữ liệu
   return $result['count1'];
 }
-function tinhTrangDH($conn)
+function tinhTrangDH($conn, $currentPage, $itemsPerPage)
 {
+  $startIndex = ($currentPage - 1) * $itemsPerPage;
   $sql = "SELECT 
               h.maHD, 
               h.tenNguoiNhan, 
@@ -88,9 +89,11 @@ function tinhTrangDH($conn)
           FROM 
               hoadon h
           JOIN 
-              chitiethoadon c ON h.maHD = c.maHD";
+              chitiethoadon c ON h.maHD = c.maHD
+               LIMIT :startIndex, :itemsPerPage";
   $stmt = $conn->prepare($sql);
-
+  $stmt->bindParam(':startIndex', $startIndex, PDO::PARAM_INT);
+  $stmt->bindParam(':itemsPerPage', $itemsPerPage, PDO::PARAM_INT);
   // Thực thi câu lệnh
   $stmt->execute();
 
@@ -108,11 +111,14 @@ function thongTinKhachHang($conn, $vaiTro = "user")
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $result;
 }
+$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Trang hiện tại
+$itemsPerPage = 5; // Số sản phẩm hiển thị mỗi trang
+$totalPages = 5; // Tổng số trang cố định
 $out_of_stock_count = getTotalOutOfStockBooks($conn);
 $tongSP = TongSanPham($conn);
 $tongKH = SoLuongKhachHang($conn);
 $tongHD = soLuongDH($conn);
-$result = tinhTrangDH($conn);
+$result = tinhTrangDH($conn, $currentPage, $itemsPerPage);
 $thongTinKH = thongTinKhachHang($conn);
 $conn = null;
 ?>
@@ -125,7 +131,7 @@ $conn = null;
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Main CSS-->
-  
+
   <link rel="stylesheet" type="text/css" href="assets/css1/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
   <!-- or -->
@@ -149,7 +155,7 @@ $conn = null;
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+      <li><a class="app-nav__item" href="../../index.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
@@ -157,8 +163,8 @@ $conn = null;
   <!-- Sidebar menu-->
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
   <aside class="app-sidebar">
-  
-     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/Admin.png" width="50px"
+
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="assets/images/Admin.png" width="50px"
         alt="User Image">
       <div>
         <p class="app-sidebar__user-name"><b>Admin</b></p>
@@ -167,7 +173,7 @@ $conn = null;
     </div>
     <hr>
     <ul class="app-menu">
-      <li><a class="app-menu__item active" href="bangDk.php"><i class='app-menu__icon bx bx-tachometer'></i><span
+      <li><a class="app-menu__item active" href="bangDieuKhien.php"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Bảng điều khiển</span></a></li>
 
       <li><a class="app-menu__item " href="quanlisanpham.php"><i
@@ -176,7 +182,7 @@ $conn = null;
       <li><a class="app-menu__item" href="donhang.php"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
       </li>
-      <li><a class="app-menu__item" href="doanh-thu.php"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a></li>
+      <li><a class="app-menu__item" href="doanhThu.php"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a></li>
       <li><a class="app-menu__item " href="quanliTaiKhoan.php"><i class='app-menu__icon bx bx-id-card'></i>
           <span class="app-menu__label">Quản lý Tài Khoản</span></a></li>
     </ul>
@@ -261,6 +267,18 @@ $conn = null;
                     <?php endforeach; ?>
                   </tbody>
                 </table>
+                <nav>
+                  <ul style="list-style: none; display: flex;">
+                    <?php for ($page = 1; $page <= $totalPages; $page++): ?>
+                      <li style="margin: 0 5px;">
+                        <a href="?page=<?php echo $page; ?>"
+                          style="text-decoration: none; padding: 5px 10px; border: 1px solid #000; <?php echo $page == $currentPage ? 'background-color: #ccc;' : ''; ?>">
+                          <?php echo $page; ?>
+                        </a>
+                      </li>
+                    <?php endfor; ?>
+                  </ul>
+                </nav>
               </div>
               <!-- / div trống-->
             </div>
@@ -299,25 +317,25 @@ $conn = null;
       <!--END left-->
       <!-- / col-12 -->
       <div class="col-md-12 col-lg-6">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="tile">
-                <h3 class="tile-title">Dữ liệu 6 tháng đầu vào</h3>
-                <div class="embed-responsive embed-responsive-16by9">
-                  <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
-                </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tile">
+              <h3 class="tile-title">Dữ liệu 6 tháng đầu vào</h3>
+              <div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
               </div>
             </div>
-            <div class="col-md-12">
-              <div class="tile">
-                <h3 class="tile-title">Thống kê 6 tháng doanh thu</h3>
-                <div class="embed-responsive embed-responsive-16by9">
-                  <canvas class="embed-responsive-item" id="barChartDemo"></canvas>
-                </div>
+          </div>
+          <div class="col-md-12">
+            <div class="tile">
+              <h3 class="tile-title">Thống kê 6 tháng doanh thu</h3>
+              <div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="barChartDemo"></canvas>
               </div>
             </div>
           </div>
         </div>
+      </div>
       <!--Right-->
   </main>
   <script src="js/jquery-3.2.1.min.js"></script>

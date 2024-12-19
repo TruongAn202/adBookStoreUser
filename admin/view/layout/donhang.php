@@ -1,74 +1,98 @@
 <?php
 include '../../model/connectdb.php';
-$sql = "SELECT 
-            h.maHD, 
-            h.tenNguoiNhan, 
-            h.diaChiNguoiNhan, 
-            h.soDienThoaiHD, 
-            h.ngayLapHD, 
-            h.ngayNhan, 
-            h.trangThaiHD, 
-            h.phuongThucThanhToan, 
-            c.soLuong, 
-            c.donGia,
-            s.tenSach,
-            h.phuongThucGiaoHang  
-        FROM 
-            hoadon h
-        JOIN 
-              chitiethoadon c ON h.maHD = c.maHD
-        JOIN 
-            sach s ON c.maSach = s.maSach";
+
+// Hàm lấy tất cả hóa đơn
+function getAllInvoices($conn) {
+    $sql = "SELECT 
+                h.maHD, 
+                h.tenNguoiNhan, 
+                h.diaChiNguoiNhan, 
+                h.soDienThoaiHD, 
+                h.ngayLapHD, 
+                h.ngayNhan, 
+                h.trangThaiHD, 
+                h.phuongThucThanhToan, 
+                c.soLuong, 
+                c.donGia,
+                s.tenSach,
+                h.phuongThucGiaoHang  
+            FROM 
+                hoadon h
+            JOIN 
+                chitiethoadon c ON h.maHD = c.maHD
+            JOIN 
+                sach s ON c.maSach = s.maSach
+            ORDER BY 
+                CASE 
+                    WHEN h.phuongThucGiaoHang = 'giaoNhanh' THEN 1
+                    WHEN h.phuongThucGiaoHang = 'giaoTietKiem' THEN 2
+                    ELSE 3
+                END";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Hàm tìm kiếm hóa đơn
+function searchInvoices($conn, $searchTerm) {
+    $sql = "SELECT 
+                h.maHD, 
+                h.tenNguoiNhan, 
+                h.diaChiNguoiNhan, 
+                h.soDienThoaiHD, 
+                h.ngayLapHD, 
+                h.ngayNhan, 
+                h.trangThaiHD, 
+                h.phuongThucThanhToan, 
+                c.soLuong, 
+                c.donGia,
+                s.tenSach,
+                h.phuongThucGiaoHang  
+            FROM 
+                hoadon h
+            JOIN 
+                chitiethoadon c ON h.maHD = c.maHD
+            JOIN 
+                sach s ON c.maSach = s.maSach
+            WHERE 
+                h.maHD LIKE :searchTerm
+            ORDER BY 
+                CASE 
+                    WHEN h.phuongThucGiaoHang = 'giaoNhanh' THEN 1
+                    WHEN h.phuongThucGiaoHang = 'giaoTietKiem' THEN 2
+                    ELSE 3
+                END";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(':searchTerm', '%' . $searchTerm . '%');
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Kết nối đến cơ sở dữ liệu
 $conn = connectdb(); // Kiểm tra kết nối
 if ($conn === null) {
-  echo "Không thể kết nối đến cơ sở dữ liệu.";
-  exit();
+    echo "Không thể kết nối đến cơ sở dữ liệu.";
+    exit();
 }
-function searchInvoices($conn, $searchTerm) //Tìm Kiếm
-{
-  $sql = "SELECT 
-              h.maHD, 
-              h.tenNguoiNhan, 
-              h.diaChiNguoiNhan, 
-              h.soDienThoaiHD, 
-              h.ngayLapHD, 
-              h.ngayNhan, 
-              h.trangThaiHD, 
-              h.phuongThucThanhToan, 
-              c.soLuong, 
-              c.donGia,
-              s.tenSach
-              h.phuongThucGiaoHang  
-          FROM 
-              hoadon h
-          JOIN 
-              chitiethoadon c ON h.maHD = c.maHD
-          JOIN 
-              sach s ON c.maSach = s.maSach
-          WHERE 
-              h.maHD LIKE :searchTerm"; // Sửa đây để tìm kiếm theo maHD
 
-  $stmt = $conn->prepare($sql);
-  $stmt->bindValue(':searchTerm', '%' . $searchTerm . '%'); // Áp dụng từ khóa tìm kiếm
-  $stmt->execute();
-  return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+// Xử lý yêu cầu tìm kiếm
 $searchTerm = '';
 if (isset($_GET['search'])) {
-  // Xử lý bảo mật và tránh SQL injection
-  $searchTerm = ($_GET['search']);
+    $searchTerm = htmlspecialchars($_GET['search']); // Xử lý bảo mật
 }
 
-// Nếu có từ khóa tìm kiếm, thực hiện tìm kiếm theo mã hóa đơn
 if ($searchTerm) {
-  $result = searchInvoices($conn, $searchTerm);
+    // Nếu có từ khóa tìm kiếm, gọi hàm searchInvoices
+    $result = searchInvoices($conn, $searchTerm);
 } else {
-  // Nếu không có từ khóa tìm kiếm, lấy tất cả hóa đơn
-  $stmt = $conn->prepare($sql);
-  $stmt->execute();
-  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Nếu không có từ khóa tìm kiếm, gọi hàm getAllInvoices
+    $result = getAllInvoices($conn);
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,14 +124,14 @@ if ($searchTerm) {
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="#"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+      <li><a class="app-nav__item" href="../../index.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
       </li>
     </ul>
   </header>
   <!-- Sidebar menu-->
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
   <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/Admin.png" width="50px"
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="assets/images/Admin.png" width="50px"
         alt="User Image">
       <div>
         <p class="app-sidebar__user-name"><b>Admin</b></p>
@@ -116,7 +140,8 @@ if ($searchTerm) {
     </div>
     <hr>
     <ul class="app-menu">
-      <li><a class="app-menu__item " href="bangDK.php"><i class='app-menu__icon bx bx-tachometer'></i><span
+      <li><a class="app-menu__item " href="bangDieuKhien.php">
+        <i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Bảng điều khiển</span></a></li>
 
       <li><a class="app-menu__item" href="quanlisanpham.php"><i
@@ -125,7 +150,8 @@ if ($searchTerm) {
       <li><a class="app-menu__item active" href="donhang.php"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
       </li>
-      <li><a class="app-menu__item" href="doanh-thu.php"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a></li>
+      <li><a class="app-menu__item" href="doanhThu.php"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i>
+      <span class="app-menu__label">Báo cáo doanh thu</span></a></li>
       <li><a class="app-menu__item " href="quanliTaiKhoan.php"><i class='app-menu__icon bx bx-id-card'></i>
           <span class="app-menu__label">Quản lý Tài Khoản</span></a></li>
 
@@ -168,12 +194,12 @@ if ($searchTerm) {
                     <td><?php echo $result1['tenNguoiNhan']; ?></td>
                     <td><?php echo $result1['tenSach']; ?></td>
                     <td><?php echo $result1['soLuong']; ?></td>
-                    <td><?php echo $result1['donGia']; ?></td>
+                    <td><?php echo number_format($result1['donGia'], 0, ',', '.'); ?> VND</td>
                     <td><?php echo $result1['diaChiNguoiNhan']; ?></td>
                     <td><?php echo $result1['soDienThoaiHD']; ?></td>
                     <td><?php echo $result1['ngayLapHD']; ?></td>
                     <td><?php echo isset($result1['ngayNhan']) && !empty($result1['ngayNhan']) ? $result1['ngayNhan'] : ''; ?></td>
-                    <<td>
+                    <td>
                       <?php
                       // Mảng ánh xạ trạng thái
                       $statusMap = [
@@ -191,7 +217,7 @@ if ($searchTerm) {
                       ?>
                       </td>
                       <td><?php echo $result1['phuongThucThanhToan']; ?></td>
-                      <td><?php echo $result1['phuongThucGiaoHang']; ?></td>
+                      <td><?php echo $result1['phuongThucGiaoHang'] === 'giaoNhanh' ? 'Giao Nhanh' : ($result1['phuongThucGiaoHang'] === 'giaoTietKiem' ? 'Giao Tiết Kiệm' : $result1['phuongThucGiaoHang']); ?></td>
                       <td>
                         <button class="btn btn-danger" onclick="updateTrangThaiDH('<?php echo $result1['maHD']; ?>')">
                           Cập Nhật Trạng Thái Đơn Hàng

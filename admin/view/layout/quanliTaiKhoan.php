@@ -55,7 +55,7 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        <li><a class="app-nav__item" href="../../index.php"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
         </li>
       </ul>
@@ -72,7 +72,7 @@
       </div>
       <hr>
       <ul class="app-menu">
-        <li><a class="app-menu__item " href="bangDK.php"><i class='app-menu__icon bx bx-tachometer'></i><span
+        <li><a class="app-menu__item " href="bangDieuKhien.php"><i class='app-menu__icon bx bx-tachometer'></i><span
               class="app-menu__label">Bảng điều khiển</span></a></li>
 
         <li><a class="app-menu__item" href="quanlisanpham.php"><i
@@ -81,7 +81,7 @@
         <li><a class="app-menu__item" href="donhang.php"><i class='app-menu__icon bx bx-task'></i><span
               class="app-menu__label">Quản lý đơn hàng</span></a></li>
         </li>
-        <li><a class="app-menu__item" href="doanh-thu.php"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a></li>
+        <li><a class="app-menu__item" href="doanhThu.php"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a></li>
         <li><a class="app-menu__item active" href="quanliTaiKhoan.php"><i class='app-menu__icon bx bx-id-card'></i>
             <span class="app-menu__label">Quản lý Tài Khoản</span></a></li>
 
@@ -102,7 +102,7 @@
               <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0" id="sampleTable">
                 <thead>
                   <tr>
-                    <th width="10"><input type="checkbox" id="all"></th>
+              
                     <th>Email</th>
                     <th width="150">UserName</th>
                     <th width="20">Password</th>
@@ -119,7 +119,7 @@
                   // Duyệt qua tất cả dữ liệu lấy từ database và hiển thị
                   foreach ($users as $user) {
                     echo '<tr>';
-                    echo '<td><input type="checkbox"></td>';
+                  
                     echo '<td>' . htmlspecialchars($user['email'] ?? '') . '</td>';
                     echo '<td>' . htmlspecialchars($user['username'] ?? '') . '</td>';
                     echo '<td>' . htmlspecialchars($user['password'] ?? '') . '</td>';

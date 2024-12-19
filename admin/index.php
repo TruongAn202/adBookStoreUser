@@ -8,7 +8,10 @@ if ($conn === null) {
     echo "Không thể kết nối đến cơ sở dữ liệu.";
     exit();
 }
-
+if (isset($_SESSION['error_message'])) {
+    echo "<div class='alert alert-danger'>" . $_SESSION['error_message'] . "</div>";
+    unset($_SESSION['error_message']); // Xóa thông báo sau khi hiển thị
+}
 // Kiểm tra nếu form đã được submit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy dữ liệu từ form
@@ -33,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Kiểm tra vai trò của người dùng
             if ($_SESSION['vaiTro'] == 'admin') {
                 // Nếu người dùng là admin, chuyển hướng đến trang quản trị
-                header("Location:view/layout/bangDK.php");
+                header("Location:view/layout/bangDieuKhien.php");
+                $_SESSION['success_message'] = 'Đăng nhập thành công. Chào mừng quản trị viên!';
                 exit();
             } else {
                 // Nếu người dùng không phải admin, không cho phép truy cập
