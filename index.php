@@ -102,9 +102,10 @@
                                 $chitiethoadon[] = [];  // Trường hợp không có chi tiết cho hóa đơn
                             }
                         }
-                    } else {
-                        echo "Không tìm thấy hóa đơn cho email này.";                      
-                    }
+                    } 
+                    // else {
+                    //     echo "Không tìm thấy hóa đơn cho email này.";                      
+                    // }
                 } else {
                     //echo "Email không hợp lệ.";
                     header("Location: index.php?pg=dangnhap");
