@@ -33,7 +33,7 @@ body::-webkit-scrollbar-thumb { /*định dạng tay cầm thanh cuộn*/
     width: 100px; 
     height: 40px; 
     background-size: contain !important; /*ảnh co giãn phù hợp kích thước thẻ a*/
-    background: url('/GiaoDienUser_Update_1/view/layout/assets/tichhop/image/logo_BookStore.png') no-repeat center center; /*canh giữa theo chiều ngang và dọc*/ 
+    background: url('../image/logo_BookStore.png') no-repeat center center; /*canh giữa theo chiều ngang và dọc*/ 
     margin-left: 30px;
 }
 .nav-link .badge { /*thẻ span so luong sp da them vao gio*/

@@ -27,7 +27,7 @@
 </head>
 <body>
     <nav class=" navbar navbar-expand-xl fixed-top" id="header">
-        <a class="navbar-brand" href="/GiaoDienUser_Update_1/index.php"></a>
+        <a class="navbar-brand" href="index.php"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" id="#nut-menu-nho">
             <i class="bi bi-list" id="icon-nho"></i>
         </button>
