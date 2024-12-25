@@ -25,8 +25,8 @@
                             <h4><?= $tenSach ?></h4>
                                 <!-- Thông tin và giá -->
                                 <div class="ql-price">
-                                    <div class="price"><?= number_format($giaKM, 0, ',', '.') ?></div>
-                                    <div class="old-price"><?= number_format($gia, 0, ',', '.') ?></div>
+                                    <div class="price"><?= number_format($giaKM, 0, ',', '.') ?>đ</div>
+                                    <div class="old-price"><?= number_format($gia, 0, ',', '.') ?>đ</div>
                                 </div>
                         </div>
                         <!-- Thẻ div chứa thông tin người bán -->
@@ -34,7 +34,7 @@
                             <p><?= $tenTG ?></p>
                         <!-- Thẻ div chứa thông tin chi tiết sản phẩm -->
                         <div class="product-details">
-                            <p><?= $moTa ?></p>
+                            <p><?= $moTa?>...</p>
                             
                         </div>
                         <!-- Thẻ div chứa số lượng và button -->

@@ -10,7 +10,7 @@ if ($conn === null) {
 // Kiểm tra ID sản phẩm
 if (isset($_GET['id'])) {
     $maSach = $_GET['id'];
-    $sql = "SELECT * FROM Sach WHERE maSach = :maSach";
+    $sql = "SELECT * FROM sach WHERE maSach = :maSach";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':maSach', $maSach, PDO::PARAM_STR);
     $stmt->execute();
@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
 }
 
 // Lấy danh sách danh mục
-$sqlLoai = "SELECT * FROM LoaiSach";
+$sqlLoai = "SELECT * FROM loaisach";
 $stmtLoai = $conn->prepare($sqlLoai);
 $stmtLoai->execute();
 $loaiSachList = $stmtLoai->fetchAll(PDO::FETCH_ASSOC);
@@ -51,12 +51,12 @@ $tinhTrangOptions = ['Còn hàng', 'Hết hàng'];
             $fileName = $_FILES['anh1']['name'];
     
             // Đường dẫn 1 - nằm trong thư mục admin
-            $uploadDir1 = $_SERVER['DOCUMENT_ROOT'] . '/adBookStoreUser/admin/view/layout/' . 'assets/img-sanpham/';
+            $uploadDir1 = __DIR__ . '/assets/img-sanpham/';
             $uploadFilePath1 = $uploadDir1 . $fileName;
-    
+
             // Đường dẫn 2 - view/layout/assets/image/
-            $uploadDir2 = $_SERVER['DOCUMENT_ROOT'] . '/adBookStoreUser/view/layout/' . 'assets/image/';
-            $uploadFilePath2 = $uploadDir2 . $fileName;
+            $uploadDir2 = realpath(__DIR__ . '/../../../view/layout/assets/image/');;
+            $uploadFilePath2 = $uploadDir2 . DIRECTORY_SEPARATOR . $fileName;
     
             // Di chuyển ảnh vào thư mục admin
             if (move_uploaded_file($fileTmpPath, $uploadFilePath1)) {
@@ -74,7 +74,7 @@ $tinhTrangOptions = ['Còn hàng', 'Hết hàng'];
             }
         }
         // Cập nhật thông tin sản phẩm
-        $updateSQL = "UPDATE Sach SET tenSach = :tenSach, giaKM = :giaKM, anh = :anh, SoLuong = :soLuong, maLoai = :maLoai, moTa = :moTa, moTaDayDu = :moTaDayDu WHERE maSach = :maSach";
+        $updateSQL = "UPDATE sach SET tenSach = :tenSach, giaKM = :giaKM, anh = :anh, SoLuong = :soLuong, maLoai = :maLoai, moTa = :moTa, moTaDayDu = :moTaDayDu WHERE maSach = :maSach";
         $stmt = $conn->prepare($updateSQL);
         $stmt->bindParam(':tenSach', $tenSach);
         $stmt->bindParam(':giaKM', $giaKM);
@@ -86,10 +86,13 @@ $tinhTrangOptions = ['Còn hàng', 'Hết hàng'];
         $stmt->bindParam(':maSach', $maSach);
     
         if ($stmt->execute()) {
-            header("Location: quanlisanpham.php");
+            echo "<script>
+                alert('Chỉnh sửa thành công!');
+                window.location.href = 'quanlisanpham.php';
+            </script>";
             exit();
         } else {
-            echo "Cập nhật thất bại.";
+            echo "<script>alert('Cập nhật thất bại.');</script>";
         }
     }
 

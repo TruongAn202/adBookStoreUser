@@ -32,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Mật khẩu chính xác, lưu thông tin người dùng vào session
             $_SESSION['username'] = $result['username'];
             $_SESSION['vaiTro'] = $result['vaiTro']; // Lưu vai trò người dùng vào session
-
+            $_SESSION['trangThai'] = $result['trangThai'];
             // Kiểm tra vai trò của người dùng
-            if ($_SESSION['vaiTro'] == 'admin') {
+            if ($_SESSION['vaiTro'] == 'admin' && $_SESSION['trangThai'] == 'active') {
                 // Nếu người dùng là admin, chuyển hướng đến trang quản trị
                 header("Location:view/layout/bangDieuKhien.php");
                 $_SESSION['success_message'] = 'Đăng nhập thành công. Chào mừng quản trị viên!';

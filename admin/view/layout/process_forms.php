@@ -53,9 +53,9 @@ try {
             $stmt->bindParam(':tenTG', $tenTG);
 
             if ($stmt->execute()) {
-                echo "Tác giả đã được thêm thành công!";
+                echo "<script>alert('Tác giả đã được thêm thành công!');</script>";
                 // Quay lại trang form-add-sp.php sau khi thêm thành công
-                header('Location: form-add-sp.php');
+                echo "<script>window.location.href='form-add-sp.php';</script>";
                 exit;
             } else {
                 // Nếu có lỗi, lấy thông tin lỗi từ PDO
@@ -89,9 +89,8 @@ try {
             $stmt->bindParam(':tenLoai', $tenLoai);
 
             if ($stmt->execute()) {
-                echo "Danh mục đã được thêm thành công!";
-                // Quay lại trang form-add-sp.php sau khi thêm thành công
-                header('Location: form-add-sp.php');
+                echo "<script>alert('Danh mục đã được thêm thành công!');</script>";
+                echo "<script>window.location.href='form-add-sp.php';</script>";
                 exit;
             } else {
                 // Nếu có lỗi, lấy thông tin lỗi từ PDO
@@ -125,9 +124,8 @@ try {
             $stmt->bindParam(':tenNXB', $tenNXB);
 
             if ($stmt->execute()) {
-                echo "Nhà xuất bản đã được thêm thành công!";
-                // Quay lại trang form-add-sp.php sau khi thêm thành công
-                header('Location: form-add-sp.php');
+                echo "<script>alert('Nhà xuất bản đã được thêm thành công!');</script>";
+                echo "<script>window.location.href='form-add-sp.php';</script>";
                 exit;
             } else {
                 // Nếu có lỗi, lấy thông tin lỗi từ PDO

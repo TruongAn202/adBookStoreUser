@@ -29,14 +29,15 @@ if ($count > 0) {
 }
 
 // Nếu không có ràng buộc khóa ngoại, tiến hành xóa sách
-$sqlDelete = "DELETE FROM Sach WHERE maSach = ?";
+$sqlDelete = "DELETE FROM sach WHERE maSach = ?";
 $stmt = $conn->prepare($sqlDelete);
 
 if ($stmt->execute([$maSach])) {
-    echo "Sách đã được xóa thành công!";
-    // Điều hướng lại trang danh sách sản phẩm
-    header("Location: quanlisanpham.php");
-    exit();
+    echo "<script>
+    alert('Xóa thành công!');
+    window.location.href = 'quanlisanpham.php';
+    </script>";
+exit();
 } else {
     echo "Có lỗi xảy ra khi xóa sách. Vui lòng thử lại.";
 }

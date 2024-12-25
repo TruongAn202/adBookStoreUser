@@ -10,7 +10,7 @@ if (isset($_POST['maHD'])) {
 
         $maHD = $_POST['maHD'];
         $newTrangThai = '';
-        $sql = "SELECT trangThaiHD FROM hoaDon WHERE maHD = :maHD";
+        $sql = "SELECT trangThaiHD FROM hoadon WHERE maHD = :maHD";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':maHD', $maHD);
         $stmt->execute();
@@ -41,7 +41,7 @@ if (isset($_POST['maHD'])) {
         }
 
 
-        $updateSql = "UPDATE hoaDon SET trangThaiHD = :newTrangThai,  ngayNhan = CASE 
+        $updateSql = "UPDATE hoadon SET trangThaiHD = :newTrangThai,  ngayNhan = CASE 
             WHEN :newTrangThai = 'dagiao' THEN CURDATE() 
             ELSE ngayNhan END  WHERE maHD = :maHD";
         $updateStmt = $conn->prepare($updateSql);

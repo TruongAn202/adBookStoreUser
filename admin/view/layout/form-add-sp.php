@@ -76,12 +76,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $fileTmpPath = $_FILES['anh1']['tmp_name'];
             $fileName = $_FILES['anh1']['name'];
             // Đường dẫn 1 - nằm trong thư mục admin
-            $uploadDir1 = $_SERVER['DOCUMENT_ROOT'] . '/adBookStoreUser/admin/view/layout/' . 'assets/img-sanpham/';
+            $uploadDir1 = __DIR__ . '/assets/img-sanpham/';
             $uploadFilePath1 = $uploadDir1 . $fileName;
 
             // Đường dẫn 2 - view/layout/assets/image/
-            $uploadDir2 = $_SERVER['DOCUMENT_ROOT'] . '/adBookStoreUser/view/layout/' . 'assets/image/';
-            $uploadFilePath2 = $uploadDir2 . $fileName;
+            $uploadDir2 = realpath(__DIR__ . '/../../../view/layout/assets/image/');;
+            $uploadFilePath2 = $uploadDir2 . DIRECTORY_SEPARATOR . $fileName;
 
             // Di chuyển ảnh vào thư mục
             if (move_uploaded_file($fileTmpPath, $uploadFilePath1)) {
