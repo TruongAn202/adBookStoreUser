@@ -1,0 +1,93 @@
+***Nếu triển khai trên local host***
+1. Cài Đặt Môi Trường Phát Triển
+Để chạy website của bạn trên môi trường phát triển WAMP, cần cài đặt các công cụ cơ bản:
+
+Cài Đặt WAMP (Apache + MySQL + PHP)
+Tải WAMP:
+
+Truy cập https://www.wampserver.com/en/ và tải WAMP cho hệ điều hành Windows của bạn (32-bit hoặc 64-bit).
+Cài Đặt WAMP:
+
+Mở file cài đặt WAMP và làm theo hướng dẫn cài đặt.
+Chọn thư mục cài đặt (mặc định là C:\wamp).
+Sau khi cài xong, khởi động WAMP.
+Khởi Động WAMP:
+Sau khi cài đặt, bạn sẽ thấy biểu tượng WAMP (màu xanh lá) xuất hiện trên thanh công cụ (system tray).
+Nhấp chuột vào biểu tượng này để kiểm tra xem Apache và MySQL có đang chạy không.
+Nếu biểu tượng là màu xanh: Apache và MySQL đã hoạt động bình thường.
+Nếu biểu tượng màu cam hoặc đỏ: Một trong các dịch vụ không chạy, bạn có thể thử khởi động lại WAMP hoặc kiểm tra các lỗi cấu hình.
+Kiểm Tra Môi Trường:
+Kiểm Tra Apache:
+Mở trình duyệt và truy cập http://localhost để chắc chắn Apache đang chạy.
+Kiểm Tra MySQL:
+Kiểm tra MySQL bằng cách vào http://localhost/phpmyadmin để truy cập phpMyAdmin.
+2. Cài Đặt Mã Nguồn Website
+Cài Đặt Mã Nguồn:
+Đưa Mã Nguồn Vào Thư Mục www:
+
+Sau khi cài WAMP, tìm thư mục cài đặt WAMP trên máy của bạn (thường là C:\wamp).
+Di chuyển thư mục chứa mã nguồn website của bạn vào thư mục www trong thư mục cài đặt WAMP.
+Cấu Hình File index.php:
+
+Trong thư mục my-website, đảm bảo rằng file index.php là file chính của website.
+3. Cấu Hình Cơ Sở Dữ Liệu (MySQL)
+Giả sử bạn có một file cơ sở dữ liệu SQL (ví dụ: database.sql) chứa cấu trúc và dữ liệu của cơ sở dữ liệu.
+
+Tạo Cơ Sở Dữ Liệu:
+Truy Cập phpMyAdmin:
+
+Truy cập http://localhost/phpmyadmin/ trên trình duyệt của bạn.
+Đăng nhập bằng username: root và không có mật khẩu (mặc định).
+Tạo Cơ Sở Dữ Liệu:
+
+Trong phpMyAdmin, nhấn vào "New" để tạo một cơ sở dữ liệu mới.
+Đặt tên cho cơ sở dữ liệu (ví dụ: my_website_db) và chọn utf8_general_ci làm kiểu mã hóa.
+Import File SQL:
+
+Chọn cơ sở dữ liệu bạn vừa tạo.
+Nhấn vào tab "Import" và chọn file database.sql từ máy tính của bạn.
+Nhấn "Go" để hoàn tất việc import cơ sở dữ liệu.
+
+***Triển khai website trên Infinity Free***
+1. Đăng Ký Tài Khoản InfinityFree
+Truy Cập InfinityFree:
+
+Mở trình duyệt và truy cập InfinityFree.
+Đăng Ký Tài Khoản:
+
+Nhấp vào Sign Up và điền các thông tin cần thiết để tạo tài khoản mới.
+Xác Thực Tài Khoản:
+
+Sau khi đăng ký xong, bạn sẽ nhận được email xác thực. Mở email và xác thực tài khoản của bạn.
+2. Tạo Tên Miền (Domain) và Website
+Chọn Tên Miền:
+Sau khi đăng nhập vào tài khoản, bạn có thể tạo tên miền miễn phí với đuôi .epizy.com hoặc sử dụng tên miền của riêng bạn.
+Tạo Website Mới:
+Chọn Create Account trong phần My Accounts.
+Chọn tên miền và một thư mục cho website của bạn (ví dụ: mybookstore).
+Chờ quá trình tạo website hoàn tất.
+3. Tải Mã Nguồn Website Lên InfinityFree
+Sử Dụng FileZilla (FTP Client) Để Tải Website:
+Tải và cài đặt FileZilla nếu bạn chưa có.
+Mở FileZilla, điền thông tin FTP từ InfinityFree:
+Host: ftp://ftpupload.net
+Username: Tên người dùng FTP bạn nhận được từ InfinityFree (thường là tên đăng nhập của bạn).
+Password: Mật khẩu FTP từ InfinityFree.
+Tải Website Lên:
+Kết nối với server của InfinityFree qua FTP.
+Tải mã nguồn website của bạn vào thư mục htdocs của tên miền (ví dụ: htdocs/mybookstore).
+4. Cấu Hình Cơ Sở Dữ Liệu MySQL
+
+Đăng nhập vào InfinityFree Client Area.
+
+Nhấn vào tab Import và chọn file if0_37491692_dbbookstore ở thư mục database.
+Nhấn Go để hoàn tất việc import.
+5. Cấu Hình Kết Nối Cơ Sở Dữ Liệu trong PHP
+
+Vào Thư mục model , chọn file connectdb sửa lại như sau : 
+$servername = "servername của bạn";  // Địa chỉ máy chủ MySQL
+$username = "username của bạn";        // Username MySQL của bạn
+$password = "password của bạn";        // Mật khẩu MySQL của bạn
+$dbname = "if0_37491692_dbbookstore";  // Tên cơ sở dữ liệu
+
+Chú ý: trên InfinityFree vào mục FTP Details để biết các thông tin trên
