@@ -84,7 +84,7 @@ Nhấn vào tab Import và chọn file if0_37491692_dbbookstore ở thư mục d
 Nhấn Go để hoàn tất việc import.
 5. Cấu Hình Kết Nối Cơ Sở Dữ Liệu trong PHP
 
-Vào Thư mục model , chọn file connectdb sửa lại như sau : 
+Vào Thư mục model , chọn file connectdb sửa lại như sau, nếu là trang admin vào thư mục admin rồi làm tương tự: 
 $servername = "servername của bạn";  // Địa chỉ máy chủ MySQL
 $username = "username của bạn";        // Username MySQL của bạn
 $password = "password của bạn";        // Mật khẩu MySQL của bạn
