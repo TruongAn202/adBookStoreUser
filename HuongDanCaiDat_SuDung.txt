@@ -47,6 +47,12 @@ Import File SQL:
 Chọn cơ sở dữ liệu bạn vừa tạo.
 Nhấn vào tab "Import" và chọn file database.sql từ máy tính của bạn.
 Nhấn "Go" để hoàn tất việc import cơ sở dữ liệu.
+4. Kết nối CSDL: 
+Sửa thông tin ở model/connectdb như sau, với trang admin thì admin/model/connectdb:
+$servername = "localhost";
+$username = "root";
+$password = "";
+$conn = new PDO("mysql:host=$servername;dbname=dbbookstore1;charset=utf8mb4", $username, $password);
 
 ***Triển khai website trên Infinity Free***
 1. Đăng Ký Tài Khoản InfinityFree
@@ -84,7 +90,7 @@ Nhấn vào tab Import và chọn file if0_37491692_dbbookstore ở thư mục d
 Nhấn Go để hoàn tất việc import.
 5. Cấu Hình Kết Nối Cơ Sở Dữ Liệu trong PHP
 
-Vào Thư mục model , chọn file connectdb sửa lại như sau : 
+Vào Thư mục model , chọn file connectdb sửa lại như sau, nếu là trang admin vào thư mục admin rồi làm tương tự: 
 $servername = "servername của bạn";  // Địa chỉ máy chủ MySQL
 $username = "username của bạn";        // Username MySQL của bạn
 $password = "password của bạn";        // Mật khẩu MySQL của bạn
