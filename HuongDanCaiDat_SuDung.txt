@@ -1,3 +1,4 @@
+***Chú ý!!! Nếu chạy trên local thì vẫn phải bật mạng vì bootstrap 5 cần mạng để nạp dữ liệu.
 ***Nếu triển khai trên local host***
 1. Cài Đặt Môi Trường Phát Triển
 Để chạy website của bạn trên môi trường phát triển WAMP, cần cài đặt các công cụ cơ bản:
