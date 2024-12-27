@@ -1,4 +1,5 @@
 <?php
+include_once "model/connectdb.php";
     // function getproduct($maLoai=''){
     //   $sql = "SELECT sach.*, 
     //            tacgia.tenTG, 
@@ -147,23 +148,42 @@ function getFilteredProducts($categories = [], $priceRange = '', $limit = null, 
 // }
 
 function searchProducts($keyword, $maLoai = '', $limit = null, $offset = null) {
-  $sql = "SELECT sach.*, 
-                tacgia.tenTG, 
-                nhaxuatban.tenNXB, 
-                loaisach.tenLoai
-        FROM sach
-        JOIN tacgia ON sach.maTG = tacgia.maTG
-        JOIN nhaxuatban ON sach.maNXB = nhaxuatban.maNXB
-        JOIN loaisach ON sach.maLoai = loaisach.maLoai
-        WHERE sach.tenSach LIKE '%$keyword%'"; // Lọc theo từ khóa tìm kiếm
+    $conn = connectdb(); // Kết nối PDO
 
-  // Áp dụng phân trang nếu có
-  if ($limit !== null && $offset !== null) {
-      $sql .= " LIMIT $limit OFFSET $offset";
-  }
+    // Câu truy vấn cơ bản
+    $sql = "SELECT sach.*, 
+                   tacgia.tenTG, 
+                   nhaxuatban.tenNXB, 
+                   loaisach.tenLoai
+            FROM sach
+            JOIN tacgia ON sach.maTG = tacgia.maTG
+            JOIN nhaxuatban ON sach.maNXB = nhaxuatban.maNXB
+            JOIN loaisach ON sach.maLoai = loaisach.maLoai
+            WHERE sach.tenSach LIKE :keyword";
 
-  return get_all($sql); // Trả về kết quả tìm kiếm
+    // Thêm điều kiện LIMIT và OFFSET nếu có
+    if ($limit !== null && $offset !== null) {
+        $sql .= " LIMIT :limit OFFSET :offset";
+    }
+
+    // Chuẩn bị truy vấn
+    $stmt = $conn->prepare($sql);
+
+    // Gán giá trị cho tham số
+    $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);
+
+    if ($limit !== null && $offset !== null) {
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+    }
+
+    // Thực thi truy vấn
+    $stmt->execute();
+
+    // Trả về kết quả
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 function getTotalProducts($categories = [], $priceRange = '') { // hàm mới tính tổng để phân trang
   $sql = "SELECT COUNT(*) as total 

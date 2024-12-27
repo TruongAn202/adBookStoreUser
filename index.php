@@ -367,7 +367,7 @@
                     header('Location: index.php?pg=chitietgiohang');
                 }
                 break;
-            case 'updateCart':
+            case 'updateCart': //xu ly tang giam so luong
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (isset($_POST['decrease']) || isset($_POST['increase'])) {
                         $index = isset($_POST['decrease']) ? $_POST['decrease'] : $_POST['increase']; // Lấy chỉ số sản phẩm từ form

@@ -87,7 +87,7 @@
                         <form action="index.php?pg=dangky" method="post">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Tên đăng nhập</label>
-                                <input type="text" name="username" class="form-control" id="username" placeholder="Nhập tên người dùng" required>
+                                <input type="text" name="username" class="form-control" id="username" placeholder="Nhập tên đăng nhập của bạn" required>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Địa chỉ mail</label>
