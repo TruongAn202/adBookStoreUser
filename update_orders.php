@@ -28,7 +28,12 @@ $sql = "
     LEFT JOIN chitiethoadon ct ON h.maHD = ct.maHD
     LEFT JOIN sach s ON ct.maSach = s.maSach
     WHERE h.email = ? AND (h.trangThaiHD = 'dagiao' OR h.trangThaiHD = 'danggiao' OR h.trangThaiHD = 'choxuly')
-    ORDER BY h.ngayLapHD DESC 
+    ORDER BY CASE 
+    WHEN h.trangThaiHD = 'dangiao' THEN 1
+    WHEN h.trangThaiHD = 'choxuly' THEN 2
+   
+  END,
+  h.ngayLapHD DESC;
 ";
 
 $stmt = $conn->prepare($sql);
