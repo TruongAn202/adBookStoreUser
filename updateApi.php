@@ -19,19 +19,47 @@ if ($conn->connect_error) {
 // Nhận dữ liệu JSON từ Flutter
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!isset($data['email']) || !isset($data['full_name']) || !isset($data['diaChi']) || !isset($data['soDienThoai'])) {
-    echo json_encode(["error" => "Thiếu dữ liệu"]);
+if (!isset($data['email'])) {
+    echo json_encode(["error" => "Thiếu email"]);
     exit;
 }
 
 $email = $data['email'];
-$fullName = $data['full_name'];
-$diaChi = $data['diaChi'];
-$soDienThoai = $data['soDienThoai'];
+$fields = [];
+$params = [];
+$types = "";
 
-$sql = "UPDATE roleadminuser SET full_name = ?, diaChi = ?, soDienThoai = ? WHERE email = ?";
+// Kiểm tra và thêm các trường có giá trị vào câu lệnh SQL
+if (isset($data['full_name'])) {
+    $fields[] = "full_name = ?";
+    $params[] = $data['full_name'];
+    $types .= "s";
+}
+if (isset($data['diaChi'])) {
+    $fields[] = "diaChi = ?";
+    $params[] = $data['diaChi'];
+    $types .= "s";
+}
+if (isset($data['soDienThoai'])) {
+    $fields[] = "soDienThoai = ?";
+    $params[] = $data['soDienThoai'];
+    $types .= "s";
+}
+
+// Nếu không có trường nào được cập nhật
+if (empty($fields)) {
+    echo json_encode(["error" => "Không có dữ liệu cập nhật"]);
+    exit;
+}
+
+// Tạo câu lệnh SQL động
+$sql = "UPDATE roleadminuser SET " . implode(", ", $fields) . " WHERE email = ?";
+$params[] = $email;
+$types .= "s";
+
+// Chuẩn bị và thực thi câu lệnh
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssss", $fullName, $diaChi, $soDienThoai, $email);
+$stmt->bind_param($types, ...$params);
 
 if ($stmt->execute()) {
     echo json_encode(["message" => "Cập nhật thành công"]);
