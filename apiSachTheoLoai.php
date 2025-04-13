@@ -28,7 +28,7 @@ $sql = "
     LEFT JOIN tacgia ON sach.maTG = tacgia.maTG
     LEFT JOIN loaisach ON sach.maLoai = loaisach.maLoai
     ORDER BY RAND()
-    LIMIT 6
+    LIMIT 9
 ";
 
 $result = $conn->query($sql);
