@@ -12,10 +12,12 @@ if ($conn->connect_error) {
 }
 
 // Nhận dữ liệu JSON từ client
-$rawData = file_get_contents("php://input");
-$data = json_decode($rawData, true);
+$rawData = file_get_contents("php://input"); //Đọc toàn bộ dữ liệu thô mà client (Flutter) gửi đến (thường là JSON)."php://input" là một luồng ảo, dùng để lấy body của yêu cầu HTTP POST (JSON).
+$data = json_decode($rawData, true); //Hàm PHP gốc để giải mã JSON.true: chuyển JSON thành mảng kết hợp (associative array) thay vì object.json_decode('{"a":1}') → ["a" => 1] nếu dùng true
 
-if (!$data || !isset($data["username"], $data["email"], $data["password"], $data["confirm_password"])) {
+
+
+if (!$data || !isset($data["username"], $data["email"], $data["password"], $data["confirm_password"])) { //neu data giai ma that bai hoac thieu bat ky truong nào thi bao loi cho client : {"status":"error", "message":"Missing fields"}
     echo json_encode(["status" => "error", "message" => "Missing fields"]);
     exit;
 }
