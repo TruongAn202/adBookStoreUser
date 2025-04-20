@@ -87,6 +87,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (move_uploaded_file($fileTmpPath, $uploadFilePath1)) {
                 // Sao chép file đến thư mục thứ hai
                 if (copy($uploadFilePath1, $uploadFilePath2)) {
+                    //s
+                    $ch = curl_init();
+$cfile = new CURLFile($uploadFilePath1, mime_content_type($uploadFilePath1), $fileName);
+
+curl_setopt($ch, CURLOPT_URL, 'http://localhost/admin_laravel/public/api/upload-image');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, ['image' => $cfile]);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($ch);
+$statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
                     // Câu lệnh SQL để chèn dữ liệu vào bảng sách
                     $stmtInsert = $conn->prepare(
                         "INSERT INTO sach (maSach, tenSach, SoLuong, TinhTrang, maLoai, maNXB, gia, giaKM, maTG, anh, moTa, moTaDayDu) 

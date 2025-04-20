@@ -23,7 +23,7 @@ if (empty($email)) {
 // Truy vấn lấy danh sách đơn hàng theo email
 $sql = "
    SELECT h.maHD, h.trangThaiHD, h.ngayLapHD, h.phuongThucThanhToan, h.phuongThucGiaoHang, h.ngayNhan,
-           ct.soLuong, ct.donGia, s.tenSach, s.maSach, s.anh, h.tenNguoiNhan, h.diaChiNguoiNhan, h.soDienThoaiHD
+           ct.soLuong, ct.donGia, s.tenSach, s.maSach, s.anh,s.giaKM, h.tenNguoiNhan, h.diaChiNguoiNhan, h.soDienThoaiHD
     FROM hoadon h
     LEFT JOIN chitiethoadon ct ON h.maHD = ct.maHD
     LEFT JOIN sach s ON ct.maSach = s.maSach
